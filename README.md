@@ -34,6 +34,10 @@ Additionally, the tutorial I used for the daily render is [here](https://www.you
 
 ### Techniques
 
+Given my experience with making that one daily render with the red crystals, I'm anticipating heavy usage of Houdini's scattering, noise displacement, and mesh/VDB conversion features. For the shaders, Redshift has helpful built-in features like dispersion and caustics that I will use to add realism and artistic flair to the final renders.
+
+For more specifics, I've watched online tutorials by Entagma for previous daily renders, so I'll probably use [this one](https://www.youtube.com/watch?v=pq2bYZGurzc) to help with the structure of the more jagged crystals. There are plenty of other online tutorials as well, such as [this one](https://www.youtube.com/watch?v=f_koHS7Gcnc) and [this one](https://www.youtube.com/watch?v=5WSUW7L5Pxo). I will probably use a couple of these to get the basics down and then branch off on my own for some of the other crystals.
+
 ### Design
 
 ### Timeline
