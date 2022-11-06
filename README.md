@@ -26,7 +26,7 @@ My main inspiration is the Astro Gallery's [website](https://astrogallery.com/) 
   <img src="https://user-images.githubusercontent.com/3106877/199603542-757a40f9-88c7-4dcc-9211-94a09f1391d8.jpg" />
 </details>
 
-I haven't yet decided which ones I want to recreate. I might also pick some from the gallery's website that I didn't see in person.
+I haven't yet decided which ones I want to recreate. I'd like to do all of them if I have time but more realistically, I'll have to pick some favorites. I might also pick some from the gallery's website that I didn't see in person.
 
 Additionally, the tutorial I used for the daily render is [here](https://www.youtube.com/watch?v=fVZL1RrGB_A). I'll probably be using some similar techniques to what I learned there, especially the idea of using a pyro simulation to organically "grow" smaller crystals on the main structure.
 
