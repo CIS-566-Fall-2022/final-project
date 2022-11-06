@@ -32,6 +32,12 @@ Additionally, the tutorial I used for the daily render is [here](https://www.you
 
 ### Specification
 
+The main features of this project will include:
+
+- A procedural generator for each type of crystal I want to create, with a global seed that can be used to quickly generate new variations
+- A museum-like scene that displays hand-picked specimens from each generator
+- Possibly an animation to show off all the specimens in one video
+
 ### Techniques
 
 Given my experience with making that one daily render with the red crystals, I'm anticipating heavy usage of Houdini's scattering, noise displacement, and mesh/VDB conversion features. For the shaders, Redshift has helpful built-in features like dispersion and caustics that I will use to add realism and artistic flair to the final renders.
