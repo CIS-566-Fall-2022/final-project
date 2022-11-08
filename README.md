@@ -1,33 +1,57 @@
-# Final Project!
+# Interactive Deep House Visualization
 
-This is it! The culmination of your procedural graphics experience this semester. For your final project, we'd like to give you the time and space to explore a topic of your choosing. You may choose any topic you please, so long as you vet the topic and scope with an instructor or TA. We've provided some suggestions below. The scope of your project should be roughly 1.5 homework assignments). To help structure your time, we're breaking down the project into 4 milestones:
+## Introduction
 
-## Project planning: Design Doc (due 11/9)
-Before submitting your first milestone, _you must get your project idea and scope approved by Rachel, Adam or a TA._
+Interactive generative art has been a significant source of inspiration for my journey in computer graphics, especially since visiting large scale exhibitions produced by studios like [teamLab](https://www.teamlab.art/) and [Moment Factory](https://momentfactory.com/home). While the main purpose of computer graphics is to generate beautiful images, these visual experiences can be greatly elevated by integrating sensors and input systems to involve the audience in the art form. Recently, I have been playing around with [TouchDesigner](https://derivative.ca/) and the LeapMotion controller to create interactive art using hand motions. However, these experiences are thus far limiting in space. It is now time for me scale it to the next level both in terms of display output and the input system.
 
-### Design Doc
-Start off by forking this repository. In your README, write a design doc to outline your project goals and implementation plan. It must include the following sections:
+The theme of this project focuses on two important interests of mine: **dancing** and **fashion**. A friend of mine recently introduced me to the music genre of **Deep House**, which is both a type of [dance](https://www.youtube.com/watch?v=PbSv9doE9IY&ab_channel=MOVEDanceStudio) as well as the genre heavily used in the fashion industry for fashion runways or stores like ZARA. For example, [check this song out](https://www.youtube.com/watch?v=KD3sOUxKp9g&ab_channel=MelomaniacRDV) to get a sense of the vibe. My plan is to integrate these two elements into my work as I design the overall audience experience and the visuals.
 
-#### Introduction
-- What motivates your project?
+## Goal
 
-#### Goal
-- What do you intend to achieve with this project?
+The goal of this project is to create an audio-and-motion-reactive visualization of Deep House music. Specifically, there are a few core objectives that I would like to meet:
 
-#### Inspiration/reference:
-- You must have some form of reference material for your final project. Your reference may be a research paper, a blog post, some artwork, a video, another class at Penn, etc.  
-- Include in your design doc links to and images of your reference material.
+* The visuals react to a playlist of Deep House music coherently. The overall mood established should follow the beats and pace of the music.
+* The project will be rendered in real-time at an interactive rate (minimum 30 fps).
+* The audience can interact with the visualizer by moving their bodies and dancing to the music.
+* The project can be scaled to a larger environment, ideally displayed using a projector and have multiple people interact with it at the same time.
+* The visuals must be polished with fine-tuned color schemes that feel in place with the overall theme of the project.
+* BONUS: Install the project somewhere on campus for people to actually interact with, and record a video showing this.
 
-#### Specification:
-- Outline the main features of your project.
+**The above goals are dependent on my ability to source the hardware.*
 
-#### Techniques:
+## Inspiration & References:
+
+- [TouchDesigner Artist: Bileam Tschepe](https://www.instagram.com/elekktronaut/)
+- [Universe of Water Particles - teamLab](https://www.teamlab.art/ew/waterparticles-transcending_superblue/superbluemiami/)
+- [TouchDesigner: Popping Dance w/ Particles](https://www.youtube.com/watch?v=oSPbZISVjRM)
+- [TouchDesigner: Audio-Reactive Voronoi](https://www.youtube.com/watch?v=tQp2osjgfYE&ab_channel=VJHellstoneLiveVisuals)
+- [TouchDesigner: Tile Pattern](https://www.youtube.com/watch?v=gXUWcYZ8hqQ&ab_channel=bileamtschepe%28elekktronaut%29)
+- [Taipei Fashion Week SS22 - Ultra Combos (Only available in Chinese)](https://ultracombos.com/SS22-Taipei-Fashion-Week-SS22)
+
+## Specification:
+
+This project will be implemented using **TouchDesigner**. The inputs to the system will be a depth sensor camera such as ZED Mini or Kinect, as well as audio signals from the music. These signals will be used to drive the various parameters of the visualization.
+
+The visualizer can be broken down into multiple visual layers which are composited together. These layers will be discussed more in-depth in the design section. Finally, the composited render will be displayed using a projector.
+
+## Techniques:
+
+The project will explore many common procedural techniques, including but not limited to the following:
+
+* **Particles Simulation** - particles will be used to add interactivity to the scene, and/or as an decorative element.
+* Procedural shapes and patterns - procedural shapes and 
+* Optical Flow: 
+* Noise
+* Toolbox Functions
+* Post-processing Techniques
+
+
 - What are the main technical/algorithmic tools you’ll be using? Give an overview, citing specific papers/articles.
 
-#### Design:
+## Design:
 - How will your program fit together? Make a simple free-body diagram illustrating the pieces.
 
-#### Timeline:
+## Timeline:
 - Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
 
 Submit your Design doc as usual via pull request against this repository.
