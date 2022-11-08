@@ -28,9 +28,11 @@ I know procedurally creating colorful jellyfishes with animations, making a visu
         - [Tentacles](https://www.youtube.com/watch?v=LN4XXaHQkmU)
         - [Veins](https://www.youtube.com/watch?v=3zL2oqZa-Oc)
   - Ocean
-    1. Color: I want color of the ocean to be colorful as well. My reference is an animated movie (unreleased yet) called <em>Deep Sea</em>. Please see the ocean part of the [trailer](https://www.youtube.com/watch?v=Rjq9X2dfJm0). Following is an image of it:   
-    <img src="img/ocean.png" height="216px" width="384px">  
+   <img src="img/ocean.png" height="216px" width="384px">     
+  
+    1. Color: I want color of the ocean to be colorful as well. My reference is an animated movie (unreleased yet) called <em>Deep Sea</em>. Please see the ocean part of the [trailer](https://www.youtube.com/watch?v=Rjq9X2dfJm0). Above is an image of it:   
     2. Fluid Simulation: Since the scene is set inside an ocean, which is basically a giant water tank, I found this [tutorial](https://www.sidefx.com/tutorials/houdini-flip-tank-course-part-1-setting-up-flat-tank/) for fluid simulation in Houdini. 
+      
 
   
 
