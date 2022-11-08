@@ -1,5 +1,9 @@
 # cool crystals thing
 
+## Milestone 1
+
+![green crystal](https://user-images.githubusercontent.com/3106877/200666476-0aba34d9-9276-45d1-a872-fb28e6f15834.png)
+
 ## Design
 
 ### Introduction
