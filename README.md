@@ -19,7 +19,7 @@ The goal of this project is to create an audio-and-motion-reactive visualization
 
 **The above goals are dependent on my ability to source the hardware.*
 
-## Inspiration & References:
+## Inspiration & References
 
 - [TouchDesigner Artist: Bileam Tschepe](https://www.instagram.com/elekktronaut/)
 - [Universe of Water Particles - teamLab](https://www.teamlab.art/ew/waterparticles-transcending_superblue/superbluemiami/)
@@ -28,114 +28,54 @@ The goal of this project is to create an audio-and-motion-reactive visualization
 - [TouchDesigner: Tile Pattern](https://www.youtube.com/watch?v=gXUWcYZ8hqQ&ab_channel=bileamtschepe%28elekktronaut%29)
 - [Taipei Fashion Week SS22 - Ultra Combos (Only available in Chinese)](https://ultracombos.com/SS22-Taipei-Fashion-Week-SS22)
 
-## Specification:
+## Specification
 
-This project will be implemented using **TouchDesigner**. The inputs to the system will be a depth sensor camera such as ZED Mini or Kinect, as well as audio signals from the music. These signals will be used to drive the various parameters of the visualization.
+This project will be implemented using **TouchDesigner** simplifying technical implementations. The inputs to the system will be a depth sensor camera such as ZED Mini or Kinect, as well as audio signals from the music. These signals will be used to drive the various parameters of the visualization.
 
-The visualizer can be broken down into multiple visual layers which are composited together. These layers will be discussed more in-depth in the design section. Finally, the composited render will be displayed using a projector.
+The visualizer can be broken down into multiple visual layers which are composited together. Specifically there are four layers that are included in the project:
 
-## Techniques:
+1. **Background Layer**: this layer will be the background for the final render. It will include procedurally generated patterns that are relatively simple, such that they do not overpower the foreground elements. These patterns will be **audio-reactive**.
+
+2. **Interaction Layer**: this layer will contain procedural elements that are **motion-reactive** thus interactive. For example, a particle system can be included that are reactive to the motion of the audience. This should be the primary focus for the audience.
+
+3. **Reprojection Layer (Stretch Goal)**: this layer is optional and will only be implemented if time permits. It will contain a stylized reprojection of the actor. This layer allows a clearer indication of where the actors are. This reprojection layer can be **audio-reactive**.
+
+4. **Post-processing Layer**: this layer is for enhancing the visuals by applying post-processing effects to the previous layers. This layer is crucial in achieving the desired look and feel.
+
+Finally, the composited render will be displayed using a projector.
+
+## Techniques
 
 The project will explore many common procedural techniques, including but not limited to the following:
 
-* **Particles Simulation** - particles will be used to add interactivity to the scene, and/or as an decorative element.
-* Procedural shapes and patterns - procedural shapes and 
-* Optical Flow: 
-* Noise
-* Toolbox Functions
-* Post-processing Techniques
+* **Particles Simulation** - particle systems will be used to add interactivity to the scene, and/or as an decorative element. These systems will be driven by custom forces that are guided by noise functions or input signals. The particle systems used in TouchDesigner will be the one using GPU/compute shader in order to meet the real-time requirement.
+* **Procedural Patterns** - procedural patterns will be generated using noise and toolbox functions along with basic geometry. The idea is to generate a simple audio-reactive background that complements the main interactive layer.
+* **Optical Flow** - optical flow is a common technique used in TouchDesigner with a camera to affect the image output. The motion between frames captured from the camera will be converted to velocity signals that can drive other parameters.
+* **Noise and Toolbox Functions will be used everywhere!**
+* **Post-processing Techniques** - bloom effect, blur, feedback, distortion and edge detection will be used to enhance the visuals.
+* **Coloring** - this is all about making it look pretty!
 
+## Design
 
-- What are the main technical/algorithmic tools you’ll be using? Give an overview, citing specific papers/articles.
+![diagram](imgs/diagram.png)
 
-## Design:
-- How will your program fit together? Make a simple free-body diagram illustrating the pieces.
+## Timeline
 
-## Timeline:
-- Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
+### Week 1 (11/09-11/16)
+* Establish the color tone
+* Curate the playlist to go with the visualizer
+* Source the required hardware
+* Create a simple audio-reactive pattern for the background layer
+* Create a simple motion-reactive visual using the webcam for the interaction layer
 
-Submit your Design doc as usual via pull request against this repository.
-## Milestone 1: Implementation part 1 (due 11/16)
-Begin implementing your engine! Don't worry too much about polish or parameter tuning -- this week is about getting together the bulk of your generator implemented. By the end of the week, even if your visuals are crude, the majority of your generator's functionality should be done.
+### Week 2 (11/16-11/23)
+* Fine tune the shape for the background layer
+* Connect the depth sensor to the interaction layer and finalize the experience
+* Add in post-processing layer
 
-Put all your code in your forked repository.
+*(Will not be working from 11/23-11/28)*
 
-Submission: Add a new section to your README titled: Milestone #1, which should include
-- written description of progress on your project goals. If you haven't hit all your goals, what's giving you trouble?
-- Examples of your generators output so far
-We'll check your repository for updates. No need to create a new pull request.
-## Milestone 3: Implementation part 2 (due 11/28)
-We're over halfway there! This week should be about fixing bugs and extending the core of your generator. Make sure by the end of this week _your generator works and is feature complete._ Any core engine features that don't make it in this week should be cut! Don't worry if you haven't managed to exactly hit your goals. We're more interested in seeing proof of your development effort than knowing your planned everything perfectly. 
-
-Put all your code in your forked repository.
-
-Submission: Add a new section to your README titled: Milestone #3, which should include
-- written description of progress on your project goals. If you haven't hit all your goals, what did you have to cut and why? 
-- Detailed output from your generator, images, video, etc.
-We'll check your repository for updates. No need to create a new pull request.
-
-Come to class on the due date with a WORKING COPY of your project. We'll be spending time in class critiquing and reviewing your work so far.
-
-## Final submission (due 12/5)
-Time to polish! Spen this last week of your project using your generator to produce beautiful output. Add textures, tune parameters, play with colors, play with camera animation. Take the feedback from class critques and use it to take your project to the next level.
-
-Submission:
-- Push all your code / files to your repository
-- Come to class ready to present your finished project
-- Update your README with two sections 
-  - final results with images and a live demo if possible
-  - post mortem: how did your project go overall? Did you accomplish your goals? Did you have to pivot?
-
-## Topic Suggestions
-
-### Create a generator in Houdini
-
-### A CLASSIC 4K DEMO
-- In the spirit of the demo scene, create an animation that fits into a 4k executable that runs in real-time. Feel free to take inspiration from the many existing demos. Focus on efficiency and elegance in your implementation.
-- Example: 
-  - [cdak by Quite & orange](https://www.youtube.com/watch?v=RCh3Q08HMfs&list=PLA5E2FF8E143DA58C)
-
-### A RE-IMPLEMENTATION
-- Take an academic paper or other pre-existing project and implement it, or a portion of it.
-- Examples:
-  - [2D Wavefunction Collapse Pokémon Town](https://gurtd.github.io/566-final-project/)
-  - [3D Wavefunction Collapse Dungeon Generator](https://github.com/whaoran0718/3dDungeonGeneration)
-  - [Reaction Diffusion](https://github.com/charlesliwang/Reaction-Diffusion)
-  - [WebGL Erosion](https://github.com/LanLou123/Webgl-Erosion)
-  - [Particle Waterfall](https://github.com/chloele33/particle-waterfall)
-  - [Voxelized Bread](https://github.com/ChiantiYZY/566-final)
-
-### A FORGERY
-Taking inspiration from a particular natural phenomenon or distinctive set of visuals, implement a detailed, procedural recreation of that aesthetic. This includes modeling, texturing and object placement within your scene. Does not need to be real-time. Focus on detail and visual accuracy in your implementation.
-- Examples:
-  - [The Shrines](https://github.com/byumjin/The-Shrines)
-  - [Watercolor Shader](https://github.com/gracelgilbert/watercolor-stylization)
-  - [Sunset Beach](https://github.com/HanmingZhang/homework-final)
-  - [Sky Whales](https://github.com/WanruZhao/CIS566FinalProject)
-  - [Snail](https://www.shadertoy.com/view/ld3Gz2)
-  - [Journey](https://www.shadertoy.com/view/ldlcRf)
-  - [Big Hero 6 Wormhole](https://2.bp.blogspot.com/-R-6AN2cWjwg/VTyIzIQSQfI/AAAAAAAABLA/GC0yzzz4wHw/s1600/big-hero-6-disneyscreencaps.com-10092.jpg)
-
-### A GAME LEVEL
-- Like generations of game makers before us, create a game which generates an navigable environment (eg. a roguelike dungeon, platforms) and some sort of goal or conflict (eg. enemy agents to avoid or items to collect). Aim to create an experience that will challenge players and vary noticeably in different playthroughs, whether that means procedural dungeon generation, careful resource management or an interesting AI model. Focus on designing a system that is capable of generating complex challenges and goals.
-- Examples:
-  - [Rhythm-based Mario Platformer](https://github.com/sgalban/platformer-gen-2D)
-  - [Pokémon Ice Puzzle Generator](https://github.com/jwang5675/Ice-Puzzle-Generator)
-  - [Abstract Exploratory Game](https://github.com/MauKMu/procedural-final-project)
-  - [Tiny Wings](https://github.com/irovira/TinyWings)
-  - Spore
-  - Dwarf Fortress
-  - Minecraft
-  - Rogue
-
-### AN ANIMATED ENVIRONMENT / MUSIC VISUALIZER
-- Create an environment full of interactive procedural animation. The goal of this project is to create an environment that feels responsive and alive. Whether or not animations are musically-driven, sound should be an important component. Focus on user interactions, motion design and experimental interfaces.
-- Examples:
-  - [The Darkside](https://github.com/morganherrmann/thedarkside)
-  - [Music Visualizer](https://yuruwang.github.io/MusicVisualizer/)
-  - [Abstract Mesh Animation](https://github.com/mgriley/cis566_finalproj)
-  - [Panoramical](https://www.youtube.com/watch?v=gBTTMNFXHTk)
-  - [Bound](https://www.youtube.com/watch?v=aE37l6RvF-c)
-
-### YOUR OWN PROPOSAL
-- You are of course welcome to propose your own topic . Regardless of what you choose, you and your team must research your topic and relevant techniques and come up with a detailed plan of execution. You will meet with some subset of the procedural staff before starting implementation for approval.
+### Week 3 (11/28-12/05)
+* If time permitting, implement a simple reprojection layer
+* Color grading and parameters tuning
+* Install the project somewhere on campus
