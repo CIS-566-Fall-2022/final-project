@@ -16,12 +16,12 @@ I intend to get used to developing with Houdini. I want to create a peacock with
 
 Artistic references:
 
-![](References/feather/feather2.jpg)|
-![](References/feather/feather3.jpg)|
+![](References/feather/feather2.jpg)
+![](References/feather/feather3.jpg)
 
 Real photos:
-![](References/feather/feather5.jpg)|
-![](References/feather/feather1.jpg)|
+![](References/feather/feather5.jpg)
+![](References/feather/feather1.jpg)
 
 #### Peacock Body
 
@@ -55,11 +55,12 @@ Main features of the project:
 Technical Breakdown of a feather:
 
 ![](References/feather/feathercomponents2.jpg)
+
 ![](References/feather/feathercomponents.jpg)
 
 Useful Houdini tools and tutorials:
 
-- ![Making a feather in Houdini](https://www.youtube.com/watch?v=jNj9o9g04pA)
+- [Making a feather in Houdini](https://www.youtube.com/watch?v=jNj9o9g04pA)
 
 My work will involve a lot of the following Houdini base nodes prima facie and I will be extensively relying on their documentation:
 - lsystem
