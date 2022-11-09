@@ -10,16 +10,28 @@ Start off by forking this repository. In your README, write a design doc to outl
 
 #### Introduction
 - What motivates your project?
+Peacock is one of the most beautiful and colorful birds. I have always been fascinated by the colorful patterns of its feathers, its regal crown, smooth, glossy body and joyful gait. It always reminds me of monsoon rains, petrichor and dancing in puddles. I had a fallen peacock feather that I used as a bookmark and would spend hours staring at. It brings back many folktales I've heard and poems I've read in my life. Hence I wanted to recreate this lovely bird for this project.
 
 #### Goal
 - What do you intend to achieve with this project?
+I intend to get used to developing with Houdini. I want to create an animated peacock which spreads out its feathers if time permits. I want to start with buillding a detailed peacock feather and end with a complete peacock bird. Animation depends on how much time I have left as I design the peacock.
 
 #### Inspiration/reference:
 - You must have some form of reference material for your final project. Your reference may be a research paper, a blog post, some artwork, a video, another class at Penn, etc.  
 - Include in your design doc links to and images of your reference material.
 
+Papers:
+[The physical structure, optical mechanics and aesthetics of the peacock tail feathers](https://www.witpress.com/Secure/elibrary/papers/DN02/DN02043FU.pdf)
+[An analysis of optimal structural features in the peacock tail feather](https://www.sciencedirect.com/science/article/abs/pii/S003039920500126X)
+
+Video links:
+[Peacock spreading its feathers](https://www.youtube.com/watch?v=6wVWJIBsUFY)
+
+
 #### Specification:
 - Outline the main features of your project.
+1. Building a detailed peacock feather render.
+2. Working on the body of peacock with additional feathers
 
 #### Techniques:
 - What are the main technical/algorithmic tools you’ll be using? Give an overview, citing specific papers/articles.
