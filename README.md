@@ -90,7 +90,6 @@ The following diagram shows the things I will have to consider as I build the fe
 ![](References/design.png)
 
 ### Timeline:
-- Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
 - Milestone 1 - Detailed peacock feather generation
-- Milestone 2 - Basic structure of peacock body with primitives
+- Milestone 2 - Refining the eye and basic structure of peacock body with primitives
 - Final submission - Tuning and adding additional details to the peacock for an aesthetic final render
