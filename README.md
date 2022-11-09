@@ -1,25 +1,55 @@
 # cool crystals thing
 
-## Milestone 1
+# Milestone 1
+
+## Deep Sea Quartz
 
 ![green crystal](https://user-images.githubusercontent.com/3106877/200666476-0aba34d9-9276-45d1-a872-fb28e6f15834.png)
 
-## Design
+This isn't necessarily a form of quartz that exists in the real world, but I really like the depth offered by the blue/green colors.
 
-### Introduction
+### References
+
+[Entagma tutorial](https://www.youtube.com/watch?v=pq2bYZGurzc)
+
+<details>
+  <summary>Pictures</summary>
+  <img src="https://user-images.githubusercontent.com/3106877/199603517-bb059dec-a708-46d8-a36b-ad62bf60cc2d.jpg" width="30%" /><br>
+  <p>Source: Astro Gallery</p>
+  <img src="https://user-images.githubusercontent.com/3106877/200919528-fd448747-ee94-40a3-b240-f21c2621cf8f.png" width="30%" />
+  <p>Source: https://kawaiikandi.com/products/clear-quartz-raw-crystal-cluster</p>
+</details>
+
+## Vanadinite Cluster
+
+TODO
+
+### References
+
+<details>
+  <summary>Pictures</summary>
+  <img src="https://cdn.discordapp.com/attachments/890997576462139412/1039982520059560006/IMG_6075.jpg" width="30%" /><br>
+  <p>Source: Astro Gallery</p>
+  <img src="https://user-images.githubusercontent.com/3106877/200921338-de4df944-9663-4698-9da7-72314137c5e1.png" width="30%" /><br>
+  <p>Source: https://en.wikipedia.org/wiki/Vanadinite#/media/File:Mibladene_Vanadinite.jpg</p>
+</details>
+
+# Design
+
+## Introduction
 
 Over the fall break, I visited the [Astro Gallery of Gems](https://astrogallery.com/) in New York and was inspired by their extensive collection of gems, minerals, fossils, and more. I knew right then that I wanted to make this my final project - that is, I want to recreate some of my favorite crystals and gems in Houdini. I've already done something like this once for a [daily render](https://www.instagram.com/p/CXhI0pLpYv-/), but this project would be more extensive and more based on real-world crystals.
 
-### Goal
+## Goal
 
 This project's goal is to recreate real-world crystal and rock formations in Houdini, and then to display them in a simple museum-like scene. If I have time, I also want to add a cool animation that pans slowly across a crystal before zooming into the next room with a different crystal (for example, something like [this](https://www.instagram.com/reel/Ce0ypFSpHd9/)).
 
-### Inspiration
+## Inspiration
 
 My main inspiration is the Astro Gallery's [website](https://astrogallery.com/) as well as some pictures I took when I visited. Some of my favorites include:
 
 <details>
-  <summary>cool pics</summary>
+  <summary>Cool pics</summary>
   <img src="https://user-images.githubusercontent.com/3106877/199603517-bb059dec-a708-46d8-a36b-ad62bf60cc2d.jpg" />
   <img src="https://user-images.githubusercontent.com/3106877/199603530-aec18171-aebc-4947-a31b-8ce03b402567.jpg" />
   <img src="https://user-images.githubusercontent.com/3106877/199603532-4c88a704-8cb0-4088-bc75-d8f0b33b0554.jpg" />
@@ -34,7 +64,7 @@ I haven't yet decided which ones I want to recreate. I'd like to do all of them 
 
 Additionally, the tutorial I used for the daily render is [here](https://www.youtube.com/watch?v=fVZL1RrGB_A). I'll probably be using some similar techniques to what I learned there, especially the idea of using a pyro simulation to organically "grow" smaller crystals on the main structure.
 
-### Specification
+## Specification
 
 The main features of this project will include:
 
@@ -42,7 +72,7 @@ The main features of this project will include:
 - A museum-like scene that displays hand-picked specimens from each generator
 - Possibly an animation to show off all the specimens in one video
 
-### Techniques
+## Techniques
 
 Given my experience with making that one daily render with the red crystals, I'm anticipating heavy usage of Houdini's scattering, noise displacement, and mesh/VDB conversion features. For the shaders, Redshift has helpful built-in features like dispersion and caustics that I will use to add realism and artistic flair to the final renders.
 
@@ -52,7 +82,7 @@ Other useful links:
 - https://www.katexagoraris.com/rock-and-minerals-procedural-modeli
 - https://80.lv/articles/breakdown-procedural-crystals-in-houdini
 
-### Design
+## Design
 
 Each crystal will likely be encapsulated on its own, with its own special generation methods and materials. There may be some nodes reused, like basic stone materials and some intersection analysis ideas, but most of the crystals I want to try will be relatively different from each other.
 
@@ -60,20 +90,20 @@ Then, I'll likely pick some of my favorite specimens from each generator and put
 
 ![image](https://user-images.githubusercontent.com/3106877/200186345-28550aad-4532-42e3-b22f-a832fd800930.png)
 
-### Timeline
+## Timeline
 
-#### Milestone 1 (11/16)
+### Milestone 1 (11/16)
 
 At the bare minimum, I'd like to have two crystals done (mesh and shading), as well as a glass display case and a rudimentary lighting system. After thinking about it, I believe it would be better to finish one crystal before moving on to the next, rather than first finishing the meshes and then moving on to the shading. That way, I can adjust the number of crystals I plan on finishing if I find I have more or less time than I expected.
 
 The first couple of crystals will likely be based on online tutorials, and then I'll branch out if I have more time. For the lighting, I'll probably look for pictures and/or videos of the Astro Gallery or other gemstone galleries to find what might work well for the museum.
 
-#### Milestone 2 (11/28)
+### Milestone 2 (11/28)
 
 After milestone 1, I'm hoping to implement more crystal generators and have some other interesting specimens to show off. I'll also update the museum scene with more detailed shading and lighting.
 
 Other than that, I may look into more complex features like animating crystal growth. But rather than spending too much time on that, I think I would prefer to work on new types of crystals to explore more procedural generation techniques.
 
-#### Final submission (12/5)
+### Final submission (12/5)
 
 The last week will be spent polishing the lighting and shading, mostly. If I have time, I'll also try to set up an animaton that pans over multiple rooms with different kinds of crystals.
