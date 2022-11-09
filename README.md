@@ -34,13 +34,35 @@ Start off by forking this repository. In your README, write a design doc to outl
   - (time permitting) be able to apply some kind of noise to generate variants of the chosen building shape
 
 #### Techniques:
-- What are the main technical/algorithmic tools you’ll be using? Give an overview, citing specific papers/articles.
+- [Procedural Greeble Tutorial](https://lindenreidblog.com/2017/12/13/procedural-greeble-tutorial/) by [Linden Reid](https://lindenreidblog.com/)
+
+In this tutorial, Linden introduces how he did the greeble effects. Put simply, to extrude a poly, we can create new verticies by translating the old verticies in the direction of the surface normal. 
+
+For more realistic effects, we can add randomness to the extrusion scale and whether or not greeble is applied. 
+
+![](greeble_tutorial.png)
+
+- [Voronoi Greeble Displacement: ShaderToy](https://www.shadertoy.com/view/NllyWf) by Shane
+
+In this shadertoy, Shane used a tailored Voronoi algorithm to drive the generation of greeble displacement.  
+
+![](shader_toy_demo.png)
 
 #### Design:
 - How will your program fit together? Make a simple free-body diagram illustrating the pieces.
 
+The scene will consist of two main component, a background scene and a foreground geometry powered by greeble.
+
+
+
 #### Timeline:
 - Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
+
+|  | San Jewell | Yilin Liu |
+| --------------- | --------------- | --------------- |
+| Week 1 | xx | yy |
+| Week 2 | xx | zz |
+| Week 3 | xx | zz |
 
 Submit your Design doc as usual via pull request against this repository.
 ## Milestone 1: Implementation part 1 (due 11/16)
