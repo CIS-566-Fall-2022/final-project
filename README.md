@@ -8,7 +8,7 @@ Peacock is one of the most beautiful and colorful birds. I have always been fasc
 
 ### Goal
 
-I intend to get used to developing with Houdini. I want to create a peacock with its feathers spread out. I want to start with buillding a detailed peacock feather and end with a complete peacock bird. Animating the peacock spreading its feathers can be future work after this project submission.
+I intend to get used to developing with Houdini. I want to create a peacock with its feathers spread out. I want to start with building a detailed peacock feather and if time permits, maybe even end with a complete peacock bird. Animating the peacock spreading its feathers can be future work after this project submission.
 
 ### Inspiration/reference
 
@@ -26,7 +26,7 @@ Real photos:
 
 ---
 
-#### Peacock Body
+#### Peacock Body (Possible future implementation)
 
 Artistic references:
 
@@ -47,24 +47,35 @@ Main features of the project:
 
 ### Techniques:
 
+I read through some of the following papers which helped me understand the structure of a peacock feather.
+
 #### Papers
 [The physical structure, optical mechanics and aesthetics of the peacock tail feathers](https://www.witpress.com/Secure/elibrary/papers/DN02/DN02043FU.pdf)
-
 [An analysis of optimal structural features in the peacock tail feather](https://www.sciencedirect.com/science/article/abs/pii/S003039920500126X)
 
 #### Video links
 [Peacock spreading its feathers](https://www.youtube.com/watch?v=6wVWJIBsUFY)
 
 #### Technical Breakdown of a feather:
+The papers helped in understanding how a feather looks like in depth
 
 ![](References/feather/feathercomponents2.jpg)
 ![](References/feather/feathercomponents.jpg)
 
 #### Useful Houdini tools and tutorials:
 
-- [Making a feather in Houdini](https://www.youtube.com/watch?v=jNj9o9g04pA)
+I plan to start off with [this Houdini tutorial](https://www.youtube.com/watch?v=jNj9o9g04pA) for a basic feather design network. It samples points along a line(which will act as the stem or quill) and adds multiple curves (called barbs in a peacock feather) along the base line. I can then add tube geometry over all curves and merge it together.
+To change it to look like a peacock I will have to perform the following operations:
+1. Vary the sizes of barbs to give it a desired shape
+2. Blending different colors to generate a color scheme along the axes
+3. Maybe using a color mask to create the eye and set hard color borders
+4. Sample points with varying distance along the quill
+    - Base of the quill has loosely knit barbs or widely spaced out
+    - The eye has tightly knit barbs or are very closely spaced
+5. I will also have to change the irridescence in some way by using some material types
+6. Maybe use of some function to vary the curls/bends of the quill within a small range.
 
-My work will involve a lot of the following Houdini base nodes prima facie and I will be extensively relying on their documentation:
+Prima facie, I believe my work will involve a lot of the following Houdini base nodes and I will be extensively relying on their documentation:
 - lsystem
 - noise, scatter, copyToPoints
 - geometry nodes (lines and primitives)
@@ -72,9 +83,11 @@ My work will involve a lot of the following Houdini base nodes prima facie and I
 - attribute wranglers, masks
 - resample, remesh, sweep
 
-
 ### Design:
-- How will your program fit together? Make a simple free-body diagram illustrating the pieces. (To be updated)
+
+The following diagram shows the things I will have to consider as I build the feather. I have described the feather in detail and for future possible work also incuded basic components to consider when making the entire bird.
+
+![](References/design.png)
 
 ### Timeline:
 - Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
