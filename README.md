@@ -68,7 +68,8 @@ https://www.youtube.com/watch?v=IcbzGNqnFkA
 
 
 #### Design:
-- How will your program fit together? Make a simple free-body diagram illustrating the pieces.
+
+![](diagram.jpg)
 
 #### Timeline:
 - Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
