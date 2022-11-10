@@ -72,7 +72,11 @@ https://www.youtube.com/watch?v=IcbzGNqnFkA
 ![](diagram.jpg)
 
 #### Timeline:
-- Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
+- (11/9)  Mileston 1 work: have the terrain generation, the house generator and the mill generator HDAs done.
+- (11/16) Add some decorator such trees and barrels.
+- (11/23) Milestone 2 work: have the houses realigned as well as mills. Avoid overlapping geometry. Add optimizations with any file caching as needed and setup camera for renders. Have the base layout of a couple of blocks of the village.
+- (11/28) Final submission work: Download HDRIs and any missing material to prepare renders. Create renders.
+- (12/5) Have the renders ready 
 
 Submit your Design doc as usual via pull request against this repository.
 ## Milestone 1: Implementation part 1 (due 11/16)
