@@ -81,6 +81,13 @@ https://hydra.ojack.xyz/?sketch_id=mkhZSOzTG3DlWBsE
 
 ![image](https://user-images.githubusercontent.com/60904107/201156213-7788617a-38ce-499e-ad54-549b6f178f05.png)
 
+if time permitting: an additional 6th feature would be to utilize the hydra [initVideo](https://hydra.ojack.xyz/api/#functions/initVideo/0) stream to create a shader that manipulates a song's music video (can rip from yt) based on it's audio/spectral information. this might even be another project on its own.
+
+![2ad6e057ee6e654d7b87fa4582f45ef8](https://user-images.githubusercontent.com/60904107/201162143-b5419249-1b28-46e4-819b-daa55b3c72a5.gif)
+
+
+
+
 
 #### Techniques:
 - What are the main technical/algorithmic tools you’ll be using? Give an overview, citing specific papers/articles.
@@ -95,6 +102,7 @@ here is an initial test with some hydra code. i like how easy it is to generate 
 #### Design:
 - How will your program fit together? Make a simple free-body diagram illustrating the pieces.
 
+![5449fce4c1f4c08701d0219999d8b231](https://user-images.githubusercontent.com/60904107/201170941-b1ad097d-c755-4930-b5c3-79bfc4e6b611.gif)
 
 
 
