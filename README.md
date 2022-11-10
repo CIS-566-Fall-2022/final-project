@@ -63,9 +63,9 @@ The scene will consist of two main component, a background scene and a foregroun
 
 |  | San Jewell | Yilin Liu |
 | --------------- | --------------- | --------------- |
-| Milestone 1, 11/16| General Greeble Generation & Look Design | General Greeble Generation & Look Design |
-| Milestone 2, 11/28| Animated Greeble Generation | Procedural Background & Sound |
-| Milestone 3, 12/5 | Optimization | Color Tuning |
+| Milestone 1, 11/16| General Greeble Generation & Symbol Theming | General Greeble Generation & Symbol Theming |
+| Milestone 2, 11/28| Animated Greeble Generation | Procedural Background |
+| Milestone 3, 12/5 | Optimization & Demo Scene Design | Color Tuning & Demo Scene Design |
 
 Submit your Design doc as usual via pull request against this repository.
 ## Milestone 1: Implementation part 1 (due 11/16)
