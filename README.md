@@ -9,20 +9,63 @@ Before submitting your first milestone, _you must get your project idea and scop
 Start off by forking this repository. In your README, write a design doc to outline your project goals and implementation plan. It must include the following sections:
 
 #### Introduction
-- What motivates your project?
+- My final project revolves around recreating the city of Apotos from Sonic Unleashed in Houdini. The idea is to apply multiple concepts learned throughout the class such as noise functions, procedural geometry generation and city creation to achieve an aesthetically pleasing result.
 
 #### Goal
-- What do you intend to achieve with this project?
+- The goal of my project is to make an efficient procedural apotos builder in Houdini using a combination of Procedural house generation with controls and procedural terrain. The idea is that the city should look organic so it should have also trees and plants, correct materials and the structure placement should follow a logic that makes in sense in the real world. For example we expect to have house along the streets in the city.
+- Ultimitely the objective with this project is not scale but actually have a couple of realistic looking blocks of the village that mimmic the style of the game really well.
+
 
 #### Inspiration/reference:
-- You must have some form of reference material for your final project. Your reference may be a research paper, a blog post, some artwork, a video, another class at Penn, etc.  
-- Include in your design doc links to and images of your reference material.
+- Images of Apotos in Sonic Unleashed (Game art and gameplay)
+
+![](ref1.png)
+
+![](ref2.png)
+
+![](ref3.png)
+
+![](ref4.png)
+
+![](ref5.png)
+
+![](ref6.png)
+
+![](ref7.png)
+
+![](ref8.png)
+
+
+- Gameplay of the level
+
+https://www.youtube.com/watch?v=j4OBe-rONR4
+
 
 #### Specification:
-- Outline the main features of your project.
+- Procedural greek style houses. These will add different variations on window and door placement, roof adornments, color of windows. Varying modules will make up the total size based on the width, height and depth selected by the user.
+- Procedural style mills with varying height.
+- White stone material.
+- User defined streets painted with the Path tool of Hudini.
+- HDRI for sky downloaded online.
+- Decorating assets placed procedurally such as barrels and bushes.
+- Procedural terrain elevation.
+- Procedural water base.
 
 #### Techniques:
-- What are the main technical/algorithmic tools you’ll be using? Give an overview, citing specific papers/articles.
+- First I'll start by building the house generator using this tutorial and changing the geometry to make it more greek looking:
+https://www.youtube.com/watch?v=r0e7M2B7dL0&list=PLXNFA1EysfYnxvrW27g6e5HhTwKBM2TZC
+- The I'll generate wind mills following this tutorial
+https://www.youtube.com/watch?v=afHVjiNeH7A&t=2s
+- Then I will generate the Terrain using this tutorial as a reference:
+https://www.youtube.com/watch?v=rwLbiuKX5D0
+- I will generate the cobblestone paths using this tutorial:
+https://www.youtube.com/watch?v=QH6Kk7_AJec
+- I will make the base stone material white and change the color of the wood material.
+- I will look for decorator assets online such as barrels, bushes and lamps that will be placed based on the previously referenced material.
+- Will follow some of the tips here for material setup
+https://www.youtube.com/watch?v=IcbzGNqnFkA
+
+
 
 #### Design:
 - How will your program fit together? Make a simple free-body diagram illustrating the pieces.
