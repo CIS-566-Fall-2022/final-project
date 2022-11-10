@@ -12,7 +12,7 @@ Start off by forking this repository. In your README, write a design doc to outl
 - What motivates your project?
 - I am interested in the algorave/livecode movement and want to experiment with music that is synced with some visual input. 
 
-here is an initial test with some hydra code. i like how easy it is to generate some output with this tool. it also just runs in browser, which is handy. I am thinking of starting with this one to draft some audio/visual ideas. the think i like about hydra as well, is that you can inport any js library in it. this means that i can also import three.js for some visual computation/functuons and also p5.js for some extra visual library tools. 
+here is an initial test with some hydra code. i like how easy it is to generate some output with this tool. it also just runs in browser, which is handy. I am thinking of starting with this one to draft some audio/visual ideas. the thing i like about hydra as well, is that you can [import any js library in it, as a packaged script](https://hydra.ojack.xyz/docs/#/additional_topics?id=loading-external-scripts). this means that i can also import three.js for some visual computation/functuons and also p5.js for some extra visual library tools. 
 ![305edb327e31d02f82a7d0a4d5ad5627](https://user-images.githubusercontent.com/60904107/201142297-c45aa814-4057-4071-9f06-bfe7140ee007.gif)
 
 
@@ -20,6 +20,7 @@ https://www.youtube.com/watch?v=lEJiP4JGEh0&t=16s
 
 #### Goal
 - What do you intend to achieve with this project?
+
 My main goal is to experiment and have fun exploring a bunch of techniques. I've been interested in creative coding for a while, but just never really had the time or wherewithal to commit to a project. I'm intersted in possibly creating a procedufral tool to generate music and visuals that are tied to it in some way. A goal for a much larger project would be to incorporate the [tidal cycles library](https://tidalcycles.org/docs/showcase) to generate music cycles (patterns/blocks) and visual loops that correspond to the cycles. This would be a midi/keyboard/mouse or some sort of i/o input to coordinate with the music/visual generator/engine. 
   <img width="767" alt="image" src="https://user-images.githubusercontent.com/60904107/201146535-cbe55833-7998-4bd4-90af-28c96b18e1a5.png">
   
@@ -31,7 +32,15 @@ A much more scope friendly goal in terms of something that I can work on in this
 - You must have some form of reference material for your final project. Your reference may be a research paper, a blog post, some artwork, a video, another class at Penn, etc.  
 - Include in your design doc links to and images of your reference material.
 
-Some of my references include [Char Stiles](http://charstiles.com/), 
+[Char Stiles](http://charstiles.com/) is one of my references. She's pretty involved in the algorave community and has tutorials on her personal site on how to get started. She also did some [really cool](https://www.youtube.com/watch?v=WQgqvNyITWM) audio based visual sfor Crystal Castles' music video *fleece*.
+
+
+[![IMAGE_ALT](https://img.youtube.com/vi/WQgqvNyITWM/0.jpg)](https://www.youtube.com/watch?v=WQgqvNyITWM)
+
+
+
+https://user-images.githubusercontent.com/60904107/201155609-ba173746-8311-417f-8c5b-014593effbb4.mp4
+
 
 
 here is a hydra mash of shaders that i would love to modify with some audio inputs.
@@ -61,11 +70,21 @@ https://hydra.ojack.xyz/?sketch_id=mkhZSOzTG3DlWBsE
 #### Specification:
 - Outline the main features of your project.
 
+![image](https://user-images.githubusercontent.com/60904107/201156213-7788617a-38ce-499e-ad54-549b6f178f05.png)
+
+
 #### Techniques:
 - What are the main technical/algorithmic tools you’ll be using? Give an overview, citing specific papers/articles.
 
+![image](https://user-images.githubusercontent.com/60904107/201155932-5674304b-c0b9-4b71-a8f1-73d95f29fd25.png)
+
+
+
 #### Design:
 - How will your program fit together? Make a simple free-body diagram illustrating the pieces.
+
+
+
 
 #### Timeline:
 - Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
