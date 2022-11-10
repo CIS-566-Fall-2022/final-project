@@ -10,6 +10,13 @@ Start off by forking this repository. In your README, write a design doc to outl
 
 #### Introduction
 - What motivates your project?
+- I am interested in the algorave/livecode movement and want to experiment with music that is synced with some visual input. Some of my references include [Char Stiles](http://charstiles.com/), 
+
+here is an initial test with some hydra code. i like how easy it is to generate some output with this tool. it also just runs in browser, which is handy. I am thinking of starting with this one to draft some audio/visual ideas. the think i like about hydra as well, is that you can inport any js library in it. this means that i can also import three.js for some visual computation/functuons and also p5.js for some extra visual library tools. 
+![305edb327e31d02f82a7d0a4d5ad5627](https://user-images.githubusercontent.com/60904107/201142297-c45aa814-4057-4071-9f06-bfe7140ee007.gif)
+
+
+https://www.youtube.com/watch?v=lEJiP4JGEh0&t=16s
 
 #### Goal
 - What do you intend to achieve with this project?
@@ -17,6 +24,15 @@ Start off by forking this repository. In your README, write a design doc to outl
 #### Inspiration/reference:
 - You must have some form of reference material for your final project. Your reference may be a research paper, a blog post, some artwork, a video, another class at Penn, etc.  
 - Include in your design doc links to and images of your reference material.
+
+
+here is a hydra mash of shaders that i would love to modify with some audio inputs.
+https://hydra.ojack.xyz/?sketch_id=YqShZ3C0254WQi0b
+
+
+
+https://user-images.githubusercontent.com/60904107/201144258-c4a62023-41af-4b54-bc9f-7163d838b046.mp4
+
 
 #### Specification:
 - Outline the main features of your project.
