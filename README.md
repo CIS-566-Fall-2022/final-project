@@ -10,7 +10,7 @@ Start off by forking this repository. In your README, write a design doc to outl
 
 #### Introduction
 - What motivates your project?
-- I am interested in the algorave/livecode movement and want to experiment with music that is synced with some visual input. Some of my references include [Char Stiles](http://charstiles.com/), 
+- I am interested in the algorave/livecode movement and want to experiment with music that is synced with some visual input. 
 
 here is an initial test with some hydra code. i like how easy it is to generate some output with this tool. it also just runs in browser, which is handy. I am thinking of starting with this one to draft some audio/visual ideas. the think i like about hydra as well, is that you can inport any js library in it. this means that i can also import three.js for some visual computation/functuons and also p5.js for some extra visual library tools. 
 ![305edb327e31d02f82a7d0a4d5ad5627](https://user-images.githubusercontent.com/60904107/201142297-c45aa814-4057-4071-9f06-bfe7140ee007.gif)
@@ -20,18 +20,42 @@ https://www.youtube.com/watch?v=lEJiP4JGEh0&t=16s
 
 #### Goal
 - What do you intend to achieve with this project?
+My main goal is to experiment and have fun exploring a bunch of techniques. I've been interested in creative coding for a while, but just never really had the time or wherewithal to commit to a project. I'm intersted in possibly creating a procedufral tool to generate music and visuals that are tied to it in some way. A goal for a much larger project would be to incorporate the [tidal cycles library](https://tidalcycles.org/docs/showcase) to generate music cycles (patterns/blocks) and visual loops that correspond to the cycles. This would be a midi/keyboard/mouse or some sort of i/o input to coordinate with the music/visual generator/engine. 
+  <img width="767" alt="image" src="https://user-images.githubusercontent.com/60904107/201146535-cbe55833-7998-4bd4-90af-28c96b18e1a5.png">
+  
+A much more scope friendly goal in terms of something that I can work on in this class, would be to create a 1 minute demo exploring some of the tools that I would like to leverage later. Instead of creating a whole procedural visual/audio program, I can record/stage a shader-demo-scene-esque performance that utilizes some video/audio tools in the procedral art creation.
+ 
+ 
 
 #### Inspiration/reference:
 - You must have some form of reference material for your final project. Your reference may be a research paper, a blog post, some artwork, a video, another class at Penn, etc.  
 - Include in your design doc links to and images of your reference material.
 
+Some of my references include [Char Stiles](http://charstiles.com/), 
+
 
 here is a hydra mash of shaders that i would love to modify with some audio inputs.
+[this twitter page](https://twitter.com/hydra_patterns), is a bot that acts almost as a shadertoy-esque showcase on some cool hydra shaders.
 https://hydra.ojack.xyz/?sketch_id=YqShZ3C0254WQi0b
 
-
-
 https://user-images.githubusercontent.com/60904107/201144258-c4a62023-41af-4b54-bc9f-7163d838b046.mp4
+
+https://hydra.ojack.xyz/?sketch_id=DvH3S9lsUSudiUYo
+
+https://user-images.githubusercontent.com/60904107/201149941-53c42daf-e0fe-4321-a5a9-4106c4b3f76c.mp4
+
+
+
+https://hydra.ojack.xyz/?code=JTJGJTJGJTIwbGljZW5zZWQlMjB3aXRoJTIwQ0MlMjBCWS1OQy1TQSUyMDQuMCUyMGh0dHBzJTNBJTJGJTJGY3JlYXRpdmVjb21tb25zLm9yZyUyRmxpY2Vuc2VzJTJGYnktbmMtc2ElMkY0LjAlMkYlMEElMkYlMkYlMjAlMjJlZ2clMjBvZiUyMHRoZSUyMHBob2VuaXglMjIlMEElMkYlMkYlMjBBbGV4YW5kcmUlMjBSYW5nZWwlMEElMkYlMkYlMjB3d3cuYWxleGFuZHJlcmFuZ2VsLmFydC5iciUyRmh5ZHJhLmh0bWwlMEElMEFzcGVlZCUzRDEuMiUwQXNoYXBlKDk5JTJDLjE1JTJDLjUpLmNvbG9yKDAlMkMxJTJDMiklMEElMEEuZGlmZiglMjBzaGFwZSgyNDAlMkMuNSUyQzApLnNjcm9sbFgoLjA1KS5yb3RhdGUoJTIwKCklM0QlM0V0aW1lJTJGMSUyMCkuY29sb3IoMSUyQzAlMkMuNzUpLmludmVydCgpJTIwKSUwQS5kaWZmKCUyMHNoYXBlKDk5JTJDLjQlMkMuMDAyKS5zY3JvbGxYKC4xMCkucm90YXRlKCUyMCgpJTNEJTNFdGltZSUyRjIlMjApLmNvbG9yKDElMkMwJTJDLjc1KSUyMCklMEEuZGlmZiglMjBzaGFwZSg5OSUyQy4zJTJDLjAwMikuc2Nyb2xsWCguMTUpLnJvdGF0ZSglMjAoKSUzRCUzRXRpbWUlMkYzJTIwKS5jb2xvcigxJTJDMCUyQy43NSkuaW52ZXJ0KCklMjApJTBBLmRpZmYoJTIwc2hhcGUoOTklMkMuMiUyQy4wMDIpLnNjcm9sbFgoLjIwKS5yb3RhdGUoJTIwKCklM0QlM0V0aW1lJTJGNCUyMCkuY29sb3IoMSUyQzAlMkMuNzUpJTIwKSUwQS5kaWZmKCUyMHNoYXBlKDk5JTJDLjElMkMuMDAyKS5zY3JvbGxYKC4yNSkucm90YXRlKCUyMCgpJTNEJTNFdGltZSUyRjUlMjApLmNvbG9yKDElMkMwJTJDLjc1KSUyMCklMEElMEEubW9kdWxhdGVTY2FsZSglMEElMjAlMjBzaGFwZSgyNDAlMkMuNSUyQzApLmludmVydCgpLnNjcm9sbFgoLjA1KS5yb3RhdGUoJTIwKCklM0QlM0V0aW1lJTJGMTAlMjApJTBBJTIwJTIwJTJDJTIwKCklM0QlM0UoTWF0aC5zaW4odGltZSUyRjMpKi4yKSUyQi4yJTIwKSUwQSUwQS5zY2FsZSgxLjYlMkMuNiUyQzEpLmludmVydCgpJTBBLm91dCgpJTBB
+
+
+https://user-images.githubusercontent.com/60904107/201151264-e4371ec4-e70b-4671-8cc1-3fdb1df3568d.mp4
+
+the above is actually edited code, that's why the link is so long. the url has a "code=" tag, similar to the img width and height tags in markdown. It looks like the code is just encrypted into a alpanumeric string.
+
+here is the original link:
+https://hydra.ojack.xyz/?sketch_id=mkhZSOzTG3DlWBsE
+
 
 
 #### Specification:
