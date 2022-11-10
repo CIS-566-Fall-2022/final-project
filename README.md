@@ -12,11 +12,20 @@ Start off by forking this repository. In your README, write a design doc to outl
 - What motivates your project?
 - I am interested in the algorave/livecode movement and want to experiment with music that is synced with some visual input. 
 
-here is an initial test with some hydra code. i like how easy it is to generate some output with this tool. it also just runs in browser, which is handy. I am thinking of starting with this one to draft some audio/visual ideas. the thing i like about hydra as well, is that you can [import any js library in it, as a packaged script](https://hydra.ojack.xyz/docs/#/additional_topics?id=loading-external-scripts). this means that i can also import three.js for some visual computation/functuons and also p5.js for some extra visual library tools. 
-![305edb327e31d02f82a7d0a4d5ad5627](https://user-images.githubusercontent.com/60904107/201142297-c45aa814-4057-4071-9f06-bfe7140ee007.gif)
+**intro examples!**
+
+[char stiles reel](https://www.youtube.com/watch?v=lEJiP4JGEh0&t=16s)
 
 
-https://www.youtube.com/watch?v=lEJiP4JGEh0&t=16s
+https://user-images.githubusercontent.com/60904107/201157608-cd741ffc-f59f-4ed5-b39f-857d01d376a4.mp4
+
+
+
+[pd+gem - live visuals](https://www.youtube.com/watch?v=y1rBa_STq64)
+
+https://user-images.githubusercontent.com/60904107/201159128-5848e037-ce36-4a50-bf04-42090c8dabb7.mp4
+
+
 
 #### Goal
 - What do you intend to achieve with this project?
@@ -79,6 +88,9 @@ https://hydra.ojack.xyz/?sketch_id=mkhZSOzTG3DlWBsE
 ![image](https://user-images.githubusercontent.com/60904107/201155932-5674304b-c0b9-4b71-a8f1-73d95f29fd25.png)
 
 
+here is an initial test with some hydra code. i like how easy it is to generate some output with this tool. it also just runs in browser, which is handy. I am thinking of starting with this one to draft some audio/visual ideas. the thing i like about hydra as well, is that you can [import any js library in it, as a packaged script](https://hydra.ojack.xyz/docs/#/additional_topics?id=loading-external-scripts). this means that i can also import three.js for some visual computation/functuons and also p5.js for some extra visual library tools. 
+
+![305edb327e31d02f82a7d0a4d5ad5627](https://user-images.githubusercontent.com/60904107/201142297-c45aa814-4057-4071-9f06-bfe7140ee007.gif)
 
 #### Design:
 - How will your program fit together? Make a simple free-body diagram illustrating the pieces.
