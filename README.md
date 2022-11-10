@@ -49,20 +49,20 @@ In this shadertoy, Shane used a tailored Voronoi algorithm to drive the generati
 ![](shader_toy_demo.png)
 
 #### Design:
-- How will your program fit together? Make a simple free-body diagram illustrating the pieces.
+
 
 The scene will consist of two main component, a background scene and a foreground geometry powered by greeble.
 
+![](diagram.png)
 
 
 #### Timeline:
-- Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
 
 |  | San Jewell | Yilin Liu |
 | --------------- | --------------- | --------------- |
-| Week 1 | xx | yy |
-| Week 2 | xx | zz |
-| Week 3 | xx | zz |
+| Milestone 1, 11/16| General Greeble Generation & Look Design | General Greeble Generation & Look Design |
+| Milestone 2, 11/28| Animated Greeble Generation | Procedural Background & Sound |
+| Milestone 3, 12/5 | Optimization | Color Tuning |
 
 Submit your Design doc as usual via pull request against this repository.
 ## Milestone 1: Implementation part 1 (due 11/16)
