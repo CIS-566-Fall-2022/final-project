@@ -12,7 +12,7 @@ Start off by forking this repository. In your README, write a design doc to outl
 - My final project revolves around recreating the city of Apotos from Sonic Unleashed in Houdini. The idea is to apply multiple concepts learned throughout the class such as noise functions, procedural geometry generation and city creation to achieve an aesthetically pleasing result.
 
 #### Goal
-- The goal of my project is to make an efficient procedural apotos builder in Houdini using a combination of Procedural house generation with controls and procedural terrain. The idea is that the city should look organic so it should have also trees and plants, correct materials and the structure placement should follow a logic that makes in sense in the real world. For example we expect to have house along the streets in the city.
+- The goal of my project is to make an efficient procedural Apotos builder in Houdini using a combination of Procedural house generation with controls and procedural terrain. The idea is that the city should look organic so it should have also trees and plants, correct materials and the structure placement should follow a logic that makes sense in the real world. For example we expect to have house along the streets in the city.
 - Ultimitely the objective with this project is not scale but actually have a couple of realistic looking blocks of the village that mimmic the style of the game really well.
 
 
@@ -54,7 +54,7 @@ https://www.youtube.com/watch?v=j4OBe-rONR4
 #### Techniques:
 - First I'll start by building the house generator using this tutorial and changing the geometry to make it more greek looking:
 https://www.youtube.com/watch?v=r0e7M2B7dL0&list=PLXNFA1EysfYnxvrW27g6e5HhTwKBM2TZC
-- The I'll generate wind mills following this tutorial
+- Then I'll generate wind mills following this tutorial
 https://www.youtube.com/watch?v=afHVjiNeH7A&t=2s
 - Then I will generate the Terrain using this tutorial as a reference:
 https://www.youtube.com/watch?v=rwLbiuKX5D0
