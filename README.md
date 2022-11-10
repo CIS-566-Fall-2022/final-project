@@ -104,6 +104,8 @@ here is an initial test with some hydra code. i like how easy it is to generate 
 
 ![5449fce4c1f4c08701d0219999d8b231](https://user-images.githubusercontent.com/60904107/201170941-b1ad097d-c755-4930-b5c3-79bfc4e6b611.gif)
 
+higher res (readable) screenshot of free body diagram (rip gifs):
+![image](https://user-images.githubusercontent.com/60904107/201172988-9b1a7f50-53df-45bd-b65b-fb225981c047.png)
 
 
 #### Timeline:
