@@ -111,6 +111,12 @@ higher res (readable) screenshot of free body diagram (rip gifs):
 #### Timeline:
 - Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
 
+here is a proposed timeline:
+
+<img width="1221" alt="image" src="https://user-images.githubusercontent.com/60904107/201178579-bfe87408-8465-4c90-a31c-5af9e287cd33.png">
+
+i used this site called [toggl](https://toggl.com/) to make a timeline/ management system for this project. if the timeline changes, i will make sure to update it in th readme and adjust depending on project progress.
+
 Submit your Design doc as usual via pull request against this repository.
 ## Milestone 1: Implementation part 1 (due 11/16)
 Begin implementing your engine! Don't worry too much about polish or parameter tuning -- this week is about getting together the bulk of your generator implemented. By the end of the week, even if your visuals are crude, the majority of your generator's functionality should be done.
