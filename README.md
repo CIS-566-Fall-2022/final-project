@@ -13,12 +13,23 @@ Start off by forking this repository. In your README, write a design doc to outl
 
 #### Goal
 - The goal of my project is to make an efficient procedural apotos builder in Houdini using a combination of Procedural house generation with controls and procedural terrain. The idea is that the city should look organic so it should have also trees and plants, correct materials and the structure placement should follow a logic that makes in sense in the real world. For example we expect to have house along the streets in the city.
-- The goal with this project is not scale but actually have a couple of realistic looking village blocks that mimmic the style of the game really well.
+- Ultimitely the objective with this project is not scale but actually have a couple of realistic looking blocks of the village that mimmic the style of the game really well.
 
 
 #### Inspiration/reference:
-- You must have some form of reference material for your final project. Your reference may be a research paper, a blog post, some artwork, a video, another class at Penn, etc.  
-- Include in your design doc links to and images of your reference material.
+- Images of Apotos in Sonic Unleashed (Game art and gameplay)
+
+![](ref1.png)
+
+![](ref2.png)
+
+![](ref3.png)
+
+![](ref4.png)
+
+![](ref5.png)
+
+![](ref6.png)
 
 #### Specification:
 - Outline the main features of your project.
