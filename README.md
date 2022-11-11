@@ -4,7 +4,7 @@
 
 ## Deep Sea Quartz
 
-![green crystal](https://user-images.githubusercontent.com/3106877/200666476-0aba34d9-9276-45d1-a872-fb28e6f15834.png)
+![deep sea quartz](https://user-images.githubusercontent.com/3106877/200666476-0aba34d9-9276-45d1-a872-fb28e6f15834.png)
 
 This isn't necessarily a form of quartz that exists in the real world, but I really like the depth offered by the blue/green colors.
 
@@ -22,7 +22,7 @@ This isn't necessarily a form of quartz that exists in the real world, but I rea
 
 ## Vanadinite Cluster
 
-TODO
+![vanadinite](https://user-images.githubusercontent.com/3106877/201255107-879be63b-8cec-4406-be61-66e291d75a73.png)
 
 ### References
 
