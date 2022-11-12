@@ -34,6 +34,14 @@ This isn't necessarily a form of quartz that exists in the real world, but I rea
   <p>Source: https://en.wikipedia.org/wiki/Vanadinite#/media/File:Mibladene_Vanadinite.jpg</p>
 </details>
 
+## Red Garnet
+
+![red garnet](https://user-images.githubusercontent.com/3106877/201460013-8d62c940-af02-4636-ae03-c7ad3b63db63.png)
+
+### References
+
+[Tutorial](https://www.youtube.com/watch?v=5WSUW7L5Pxo) (which I only somewhat followed)
+
 # Design
 
 ## Introduction
