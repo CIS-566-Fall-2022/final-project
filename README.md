@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Interactive generative art has been a significant source of inspiration for my journey in computer graphics, especially since visiting large scale exhibitions produced by studios like [teamLab](https://www.teamlab.art/) and [Moment Factory](https://momentfactory.com/home). While the main purpose of computer graphics is to generate beautiful images, these visual experiences can be greatly elevated by integrating sensors and input systems to involve the audience in the art form. Recently, I have been playing around with [TouchDesigner](https://derivative.ca/) and the LeapMotion controller to create interactive art using hand motions. However, these experiences are thus far limiting in space. It is now time for me scale it to the next level both in terms of display output and the input system.
+Generative art that are interactive is something I have always loved, especially since visiting large scale exhibitions by studios like [teamLab](https://www.teamlab.art/) and [Moment Factory](https://momentfactory.com/home). While the main purpose of computer graphics is to generate beautiful images, these visual experiences can be greatly elevated by integrating sensors and input systems to involve the audience in the art form. Recently, I have been playing around with [TouchDesigner](https://derivative.ca/) and the LeapMotion controller to create interactive art using hand motions. However, these experiences are thus far limiting in space. It is now time for me scale it to the next level both in terms of display output and the input system.
 
-The theme of this project focuses on two important interests of mine: **dancing** and **fashion**. A friend of mine recently introduced me to the music genre of **Deep House**, which is both a type of [dance](https://www.youtube.com/watch?v=PbSv9doE9IY&ab_channel=MOVEDanceStudio) as well as the genre heavily used in the fashion industry for fashion runways or stores like ZARA. For example, [check this song out](https://www.youtube.com/watch?v=KD3sOUxKp9g&ab_channel=MelomaniacRDV) to get a sense of the vibe. My plan is to integrate these two elements into my work as I design the overall audience experience and the visuals.
+The theme of this project focuses on two important interests of mine: **dancing** and **fashion**. I recently discovered the music genre of **Deep House**, which is both a type of [dance](https://www.youtube.com/watch?v=PbSv9doE9IY&ab_channel=MOVEDanceStudio) as well as the genre heavily used in the fashion industry for fashion runways or stores like ZARA. For example, [check this song out](https://www.youtube.com/watch?v=KD3sOUxKp9g&ab_channel=MelomaniacRDV) to get a sense of the vibe. My plan is to integrate these two elements into my work as I design the overall audience experience and the visuals.
 
 ## Goal
 
@@ -21,12 +21,11 @@ The goal of this project is to create an audio-and-motion-reactive visualization
 
 ## Inspiration & References
 
-- [TouchDesigner Artist: Bileam Tschepe](https://www.instagram.com/elekktronaut/)
-- [Universe of Water Particles - teamLab](https://www.teamlab.art/ew/waterparticles-transcending_superblue/superbluemiami/)
-- [TouchDesigner: Popping Dance w/ Particles](https://www.youtube.com/watch?v=oSPbZISVjRM)
-- [TouchDesigner: Audio-Reactive Voronoi](https://www.youtube.com/watch?v=tQp2osjgfYE&ab_channel=VJHellstoneLiveVisuals)
-- [TouchDesigner: Tile Pattern](https://www.youtube.com/watch?v=gXUWcYZ8hqQ&ab_channel=bileamtschepe%28elekktronaut%29)
-- [Taipei Fashion Week SS22 - Ultra Combos (Only available in Chinese)](https://ultracombos.com/SS22-Taipei-Fashion-Week-SS22)
+- [TouchDesigner Artist: Bileam Tschepe](https://www.instagram.com/elekktronaut/) - he has lots of cool patterns created in TouchDesigner that would go well with Deep House.
+- [Universe of Water Particles - teamLab](https://www.teamlab.art/ew/waterparticles-transcending_superblue/superbluemiami/) - one of my favorite pieces from teamLab. Love the use of lines as waterfall. The color contrast between the waterfall and the flowers also works very well.
+- [TouchDesigner: Popping Dance w/ Particles](https://www.youtube.com/watch?v=oSPbZISVjRM) - an example of the type of interactivity that's possible with TouchDesigner.
+- [TouchDesigner: Audio-Reactive Voronoi](https://www.youtube.com/watch?v=tQp2osjgfYE&ab_channel=VJHellstoneLiveVisuals) - the type of background visuals that would be good for this project. Nothing too complex.
+- [Taipei Fashion Week SS22 - Ultra Combos (Only available in Chinese)](https://ultracombos.com/SS22-Taipei-Fashion-Week-SS22) - love the aesthetics of the background for this fashion show. 
 
 ## Specification
 
@@ -36,11 +35,11 @@ The visualizer can be broken down into multiple visual layers which are composit
 
 1. **Background Layer**: this layer will be the background for the final render. It will include procedurally generated patterns that are relatively simple, such that they do not overpower the foreground elements. These patterns will be **audio-reactive**.
 
-2. **Interaction Layer**: this layer will contain procedural elements that are **motion-reactive** thus interactive. For example, a particle system can be included that are reactive to the motion of the audience. This should be the primary focus for the audience.
+2. **Interaction Layer**: this layer will contain procedural elements that are **motion-reactive** thus making it interactive. For example, a particle system can be included that are reactive to the motion of the audience. This should be the primary focus of the art for the audience.
 
 3. **Reprojection Layer (Stretch Goal)**: this layer is optional and will only be implemented if time permits. It will contain a stylized reprojection of the actor. This layer allows a clearer indication of where the actors are. This reprojection layer can be **audio-reactive**.
 
-4. **Post-processing Layer**: this layer is for enhancing the visuals by applying post-processing effects to the previous layers. This layer is crucial in achieving the desired look and feel.
+4. **Post-processing Layer**: this layer is for enhancing the visuals by applying post-processing effects to the previous layers. This layer is crucial in achieving the desired look, feel and mood.
 
 Finally, the composited render will be displayed using a projector.
 
@@ -48,12 +47,12 @@ Finally, the composited render will be displayed using a projector.
 
 The project will explore many common procedural techniques, including but not limited to the following:
 
-* **Particles Simulation** - particle systems will be used to add interactivity to the scene, and/or as an decorative element. These systems will be driven by custom forces that are guided by noise functions or input signals. The particle systems used in TouchDesigner will be the one using GPU/compute shader in order to meet the real-time requirement.
-* **Procedural Patterns** - procedural patterns will be generated using noise and toolbox functions along with basic geometry. The idea is to generate a simple audio-reactive background that complements the main interactive layer.
-* **Optical Flow** - optical flow is a common technique used in TouchDesigner with a camera to affect the image output. The motion between frames captured from the camera will be converted to velocity signals that can drive other parameters.
+* **Particles Simulation** - particle systems will be used to add interactivity to the scene, and/or as an decorative element. These systems will be driven by custom forces that are guided by noise functions and input signals. The GPU-based particle systems will be used in TouchDesigner in order to meet the real-time requirement.
+* **Procedural Patterns** - procedural patterns will be generated using noise and toolbox functions along with basic geometric shapes. The idea is to generate a simple audio-reactive background that complements the main interactive layer.
+* **Optical Flow** - optical flow is a common technique used in TouchDesigner with a camera to affect the image output. The motion between frames captured from the camera will be converted to velocity signals that can drive other parameters in the scene.
 * **Noise and Toolbox Functions will be used everywhere!**
-* **Post-processing Techniques** - bloom effect, blur, feedback, distortion and edge detection will be used to enhance the visuals.
-* **Coloring** - this is all about making it look pretty!
+* **Post-processing Techniques** - bloom effect, blur, feedback, distortion and edge detection will be experimented with to enhance the visuals.
+* **Coloring** - a specific color palette will be selected that best describes the theme of the project. This is all about making it look pretty!
 
 ## Design
 
