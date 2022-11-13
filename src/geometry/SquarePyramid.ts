@@ -13,46 +13,44 @@ class SquarePyramid extends Drawable {
     this.center = vec4.fromValues(center[0], center[1], center[2], 1);
   }
 
+  createTriangulate() {
+    this.create();
+
+
+  }
+
   create() {
-    this.indices = new Uint32Array([0, 1, 2,
-                                    0, 2, 3,
-
-                                    4, 5, 6,
-                                    4, 6, 7,
-
-                                    8, 9, 10,
-                                    8, 10, 11,
-
-                                    12, 13, 14,
-                                    12, 14, 15,
-
-                                    16, 17, 18,
-                                    16, 18, 19,
-
-                                    20, 21, 22,
-                                    20, 22, 23]);
+    this.indices = new Uint32Array([
+      // front
+      0, 1, 2,
+      // right
+      3, 4, 5,
+      // back
+      6, 7, 8,
+      // left
+      9, 10, 11,
+      // bottom
+      12, 13, 14,
+      12, 14, 15
+    ]);
 
 this.normals = new Float32Array([
         // front
         0, 0, 1, 0,
         0, 0, 1, 0,
-        0, 0, 1, 0,
-        0, 0, 1, 0,
+        0, 0, 1, 0,        
         // right
          1, 0, 0, 0,
          1, 0, 0, 0,
-         1, 0, 0, 0,
-         1, 0, 0, 0,
+         1, 0, 0, 0,        
         // back
          0, 0, -1, 0,
          0, 0, -1, 0,
-         0, 0, -1, 0,
-         0, 0, -1, 0,
+         0, 0, -1, 0,         
         // left
          -1, 0, 0, 0,
          -1, 0, 0, 0,
-         -1, 0, 0, 0,
-         -1, 0, 0, 0,
+         -1, 0, 0, 0,         
         
         // bottom
          0, -1, 0, 0,
@@ -65,23 +63,22 @@ this.positions = new Float32Array([
     this.center[0] - 1, this.center[1] - 1, this.center[2] + 1, 1,
     this.center[0] + 1, this.center[1] - 1, this.center[2] + 1, 1,
     this.center[0], this.center[1] + 1, this.center[2], 1,
-    this.center[0], this.center[1] + 1, this.center[2], 1,
+    
     // right
     this.center[0] + 1, this.center[1] - 1, this.center[2] + 1, 1,
     this.center[0] + 1, this.center[1] - 1, this.center[2] - 1, 1,
     this.center[0], this.center[1] + 1, this.center[2], 1,
-    this.center[0], this.center[1] + 1, this.center[2], 1,
+    
     // back
     this.center[0] - 1, this.center[1] - 1, this.center[2] - 1, 1,
     this.center[0] + 1, this.center[1] - 1, this.center[2] - 1, 1,
     this.center[0], this.center[1] + 1, this.center[2], 1,
-    this.center[0], this.center[1] + 1, this.center[2], 1,
+    
     // left
     this.center[0] - 1, this.center[1] - 1, this.center[2] + 1, 1,
     this.center[0] - 1, this.center[1] - 1, this.center[2] - 1, 1,
     this.center[0], this.center[1] + 1, this.center[2], 1,
-    this.center[0], this.center[1] + 1, this.center[2], 1,
-    
+        
     // bottom
     this.center[0] + 1, this.center[1] - 1, this.center[2] + 1, 1,
     this.center[0] - 1, this.center[1] - 1, this.center[2] + 1, 1,
