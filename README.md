@@ -36,7 +36,7 @@ This isn't necessarily a form of quartz that exists in the real world, but I rea
 
 ## Red Garnet
 
-![red garnet](https://user-images.githubusercontent.com/3106877/201460013-8d62c940-af02-4636-ae03-c7ad3b63db63.png)
+![red garnet](https://user-images.githubusercontent.com/3106877/201504048-4e441e5a-a9db-464b-9115-88e3daf91d22.png)
 
 ### References
 
