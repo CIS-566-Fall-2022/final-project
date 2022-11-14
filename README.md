@@ -2,6 +2,8 @@
 
 # Milestone 1
 
+I managed to complete 3 different crsytals which I'm pretty happy with. I didn't have time to do the lighting setup, so I'll move that to milestone 2. I think I needed to scale back the project a bit overall, and I definitely will not have time to do the animation. So my end goal now is to add one or two more crystal types and create the museum environment for one or possibly multiple good static renders.
+
 ## Deep Sea Quartz
 
 ![deep sea quartz](https://user-images.githubusercontent.com/3106877/200666476-0aba34d9-9276-45d1-a872-fb28e6f15834.png)
