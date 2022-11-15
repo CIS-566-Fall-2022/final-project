@@ -31,60 +31,116 @@ class SquarePyramid extends Drawable {
       9, 10, 11,
       // bottom
       12, 13, 14,
-      12, 14, 15
+      12, 14, 15,
+        // extra
+      16, 17, 18
     ]);
+    const dataLen = ((3*4+4)*4) + (3*4);
+      this.positions = new Float32Array(dataLen);
+      let positionsOrig = new Float32Array([
 
-this.normals = new Float32Array([
-        // front
-        0, 0, 1, 0,
-        0, 0, 1, 0,
-        0, 0, 1, 0,        
-        // right
-         1, 0, 0, 0,
-         1, 0, 0, 0,
-         1, 0, 0, 0,        
-        // back
-         0, 0, -1, 0,
-         0, 0, -1, 0,
-         0, 0, -1, 0,         
-        // left
-         -1, 0, 0, 0,
-         -1, 0, 0, 0,
-         -1, 0, 0, 0,         
-        
-        // bottom
-         0, -1, 0, 0,
-         0, -1, 0, 0,
-         0, -1, 0, 0,
-         0, -1, 0, 0
-      ]);
-this.positions = new Float32Array([
-    // front
-    this.center[0] - 1, this.center[1] - 1, this.center[2] + 1, 1,
-    this.center[0] + 1, this.center[1] - 1, this.center[2] + 1, 1,
-    this.center[0], this.center[1] + 1, this.center[2], 1,
-    
-    // right
-    this.center[0] + 1, this.center[1] - 1, this.center[2] + 1, 1,
-    this.center[0] + 1, this.center[1] - 1, this.center[2] - 1, 1,
-    this.center[0], this.center[1] + 1, this.center[2], 1,
-    
-    // back
-    this.center[0] - 1, this.center[1] - 1, this.center[2] - 1, 1,
-    this.center[0] + 1, this.center[1] - 1, this.center[2] - 1, 1,
-    this.center[0], this.center[1] + 1, this.center[2], 1,
-    
-    // left
-    this.center[0] - 1, this.center[1] - 1, this.center[2] + 1, 1,
-    this.center[0] - 1, this.center[1] - 1, this.center[2] - 1, 1,
-    this.center[0], this.center[1] + 1, this.center[2], 1,
-        
-    // bottom
-    this.center[0] + 1, this.center[1] - 1, this.center[2] + 1, 1,
-    this.center[0] - 1, this.center[1] - 1, this.center[2] + 1, 1,
-    this.center[0] - 1, this.center[1] - 1, this.center[2] - 1, 1,
-    this.center[0] + 1, this.center[1] - 1, this.center[2] - 1, 1]);
+          // front
+          this.center[0] - 1, this.center[1] - 1, this.center[2] + 1, 1,
+          this.center[0] + 1, this.center[1] - 1, this.center[2] + 1, 1,
+          this.center[0], this.center[1] + 1, this.center[2], 1,
 
+          // right
+          this.center[0] + 1, this.center[1] - 1, this.center[2] + 1, 1,
+          this.center[0] + 1, this.center[1] - 1, this.center[2] - 1, 1,
+          this.center[0], this.center[1] + 1, this.center[2], 1,
+
+          // back
+          this.center[0] - 1, this.center[1] - 1, this.center[2] - 1, 1,
+          this.center[0] + 1, this.center[1] - 1, this.center[2] - 1, 1,
+          this.center[0], this.center[1] + 1, this.center[2], 1,
+
+          // left
+          this.center[0] - 1, this.center[1] - 1, this.center[2] + 1, 1,
+          this.center[0] - 1, this.center[1] - 1, this.center[2] - 1, 1,
+          this.center[0], this.center[1] + 1, this.center[2], 1,
+
+          // bottom
+          this.center[0] + 1, this.center[1] - 1, this.center[2] + 1, 1,
+          this.center[0] - 1, this.center[1] - 1, this.center[2] + 1, 1,
+          this.center[0] - 1, this.center[1] - 1, this.center[2] - 1, 1,
+          this.center[0] + 1, this.center[1] - 1, this.center[2] - 1, 1]);
+
+    this.positions.set(positionsOrig, 0);
+
+    this.normals = new Float32Array(dataLen);
+    let i_norm = 0;
+    for(let i = 0; i < 4*3*4; i+=(3*4)){
+        const p1 = vec3.fromValues(this.positions[i], this.positions[i+1], this.positions[i+2]);
+        const p2 = vec3.fromValues(this.positions[i+4], this.positions[i+5], this.positions[i+6]);
+        const p3 = vec3.fromValues(this.positions[i+8], this.positions[i+9], this.positions[i+10]);
+
+        let e1 = vec3.sub(vec3.create(), p2, p1);
+        let e2 = vec3.sub(vec3.create(), p3, p2);
+        let norm = vec3.cross(vec3.create(), e1, e2);
+        norm = vec3.normalize(vec3.create(), norm);
+        for(let j=0; j<3; j++){
+            this.normals[i_norm] = norm[0];
+            this.normals[i_norm+1] = norm[1];
+            this.normals[i_norm+2] = norm[2];
+            this.normals[i_norm+3] = 0;
+            i_norm += 4;
+        }
+
+    }
+    for(let j=0; j<4 ; j++){
+        this.normals[i_norm] = 0;
+        this.normals[i_norm+1] = -1;
+        this.normals[i_norm+2] = 0;
+        this.normals[i_norm+3] = 0;
+        i_norm += 4;
+    }
+
+    // new extruded points
+    let oi_idx = i_norm;
+      for(let j=0; j<3 ; j++){
+
+          this.positions[i_norm] = this.positions[j*4] + (this.normals[j*4] * 1) ;
+          this.positions[i_norm+1] = this.positions[j*4+1] + (this.normals[j*4+1] * 1);
+          this.positions[i_norm+2] = this.positions[j*4+2] + (this.normals[j*4+2] * 1);
+          this.positions[i_norm+3] = 1;
+          i_norm += 4;
+      }
+      i_norm = oi_idx;
+    for(let j=0; j<3 ; j++){
+        this.normals[i_norm] = this.normals[j*4];
+        this.normals[i_norm+1] = this.normals[j*4+1];
+        this.normals[i_norm+2] = this.normals[j*4+2];
+        this.normals[i_norm+3] = 0;
+        i_norm += 4;
+    }
+    console.log(this.positions)
+
+
+//
+// this.normals = new Float32Array([
+//         // front
+//         0, 0, 1, 0,
+//         0, 0, 1, 0,
+//         0, 0, 1, 0,
+//         // right
+//          1, 0, 0, 0,
+//          1, 0, 0, 0,
+//          1, 0, 0, 0,
+//         // back
+//          0, 0, -1, 0,
+//          0, 0, -1, 0,
+//          0, 0, -1, 0,
+//         // left
+//          -1, 0, 0, 0,
+//          -1, 0, 0, 0,
+//          -1, 0, 0, 0,
+//
+//         // bottom
+//          0, -1, 0, 0,
+//          0, -1, 0, 0,
+//          0, -1, 0, 0,
+//          0, -1, 0, 0
+//       ]);
     this.generateIdx();
     this.generatePos();
     this.generateNor();
