@@ -1,4 +1,4 @@
-#version 300 es
+
 
 //This is a vertex shader. While it is called a "shader" due to outdated conventions, this file
 //is used to apply matrix transformations to the arrays of vertex data passed to it.

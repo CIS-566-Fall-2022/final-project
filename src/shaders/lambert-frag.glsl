@@ -1,4 +1,4 @@
-#version 300 es
+
 
 // This is a fragment shader. If you've opened this file first, please
 // open and read lambert.vert.glsl before reading on.

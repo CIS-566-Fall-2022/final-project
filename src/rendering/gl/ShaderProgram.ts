@@ -1,4 +1,4 @@
-import {vec4, mat4} from 'gl-matrix';
+import {vec4, mat4, vec3} from 'gl-matrix';
 import Drawable from './Drawable';
 import {gl} from '../../globals';
 
@@ -7,9 +7,15 @@ var activeProgram: WebGLProgram = null;
 export class Shader {
   shader: WebGLShader;
 
-  constructor(type: number, source: string) {
+  constructor(type: number, sources: Array<string>) {
     this.shader = gl.createShader(type);
-    gl.shaderSource(this.shader, source);
+    let fullSource = '#version 300 es\n' +
+        'precision highp float;';
+    for (let partialSource of sources){
+      fullSource += partialSource;
+    }
+    console.log(fullSource);
+    gl.shaderSource(this.shader, fullSource);
     gl.compileShader(this.shader);
 
     if (!gl.getShaderParameter(this.shader, gl.COMPILE_STATUS)) {
@@ -33,6 +39,12 @@ class ShaderProgram {
   unifTime: WebGLUniformLocation;
   unifCenter: WebGLUniformLocation;
 
+  unifRef: WebGLUniformLocation;
+  unifEye: WebGLUniformLocation;
+  unifUp: WebGLUniformLocation;
+  unifDimensions: WebGLUniformLocation;
+
+
   constructor(shaders: Array<Shader>) {
     this.prog = gl.createProgram();
 
@@ -54,6 +66,11 @@ class ShaderProgram {
     this.unifNoiseColor = gl.getUniformLocation(this.prog, "u_NoiseColor");
     this.unifTime       = gl.getUniformLocation(this.prog, "u_Time");
     this.unifCenter     = gl.getUniformLocation(this.prog, "u_Center");
+    this.unifEye   = gl.getUniformLocation(this.prog, "u_Eye");
+    this.unifRef   = gl.getUniformLocation(this.prog, "u_Ref");
+    this.unifUp   = gl.getUniformLocation(this.prog, "u_Up");
+    this.unifDimensions   = gl.getUniformLocation(this.prog, "u_Dimensions");
+
   }
 
   use() {
@@ -62,10 +79,30 @@ class ShaderProgram {
       activeProgram = this.prog;
     }
   }
-  setTime(t: vec4){
+  setTime(t: number){
     this.use();
     if(this.unifTime !== -1){
-      gl.uniform4fv(this.unifTime, t);
+      gl.uniform1f(this.unifTime, t);
+    }
+  }
+
+  setEyeRefUp(eye: vec3, ref: vec3, up: vec3) {
+    this.use();
+    if(this.unifEye !== -1) {
+      gl.uniform3f(this.unifEye, eye[0], eye[1], eye[2]);
+    }
+    if(this.unifRef !== -1) {
+      gl.uniform3f(this.unifRef, ref[0], ref[1], ref[2]);
+    }
+    if(this.unifUp !== -1) {
+      gl.uniform3f(this.unifUp, up[0], up[1], up[2]);
+    }
+  }
+
+  setDimensions(width: number, height: number) {
+    this.use();
+    if(this.unifDimensions !== -1) {
+      gl.uniform2f(this.unifDimensions, width, height);
     }
   }
 

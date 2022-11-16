@@ -33,7 +33,7 @@ let icosphereLine4: Icosphere;
 let square: Square;
 let cube: Cube;
 let squarePyramid: SquarePyramid;
-let time: vec4 = vec4.fromValues(0, 0, 0, 0);
+let time: number = 0;
 let color: vec4; 
 let noiseColor: vec4; 
 
@@ -43,8 +43,8 @@ function loadScene() {
   icosphere = new Icosphere(vec3.fromValues(3, 0, 0), 1, controls.tesselations);
   icosphere.create();
   
-  // square = new Square(vec3.fromValues(-2, 0, 0), vec3.fromValues(1, 1, 1));
-  // square.create();
+  square = new Square(vec3.fromValues(0, 0, 0), vec3.fromValues(1, 1, 1));
+  square.create();
 
   cube = new Cube(vec3.fromValues(0, 0, 0));
   cube.create();
@@ -105,11 +105,22 @@ function main() {
   //   new Shader(gl.VERTEX_SHADER, require('./shaders/transform-vert.glsl')),
   //   new Shader(gl.FRAGMENT_SHADER, require('./shaders/lambert-frag.glsl')),
   // ]);
+  const sdf = new ShaderProgram([
+    new Shader(gl.VERTEX_SHADER, [require('./shaders/sdf1-vert.glsl')]),
+    new Shader(gl.FRAGMENT_SHADER, [
+      require('./shaders/toolbox.glsl'),
+      require('./shaders/noise.glsl'),
+      require('./shaders/sdf-objects.glsl'),
+      require('./shaders/sdf-compose.glsl'),
+      require('./shaders/sdf1-frag.glsl')
+    ]),
+  ]);
+  sdf.setDimensions(window.innerWidth, window.innerHeight);
 
 
   // This function will be called every frame
   function tick() {
-    time = vec4.fromValues(time[0] + 0.01,0,0,0);
+    time = 10000;
     color = vec4.fromValues(controls.Color[0] /255, controls.Color[1] / 255, controls.Color[2] / 255, 1);
     noiseColor = vec4.fromValues(controls['Noise Color'][0] /255, controls['Noise Color'][1] / 255, controls['Noise Color'][2] / 255, 1);
 
@@ -141,9 +152,16 @@ function main() {
     //     cube,  
     //   ],false);
     // }
-    renderer.render(camera, time, color, noiseColor, lambert, [
-        squarePyramid,
-      ], false);
+
+    renderer.render(camera, time, color, noiseColor, sdf, [
+      square,
+    ], false);
+
+    // renderer.render(camera, time, color, noiseColor, lambert, [
+    //     squarePyramid,
+    //   ], false);
+
+
     // square = new Square(vec3.fromValues(-2, -2, -2), vec3.fromValues(10, 10, 1));
     // square.create();
     // icosphere = new Icosphere(vec3.fromValues(0, 0, 0), 1, prevTesselations);
