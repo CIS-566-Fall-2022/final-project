@@ -1,3 +1,5 @@
+const float PI=3.14159265;
+
 float bias(float t, float b) {
     return (t / ((((1.0/b) - 2.0)*(1.0 - t))+1.0));
 }

@@ -98,8 +98,8 @@ float pyramidSDF(vec3 q_position, vec3 position, float halfWidth, float halfDept
     return sqrt(min(min(d1, d2), d3)) * sign(max(max(s1, s2), s3));
 }
 
-float triprism(vec3 q_position, vec3 position, float halfWidth, float halfHeight, float halfDepth) {
-    q_position -= position;
+float triprism(vec3 q_position, float halfWidth, float halfHeight, float halfDepth) {
+    
     q_position.x = abs(q_position.x);
     q_position.xy -= vec2(halfWidth, -halfHeight);
     vec2 end = vec2(-halfWidth, halfHeight * 2.0);
@@ -112,3 +112,42 @@ float triprism(vec3 q_position, vec3 position, float halfWidth, float halfHeight
     return length(max(vec2(d1, d2), 0.0)) + min(max(d1, d2), 0.0);
 }
 
+float pyramidNormalSDF(vec3 q_position, float halfWidth, float halfDepth, float halfHeight) {
+    //q_position -= position;
+    vec3 qp = q_position;
+    qp.xz = abs(q_position.xz);
+
+    // bottom
+    float s1 = abs(qp.y) - halfHeight;
+    vec3 base = vec3(max(qp.x - halfWidth, 0.0), abs(qp.y + halfHeight), max(qp.z - halfDepth, 0.0));
+    float d1 = dot(base, base);
+
+    vec3 q = qp - vec3(halfWidth, -halfHeight, halfDepth);
+    vec3 end = vec3(-halfWidth, 2.0 * halfHeight, -halfDepth);
+    vec3 segment = q - end * clamp(dot(q, end) / dot(end, end), 0.0, 1.0);
+    float d = dot(segment, segment);
+
+    // side
+    vec3 normal1 = vec3(end.y, -end.x, 0.0);
+    float s2 = dot(q.xy, normal1.xy);
+    float d2 = d;
+    if (dot(q.xy, -end.xy) < 0.0 && dot(q, cross(normal1, end)) < 0.0) {
+        d2 = s2 * s2 / dot(normal1.xy, normal1.xy);
+    }
+    // front/back
+    vec3 normal2 = vec3(0.0, -end.z, end.y);
+    float s3 = dot(q.yz, normal2.yz);
+    float d3 = d;
+    if (dot(q.yz, -end.yz) < 0.0 && dot(q, cross(normal2, -end)) < 0.0) {
+        d3 = s3 * s3 / dot(normal2.yz, normal2.yz);
+    }
+
+    float mainPyramid = sqrt(min(min(d1, d2), d3)) * sign(max(max(s1, s2), s3));
+
+    vec3 prisim1n = vec3(normal1.x+(PI/2.0), normal1.y+(PI/2.0), normal1.z+(PI/2.0));
+    float prisim1 = triprism(transform(q_position, prisim1n, vec3(0, 0, 0)) , 2.0, 2.0, 2.0); 
+
+    float final = flatUnion(mainPyramid, prisim1);
+
+    return final;
+}

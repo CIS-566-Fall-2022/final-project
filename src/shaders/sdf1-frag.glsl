@@ -13,8 +13,8 @@ const float DIST_MAX = 30.0;
 const float FOV = 45.0;
 const float EPSILON = 1e-2;
 
-const vec3 EYE = vec3(2.0, 1.5, 5.0);
-const vec3 REF = vec3(1.2, 1.0, 0.0);
+// const vec3 EYE = vec3(2.0, 1.5, 5.0);
+// const vec3 REF = vec3(1.2, 1.0, 0.0);
 const vec3 WORLD_UP = vec3(0.0, 1.0, 0.0);
 const vec3 WORLD_RIGHT = vec3(-1.0, 0.0, 0.0);
 const vec3 WORLD_FORWARD = vec3(0.0, 0.0, 1.0);
@@ -34,15 +34,15 @@ struct Ray
 Ray getRay(vec2 uv) {
   Ray ray;
 
-  float len = tan(3.14159 * 0.125) * distance(EYE, REF);
-  vec3 H = normalize(cross(vec3(0.0, 1.0, 0.0), REF - EYE));
-  vec3 V = normalize(cross(H, EYE - REF));
+  float len = tan(3.14159 * 0.125) * distance(u_Eye, u_Ref);
+  vec3 H = normalize(cross(vec3(0.0, 1.0, 0.0), u_Ref - u_Eye));
+  vec3 V = normalize(cross(H, u_Eye - u_Ref));
   V *= len;
   H *= len * u_Dimensions.x / u_Dimensions.y;
-  vec3 p = REF + uv.x * H + uv.y * V;
-  vec3 dir = normalize(p - EYE);
+  vec3 p = u_Ref + uv.x * H + uv.y * V;
+  vec3 dir = normalize(p - u_Eye);
 
-  ray.origin = EYE;
+  ray.origin = u_Eye;
   ray.direction = dir;
   return ray;
 }
@@ -87,8 +87,8 @@ float sceneSDF(vec3 queryPos)
   //final = flatUnion(final, weirdPyramid(queryPos));
 
   //
-  final = pyramidSDF(queryPos, vec3(0.0, -0.5, -5.0), 4.0, 4.0, 2.4);
-  final = flatUnion(final, triprism(transform(queryPos, vec3(0, 0, 0)), vec3(2.0, 3.5, -5.0), 1.0, 1.0, 1.0));
+  final = pyramidNormalSDF(transform(queryPos, vec3(0, 0, 0), vec3(0.0, -1.5, 0)),  4.0, 4.0, 2.0);
+  //final = flatUnion(final, triprism(transform(queryPos, vec3(0, 0, 0)), vec3(2.0, 3.5, -5.0), 1.0, 1.0, 1.0));
 
 
 
@@ -260,25 +260,6 @@ vec3 getSun(in vec2 uv, float opacity, float dayCycle)
   return sun + (sunGlow + flare) / 4.;
 }
 
-// https://www.shadertoy.com/view/4tSXRW
-// PerAmpThickDec => Period / Amplitude / Thcikness / Decalage X
-// res => repeat distance
-float getPostProcessAirWave(vec2 uv, vec4 PerAmpThickDec, float rep, float time)
-{
-
-  float
-  val = abs(PerAmpThickDec.z / (uv.y + PerAmpThickDec.y * sin(uv.x / PerAmpThickDec.x + PerAmpThickDec.w))),
-  mask = 0.;
-  uv.x += time;
-  uv.x = mod(uv.x,rep) - rep * .5;
-  val += -2./dot(uv,uv);
-  uv.x += rep/2.;
-  val += -2./dot(uv,uv);
-  uv.x -= rep/4.;
-  mask = rep/2./dot(uv,uv);
-  val = step(val, .5) + step(mask, 1.);
-  return step(val,.5);
-}
 
 void main() {
   //out_Col = vec4(0.5 * (fs_Pos + vec2(1.0)), 0.5 * (sin(u_Time * 3.14159 * 0.01) + 1.0), 1.0);

@@ -36,7 +36,7 @@ float flatSubtraction(float base, float subtraction){
 //  return lerp(shape1, shape2, amount);
 //}
 
-vec3 transform(vec3 q, vec3 rot){
+vec3 transform(vec3 q, vec3 rot, vec3 trans){
     mat4 S = mat4(
         vec4(1, 0, 0, 0),
         vec4(0, 1, 0, 0),
@@ -44,16 +44,27 @@ vec3 transform(vec3 q, vec3 rot){
         vec4(0, 0, 0, 1));
 
     // Rotation in XY
-    mat4 R = mat4(
-        vec4(cos(0.3), sin(0.3), 0, 0),
-        vec4(-sin(0.3), cos(0.3), 0, 0),
+    mat4 Rx = mat4(
+        vec4(1, 0, 0, 0),        
+        vec4(0, cos(rot.x), -sin(rot.x), 0),
+        vec4(0, sin(rot.x), cos(rot.x), 0),
+        vec4(0, 0, 0, 1));        
+    mat4 Ry = mat4(
+        vec4(cos(rot.y), 0, sin(rot.y), 0),
+        vec4(0, 1, 0, 0),
+        vec4(-sin(rot.y), 0, cos(rot.y), 0),
+        vec4(0, 0, 0, 1));
+    mat4 Rz = mat4(
+        vec4(cos(rot.z), -sin(rot.z), 0, 0),
+        vec4(sin(rot.z), cos(rot.z), 0, 0),
         vec4(0, 0, 1, 0),
         vec4(0, 0, 0, 1));
+    
     // Translate to (3, 3, 3)
     mat4 T = mat4(
-        vec4(1, 0, 0, 0),
-        vec4(0, 1, 0, 0),
-        vec4(0, 0, 1, 0),
+        vec4(1, 0, 0, trans.x),
+        vec4(0, 1, 0, trans.y),
+        vec4(0, 0, 1, trans.z),
         vec4(0, 0, 0, 1));
-    return (vec4(q, 1) * inverse(S * R * T)).xyz;
+    return (vec4(q, 1) * inverse(S  * Rz * Ry * Rx * T)).xyz;
 }
