@@ -4,120 +4,35 @@
 
 [Design Doc Version 2](https://www.notion.so/elyssac/Fantasy-Towers-V2-cc04456f23a84bb9b8b155841eff1ce6)
 
-# Final Project!
+# Milestone 1
 
-This is it! The culmination of your procedural graphics experience this semester. For your final project, we'd like to give you the time and space to explore a topic of your choosing. You may choose any topic you please, so long as you vet the topic and scope with an instructor or TA. We've provided some suggestions below. The scope of your project should be roughly 1.5 homework assignments). To help structure your time, we're breaking down the project into 4 milestones:
+## Progress Overview
+So far I have implemented most of my generator's core functionality, though the visuals are all just rough temporary block ins. The only major functional element I was not able to implement were custom handles, which I am planning to cut from the project (more info below). 
 
-## Project planning: Design Doc (due 11/9)
-Before submitting your first milestone, _you must get your project idea and scope approved by Rachel, Adam or a TA._
+The functions I implemented are:
+- Radio buttons to choose between different layer types (currently three stand in layer types)
+- Multiparm menu connected to for loop which enables adding arbitrary numbers of layers
+- Very basic shape grammar for placing doors and windows
+- Procedural placement data can be saved and loaded into a menu
+- Menu parameters can then be tweaked by the user to further tune the generated output
 
-### Design Doc
-Start off by forking this repository. In your README, write a design doc to outline your project goals and implementation plan. It must include the following sections:
+## Week 1 Process
+I thought the radio button/multiparm setup would be the trickiest part of this tool, so I decided to first try and implement that functionality on a different project I'm currently working on (a pagoda generator) as a test run. I thought this would be a good way to get a fuller sense of how it would work in a more completed project (both from an implementation and a user experience side) because making layered pagodas and layered towers follows the same sort of flow. I'm really glad I did that because I found a couple key takeaways that drastically changed my project:
 
-#### Introduction
-- What motivates your project?
+- There is no built in way to duplicate multiparm instances, so any new instance is set to defaults, which is really annoying to deal with as a user. As a solution for the pagoda tool, I built in a way to save a layer as a JSON and load it back in. This works, but wasn't as smooth a user experience as I hoped and gets cumbersome quickly. However, this was still very valuable because it was the first time I used python for Houdini UI scripts. Understanding how custom button functions could be scripted opened many more possibilities for improving the UI.
+- I realized that radio buttons aren't as fully built out in Houdini as other parameter types (no way to copy relative references, strange autmatic channel naming, etc.) and it took a while to find a way around those issues so the radio buttoms could still integrate with the multiparm. 
+- Realized that nested multiparms would be extremely confusing for user experience and implementation
+- Realized that my original plan for having features be generated per layer and then be able to delete/add feature wasn't very intuitive
 
-#### Goal
-- What do you intend to achieve with this project?
+So I ended up restructuring my plan for the tool structure to improve user experience and code structure:
+| Original User Workflow      | New UserWorkflow |
+| ----------- | ----------- |
+| Step 1: Create base by choosing layers. Shape grammar generates features for each layer.     | Step 1: Create and tune layers with multiparm       |
+| Step 2: Tune layer parameters for each layer (which also affect the random features)     | Step 2: Generate feature (for whole tower) with shape grammar, which pre-populates multiparm feature menu      |
+| Step 3: Edit grammar output for each layer by deleting generated feature (type in ID). Add hand dressed features in seperate menu.    | Step 3: Edit features multiparm to remove/add/edit features by hand      |
 
-#### Inspiration/reference:
-- You must have some form of reference material for your final project. Your reference may be a research paper, a blog post, some artwork, a video, another class at Penn, etc.  
-- Include in your design doc links to and images of your reference material.
+By seperating the layer and features into different steps of the process and streamlining the plan for the UI, I created a far better plan for the tool. This also necessitated re-planning the technical structure of the tool, hence the [new design doc](https://www.notion.so/elyssac/Fantasy-Towers-V2-cc04456f23a84bb9b8b155841eff1ce6).
 
-#### Specification:
-- Outline the main features of your project.
+I then set to work implementing the new plan, which was a bit more challenging than expected but ultimately worked out well. The only major unresolved hitch in the plan was that custom function handles are tricky to implement along with mutliparms because they would need to be dynamically updated to match the multiparm. This introduces some technical issues (resources on dynamically creating an arbitary number of handles are hard to find) and also user interface questions (how to toggle between handles for different layers/features in an intuitive way?). Though on their own custom handles and multiparms are both reasonable to tackle, they are confusing to combine. Because I'm also new to both of them, I decided that figuring out at the same time will be a bit too tricky for this project, so I won't be making custom handles unless I have extra time at the end. The good news is custom handles don't change the main structure of the project, so if I have time then adding them on at the end should be possible. I think this choice will also give memore time to work on a nice polished visual output. 
 
-#### Techniques:
-- What are the main technical/algorithmic tools you’ll be using? Give an overview, citing specific papers/articles.
-
-#### Design:
-- How will your program fit together? Make a simple free-body diagram illustrating the pieces.
-
-#### Timeline:
-- Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
-
-Submit your Design doc as usual via pull request against this repository.
-## Milestone 1: Implementation part 1 (due 11/16)
-Begin implementing your engine! Don't worry too much about polish or parameter tuning -- this week is about getting together the bulk of your generator implemented. By the end of the week, even if your visuals are crude, the majority of your generator's functionality should be done.
-
-Put all your code in your forked repository.
-
-Submission: Add a new section to your README titled: Milestone #1, which should include
-- written description of progress on your project goals. If you haven't hit all your goals, what's giving you trouble?
-- Examples of your generators output so far
-We'll check your repository for updates. No need to create a new pull request.
-## Milestone 3: Implementation part 2 (due 11/28)
-We're over halfway there! This week should be about fixing bugs and extending the core of your generator. Make sure by the end of this week _your generator works and is feature complete._ Any core engine features that don't make it in this week should be cut! Don't worry if you haven't managed to exactly hit your goals. We're more interested in seeing proof of your development effort than knowing your planned everything perfectly. 
-
-Put all your code in your forked repository.
-
-Submission: Add a new section to your README titled: Milestone #3, which should include
-- written description of progress on your project goals. If you haven't hit all your goals, what did you have to cut and why? 
-- Detailed output from your generator, images, video, etc.
-We'll check your repository for updates. No need to create a new pull request.
-
-Come to class on the due date with a WORKING COPY of your project. We'll be spending time in class critiquing and reviewing your work so far.
-
-## Final submission (due 12/5)
-Time to polish! Spen this last week of your project using your generator to produce beautiful output. Add textures, tune parameters, play with colors, play with camera animation. Take the feedback from class critques and use it to take your project to the next level.
-
-Submission:
-- Push all your code / files to your repository
-- Come to class ready to present your finished project
-- Update your README with two sections 
-  - final results with images and a live demo if possible
-  - post mortem: how did your project go overall? Did you accomplish your goals? Did you have to pivot?
-
-## Topic Suggestions
-
-### Create a generator in Houdini
-
-### A CLASSIC 4K DEMO
-- In the spirit of the demo scene, create an animation that fits into a 4k executable that runs in real-time. Feel free to take inspiration from the many existing demos. Focus on efficiency and elegance in your implementation.
-- Example: 
-  - [cdak by Quite & orange](https://www.youtube.com/watch?v=RCh3Q08HMfs&list=PLA5E2FF8E143DA58C)
-
-### A RE-IMPLEMENTATION
-- Take an academic paper or other pre-existing project and implement it, or a portion of it.
-- Examples:
-  - [2D Wavefunction Collapse Pokémon Town](https://gurtd.github.io/566-final-project/)
-  - [3D Wavefunction Collapse Dungeon Generator](https://github.com/whaoran0718/3dDungeonGeneration)
-  - [Reaction Diffusion](https://github.com/charlesliwang/Reaction-Diffusion)
-  - [WebGL Erosion](https://github.com/LanLou123/Webgl-Erosion)
-  - [Particle Waterfall](https://github.com/chloele33/particle-waterfall)
-  - [Voxelized Bread](https://github.com/ChiantiYZY/566-final)
-
-### A FORGERY
-Taking inspiration from a particular natural phenomenon or distinctive set of visuals, implement a detailed, procedural recreation of that aesthetic. This includes modeling, texturing and object placement within your scene. Does not need to be real-time. Focus on detail and visual accuracy in your implementation.
-- Examples:
-  - [The Shrines](https://github.com/byumjin/The-Shrines)
-  - [Watercolor Shader](https://github.com/gracelgilbert/watercolor-stylization)
-  - [Sunset Beach](https://github.com/HanmingZhang/homework-final)
-  - [Sky Whales](https://github.com/WanruZhao/CIS566FinalProject)
-  - [Snail](https://www.shadertoy.com/view/ld3Gz2)
-  - [Journey](https://www.shadertoy.com/view/ldlcRf)
-  - [Big Hero 6 Wormhole](https://2.bp.blogspot.com/-R-6AN2cWjwg/VTyIzIQSQfI/AAAAAAAABLA/GC0yzzz4wHw/s1600/big-hero-6-disneyscreencaps.com-10092.jpg)
-
-### A GAME LEVEL
-- Like generations of game makers before us, create a game which generates an navigable environment (eg. a roguelike dungeon, platforms) and some sort of goal or conflict (eg. enemy agents to avoid or items to collect). Aim to create an experience that will challenge players and vary noticeably in different playthroughs, whether that means procedural dungeon generation, careful resource management or an interesting AI model. Focus on designing a system that is capable of generating complex challenges and goals.
-- Examples:
-  - [Rhythm-based Mario Platformer](https://github.com/sgalban/platformer-gen-2D)
-  - [Pokémon Ice Puzzle Generator](https://github.com/jwang5675/Ice-Puzzle-Generator)
-  - [Abstract Exploratory Game](https://github.com/MauKMu/procedural-final-project)
-  - [Tiny Wings](https://github.com/irovira/TinyWings)
-  - Spore
-  - Dwarf Fortress
-  - Minecraft
-  - Rogue
-
-### AN ANIMATED ENVIRONMENT / MUSIC VISUALIZER
-- Create an environment full of interactive procedural animation. The goal of this project is to create an environment that feels responsive and alive. Whether or not animations are musically-driven, sound should be an important component. Focus on user interactions, motion design and experimental interfaces.
-- Examples:
-  - [The Darkside](https://github.com/morganherrmann/thedarkside)
-  - [Music Visualizer](https://yuruwang.github.io/MusicVisualizer/)
-  - [Abstract Mesh Animation](https://github.com/mgriley/cis566_finalproj)
-  - [Panoramical](https://www.youtube.com/watch?v=gBTTMNFXHTk)
-  - [Bound](https://www.youtube.com/watch?v=aE37l6RvF-c)
-
-### YOUR OWN PROPOSAL
-- You are of course welcome to propose your own topic . Regardless of what you choose, you and your team must research your topic and relevant techniques and come up with a detailed plan of execution. You will meet with some subset of the procedural staff before starting implementation for approval.
+## Demo of Current Functionality
