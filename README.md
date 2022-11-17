@@ -14,9 +14,9 @@ In milestone 1, I learned the principle of Dense surface packing to complete a s
 
 ### Yuqi Zhang
 Yuqi’s Milestone 1:
-I finished the rain and snow particle generation, for the rain effect, I also worked with the interaction with the particle to geometry. (Rain drops stick on the geometry surface, accumulate to and drops)
-I started working with lightning and got basic shapes. I am still working on the color/light of the lightning.
-I also need more knowledge of rendering in houdini. I assigned the material to the geometry and rain drops, but I did not render the effect I wanted. I may also need to spend some time learning that. 
+I finished the rain and snow particle generation, for the rain effect, I also worked with the interaction with the particle to geometry. (Rain drops stick on the geometry surface, accumulate to and drops) <br>
+I started working with lightning and got basic shapes. I am still working on the color/light of the lightning. <br>
+I also need more knowledge of rendering in houdini. I assigned the material to the geometry and rain drops, but I did not render the effect I wanted. I may also need to spend some time learning that.  <br>
 In milestone 2, I need to keep working on the weathers and maybe also need to think about how to represent them. For example, I want to exhibit the wind by moving plants. I may need to observe how they move. What is more, I also need to keep working with the sound, the thunder and lightning always happen together, also I need to add some rain sound to make sure they combine perfectly. 
 
 ![](./img/rain.png)
