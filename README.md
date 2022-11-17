@@ -97,7 +97,7 @@ By processing the optical flow data using a feedback loop, we can get a smoothly
 
 ![opticalflow](imgs/opticalflow.gif)
 
-Finally, if we composite one of the audio-reactive pattern with the interaction layer, we can get something interesting like this:
+Finally, if we composite one of the audio-reactive patterns with the interaction layer, we can get something interesting like this:
 
 ![compose](imgs/compose.gif)
 
