@@ -65,17 +65,17 @@ float skyPyramids(vec3 queryPos){
   return 0.0;
 }
 
-float weirdPyramid(vec3 queryPos){
-  float final;
-  float mainPart = pyramidSDF(queryPos, vec3(0.0, -0.5, -5.0), 4.0, 4.0, 2.4);
-  mainPart = flatSubtraction(mainPart, cubeSDF(queryPos, vec3(0.0, 1.8, -5.0), vec3(0.5, 0.5, 0.5)));
-  float pyramideon = pyramidSDF(queryPos, vec3(0.0, 1.7, -5.0), 0.4, 0.4, 0.25);
-  pyramideon = flatSubtraction(pyramideon, flatSubtraction(pyramidSDF(queryPos, vec3(0.0, 1.71, -5.0), 0.4*0.9, 0.4*1.1, 0.25*0.88), cubeSDF(queryPos, vec3(0.0, 2.2, -5.0), vec3(0.5, 0.5, 0.5))));
-  pyramideon = flatSubtraction(pyramideon, flatSubtraction(pyramidSDF(queryPos, vec3(0.0, 1.71, -5.0), 0.4*1.1, 0.4*0.9, 0.25*0.88), cubeSDF(queryPos, vec3(0.0, 2.2, -5.0), vec3(0.5, 0.5, 0.5))));
-  float skyPyramid = pyramidSDF(queryPos, vec3(0.0, 4.5, -5.0), 4.0, 4.0, -2.4);
-  final = flatUnion(flatUnion(mainPart, pyramideon), skyPyramid);
-  return final;
-}
+//float weirdPyramid(vec3 queryPos){
+//  float final;
+//  float mainPart = pyramidSDF(queryPos, vec3(0.0, -0.5, -5.0), 4.0, 4.0, 2.4);
+//  mainPart = flatSubtraction(mainPart, cubeSDF(queryPos, vec3(0.0, 1.8, -5.0), vec3(0.5, 0.5, 0.5)));
+//  float pyramideon = pyramidSDF(queryPos, vec3(0.0, 1.7, -5.0), 0.4, 0.4, 0.25);
+//  pyramideon = flatSubtraction(pyramideon, flatSubtraction(pyramidSDF(queryPos, vec3(0.0, 1.71, -5.0), 0.4*0.9, 0.4*1.1, 0.25*0.88), cubeSDF(queryPos, vec3(0.0, 2.2, -5.0), vec3(0.5, 0.5, 0.5))));
+//  pyramideon = flatSubtraction(pyramideon, flatSubtraction(pyramidSDF(queryPos, vec3(0.0, 1.71, -5.0), 0.4*1.1, 0.4*0.9, 0.25*0.88), cubeSDF(queryPos, vec3(0.0, 2.2, -5.0), vec3(0.5, 0.5, 0.5))));
+//  float skyPyramid = pyramidSDF(queryPos, vec3(0.0, 4.5, -5.0), 4.0, 4.0, -2.4);
+//  final = flatUnion(flatUnion(mainPart, pyramideon), skyPyramid);
+//  return final;
+//}
 
 float sceneSDF(vec3 queryPos)
 {
@@ -87,7 +87,7 @@ float sceneSDF(vec3 queryPos)
   //final = flatUnion(final, weirdPyramid(queryPos));
 
   //
-  final = pyramidNormalSDF(transform(queryPos, vec3(0, 0, 0), vec3(0.0, -1.5, 0)),  4.0, 4.0, 2.0);
+  final = pyramidNormalSDF(transform(queryPos, vec3(0, 0, 0), vec3(0.0, -1.5, 0)),  0.5);
   //final = flatUnion(final, triprism(transform(queryPos, vec3(0, 0, 0)), vec3(2.0, 3.5, -5.0), 1.0, 1.0, 1.0));
 
 

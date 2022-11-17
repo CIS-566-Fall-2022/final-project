@@ -53,9 +53,9 @@ float bumpyPlaneSDF2(vec3 p)
     return d1;
 }
 
-float cubeSDF(vec3 query_position, vec3 position, vec3 dims )
+float cubeSDF(vec3 query_position, vec3 dims )
 {
-    vec3 d = abs(query_position - position) - dims;
+    vec3 d = abs(query_position) - dims;
     return min(max(d.x,max(d.y,d.z)),0.0) + length(max(d,0.0));
 }
 
@@ -112,42 +112,81 @@ float triprism(vec3 q_position, float halfWidth, float halfHeight, float halfDep
     return length(max(vec2(d1, d2), 0.0)) + min(max(d1, d2), 0.0);
 }
 
-float pyramidNormalSDF(vec3 q_position, float halfWidth, float halfDepth, float halfHeight) {
+// https://math.stackexchange.com/questions/1641859/distance-function-for-n-prism
+float nGon(in int n, in vec2 p, in float r) {
+    // these 2 lines can be precomputed
+    float an = 6.2831853 / float(n);
+    float he = r * tan(0.5 * an);
+
+    // rotate to first sector
+    p = -p.yx; // if you want the corner to be up
+    float bn = an * floor((atan(p.y, p.x) + 0.5 * an) / an);
+    vec2 cs = vec2(cos(bn), sin(bn));
+    p = mat2(cs.x, -cs.y, cs.y, cs.x) * p;
+
+    // side of polygon
+    return length(p - vec2(r, clamp(p.y, -he, he))) * sign(p.x-r);
+}
+
+float toPrism(in float d2d, in float v, in float size) {
+    vec2 d = vec2(d2d, abs(v) - 0.5 * size);
+    return length(max(d, 0.0)) + min(max(d.x, d.y), 0.0);
+}
+
+float nPrism(in vec3 p, in int n, in float r, in float depth) {
+    float d = nGon(n, p.xy, r);
+    return toPrism(d, p.z, depth);
+}
+
+float pyramidNormalSDF(vec3 p, float h) {
     //q_position -= position;
-    vec3 qp = q_position;
-    qp.xz = abs(q_position.xz);
+    vec3 q_position = p;
 
-    // bottom
-    float s1 = abs(qp.y) - halfHeight;
-    vec3 base = vec3(max(qp.x - halfWidth, 0.0), abs(qp.y + halfHeight), max(qp.z - halfDepth, 0.0));
-    float d1 = dot(base, base);
+    float m2 = h*h + 0.25;
 
-    vec3 q = qp - vec3(halfWidth, -halfHeight, halfDepth);
-    vec3 end = vec3(-halfWidth, 2.0 * halfHeight, -halfDepth);
-    vec3 segment = q - end * clamp(dot(q, end) / dot(end, end), 0.0, 1.0);
-    float d = dot(segment, segment);
+    p.xz = abs(p.xz);
+    p.xz = (p.z>p.x) ? p.zx : p.xz;
+    p.xz -= 0.5;
 
-    // side
-    vec3 normal1 = vec3(end.y, -end.x, 0.0);
-    float s2 = dot(q.xy, normal1.xy);
-    float d2 = d;
-    if (dot(q.xy, -end.xy) < 0.0 && dot(q, cross(normal1, end)) < 0.0) {
-        d2 = s2 * s2 / dot(normal1.xy, normal1.xy);
+    vec3 q = vec3( p.z, h*p.y - 0.5*p.x, h*p.x + 0.5*p.y);
+
+    float s = max(-q.x,0.0);
+    float t = clamp( (q.y-0.5*p.z)/(m2+0.25), 0.0, 1.0 );
+
+    float a = m2*(q.x+s)*(q.x+s) + q.y*q.y;
+    float b = m2*(q.x+0.5*t)*(q.x+0.5*t) + (q.y-m2*t)*(q.y-m2*t);
+
+    float d2 = min(q.y,-q.x*m2-q.y*0.5) > 0.0 ? 0.0 : min(a,b);
+
+    float mainPyramid = sqrt( (d2+q.z*q.z)/m2 ) * sign(max(q.z,-p.y));
+
+    float slant = atan(0.5/h); // 1/2 base , height
+    float prisim1 = nPrism(transform(q_position, vec3(slant, 0, 0), vec3(0, 0, 0)), 3, 0.1, 1.0);
+
+    float final = mainPyramid;
+
+    float num_splits = 5.0;
+    float greeble_radius = 0.04;
+    for(float i=0.0; i<num_splits; i++){
+
+        float _zinc = (tan(slant) * (h / num_splits));
+        float _zstart = -_zinc * (num_splits-i-1.0);
+        for(float j=0.0; j<((num_splits-i)*2.0)-1.0; j++){
+            float _y = (h/num_splits * (i+1.0)) - (h/ (num_splits * 2.0));
+            _y += -(greeble_radius/3.0) + ((2.0*greeble_radius/3.0)*mod(j,2.0));
+            float _x = 0.5 - (tan(slant) * _y);
+            float _z = _zstart;
+            _zstart += _zinc;
+            //final = flatUnion(final, cubeSDF(transform(q_position, vec3(0, 0, 0), vec3(_x, _y, _z)), vec3(0.01, 0.01, 0.01)));
+            vec3 tr1 = transform(q_position, vec3(0, PI/2.0, 0), vec3(_x, _y, _z));
+            vec3 tr2 = transform(tr1, vec3(0, 0, 0), vec3(0, 0, 0)); // y here can be noise
+            float noiseHeight = 0.2*random3d(vec3(_x+j, _y+i, _z));
+            final = flatUnion(final, nPrism(transform(tr2, vec3(-slant, 0, PI*mod(j,2.0)), vec3(0, 0, 0)), 3, greeble_radius, 0.01+noiseHeight));
+        }
+
     }
-    // front/back
-    vec3 normal2 = vec3(0.0, -end.z, end.y);
-    float s3 = dot(q.yz, normal2.yz);
-    float d3 = d;
-    if (dot(q.yz, -end.yz) < 0.0 && dot(q, cross(normal2, -end)) < 0.0) {
-        d3 = s3 * s3 / dot(normal2.yz, normal2.yz);
-    }
 
-    float mainPyramid = sqrt(min(min(d1, d2), d3)) * sign(max(max(s1, s2), s3));
 
-    vec3 prisim1n = vec3(normal1.x+(PI/2.0), normal1.y+(PI/2.0), normal1.z+(PI/2.0));
-    float prisim1 = triprism(transform(q_position, prisim1n, vec3(0, 0, 0)) , 2.0, 2.0, 2.0); 
-
-    float final = flatUnion(mainPyramid, prisim1);
 
     return final;
 }
