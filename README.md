@@ -103,7 +103,7 @@ Submit your Design doc as usual via pull request against this repository.
 ![](roadgenerator.png)
 
 
-General state of things
+* General state of things: I'm behind on the mill generator. The house generator took me longer than expected but I should have it ready for next milestone. Also haven't been able to  push houdini files yet because they are too heavy. Looking to solve that.
 
 ![](stateOfThings.png)
 
