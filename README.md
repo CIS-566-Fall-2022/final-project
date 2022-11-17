@@ -28,11 +28,13 @@ So I ended up restructuring my plan for the tool structure to improve user exper
 | Original User Workflow      | New UserWorkflow |
 | ----------- | ----------- |
 | Step 1: Create base by choosing layers. Shape grammar generates features for each layer.     | Step 1: Create and tune layers with multiparm       |
-| Step 2: Tune layer parameters for each layer (which also affect the random features)     | Step 2: Generate feature (for whole tower) with shape grammar, which pre-populates multiparm feature menu      |
+| Step 2: Tune layer parameters for each layer (which also affect the random features)     | Step 2: Generate features (for whole tower) with shape grammar, which pre-populates multiparm feature menu      |
 | Step 3: Edit grammar output for each layer by deleting generated feature (type in ID). Add hand dressed features in seperate menu.    | Step 3: Edit features multiparm to remove/add/edit features by hand      |
 
 By seperating the layer and features into different steps of the process and streamlining the plan for the UI, I created a far better plan for the tool. This also necessitated re-planning the technical structure of the tool, hence the [new design doc](https://www.notion.so/elyssac/Fantasy-Towers-V2-cc04456f23a84bb9b8b155841eff1ce6).
 
 I then set to work implementing the new plan, which was a bit more challenging than expected but ultimately worked out well. The only major unresolved hitch in the plan was that custom function handles are tricky to implement along with mutliparms because they would need to be dynamically updated to match the multiparm. This introduces some technical issues (resources on dynamically creating an arbitary number of handles are hard to find) and also user interface questions (how to toggle between handles for different layers/features in an intuitive way?). Though on their own custom handles and multiparms are both reasonable to tackle, they are confusing to combine. Because I'm also new to both of them, I decided that figuring out at the same time will be a bit too tricky for this project, so I won't be making custom handles unless I have extra time at the end. The good news is custom handles don't change the main structure of the project, so if I have time then adding them on at the end should be possible. I think this choice will also give memore time to work on a nice polished visual output. 
 
-## Demo of Current Functionality
+## Demos
+In the folder linked below I have a video demoing the current functionality and a walkthrough of the current network/code (files were too big to upload directly).
+https://drive.google.com/drive/folders/1H-OctZ7DNY11PtFCktsheuoef5WzoC8c?usp=sharing
