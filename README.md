@@ -1,5 +1,5 @@
 # Milestone 1 Progress
-Project file: jellyfish-vein-fixed.hipnc
+Project file: jellyfish-m1.hipnc
 ![](img/m1demo.gif)   
 ## Things achieved:
 1. Procedurally modeled Jellyfish with Bell(head), tentacles, and veins.   
