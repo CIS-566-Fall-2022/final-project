@@ -2,6 +2,12 @@
 
 This is it! The culmination of your procedural graphics experience this semester. For your final project, we'd like to give you the time and space to explore a topic of your choosing. You may choose any topic you please, so long as you vet the topic and scope with an instructor or TA. We've provided some suggestions below. The scope of your project should be roughly 1.5 homework assignments). To help structure your time, we're breaking down the project into 4 milestones:
 
+## Milestone #1
+
+Attached is the link to our Milestone 1 doc.
+
+https://docs.google.com/document/d/1oyApgeexDKkh7bSV9Rcp07HbqXWUK2fHu_AdkquL_WQ/edit?usp=sharing
+
 ## Project planning: Design Doc (due 11/9)
 
  For the final project, I am working with Logan! Attached is the link to our Design Doc.
