@@ -144,8 +144,10 @@ float pyramidNormalSDF(vec3 q_position, float halfWidth, float halfDepth, float 
 
     float mainPyramid = sqrt(min(min(d1, d2), d3)) * sign(max(max(s1, s2), s3));
 
-    vec3 prisim1n = vec3(normal1.x+(PI/2.0), normal1.y+(PI/2.0), normal1.z+(PI/2.0));
-    float prisim1 = triprism(transform(q_position, prisim1n, vec3(0, 0, 0)) , 2.0, 2.0, 2.0); 
+    // vec3 prisim1n = vec3(normal2.x+(PI/2.0), normal2.y+(PI/2.0), normal2.z+(PI/2.0));
+    vec3 prisim1n = vec3(normal2.x+(PI/2.0),normal2.y+(PI/2.0)-0.10f, (PI/2.0));
+
+    float prisim1 = triprism(transform(q_position, prisim1n, vec3(0, 0, 0)) , 1.8, 1.8, 1.8); 
 
     float final = flatUnion(mainPyramid, prisim1);
 
