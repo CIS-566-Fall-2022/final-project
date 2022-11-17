@@ -94,3 +94,44 @@ The following diagram shows the things I will have to consider as I build the fe
 - Milestone 1 - Detailed peacock feather generation
 - Milestone 2 - Refining the eye and basic structure of peacock body with primitives
 - Final submission - Tuning and adding additional details to the peacock for an aesthetic final render
+
+---
+
+# Milestone 1 - Peacock feather
+
+## Structure
+
+I followed the Houdini feather tutorial referred above for a basic feather and the tweaked it to make it look like a peacock feather.
+I start off with a line for the main stalk and applied a distance based mask along it. I then used an attribute wrangler to get a density attribute based on the mask and distance from base of the stalk. Using Houdini's `Labs Curve Resample By Density` node, I was able to resample the line and scatter points along the line with varying density.
+
+|Line density mask|Low density sampling|High density sampling|
+|---|---|---|
+|![](images/mask.png)|![](images/dist1.png)|![](images/dist2.png)|
+
+
+I took another line and bent it to generate a single barb curve. After using some noise to update the normal at each point on stalk, I copied all barbs along the stalk and mirrored it. I used distance along geometry again to remap the length of each barb to obtain a peacock feather shape. I also ruffled the barbs and their orientation with noise function.
+
+|Single barb curve|Barbs along stalk|Remaping length and mirror|
+|---|---|---|
+|![](images/barb1.png)|![](images/halfbarbs.png)|![](images/structure.png)|
+
+The barbs are distributed to ensure that they are spaced far away near the base of the stalk and very tightly near the eye. All lines are then given round tube geometry with radius along the length.
+
+
+## Color
+
+The stalk is colored white at its base and brown at its tip (at base of the eye). For the feather colors, I used two `Adjust color attribute` nodes to vary colors along X and Z axis respectively (The feather is placed in XZ plane).
+
+|Stalk coloring|Colors along X|Colors along Z|Blended  feather|
+|---|---|---|---|
+|![](images/stalkcolor.png)|![](images/colorX.png)|![](images/colorZ.png)|![](images/colorXZblend.png)|
+
+Finally I used some 2D SDFs combinations to create colors of the eye.
+
+|Eye colors|Eye positioning|
+|---|---|
+|![](images/eye.png)|![](images/eyePos.png)|
+
+The final feather I generated for this milestone looks as follows after adding a slight bend.
+
+![](images/milestone1.png)
