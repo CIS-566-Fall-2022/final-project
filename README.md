@@ -80,6 +80,34 @@ https://www.youtube.com/watch?v=IcbzGNqnFkA
 
 Submit your Design doc as usual via pull request against this repository.
 ## Milestone 1: Implementation part 1 (due 11/16)
+
+* Added house generator: based on an extruded L system with random window types and door placement plus roof and no roof mode.
+
+
+![](house2.png)
+
+![](house3.png)
+
+![](house4.png)
+
+
+* Added procedural terrain: various types of noise and masks to get terrain
+
+
+![](proceduralterrain.png)
+
+
+* Road generator: using voronoi noise and curve projections
+
+
+![](roadgenerator.png)
+
+
+General state of things
+
+![](stateOfThings.png)
+
+
 Begin implementing your engine! Don't worry too much about polish or parameter tuning -- this week is about getting together the bulk of your generator implemented. By the end of the week, even if your visuals are crude, the majority of your generator's functionality should be done.
 
 Put all your code in your forked repository.
