@@ -78,3 +78,27 @@ The project will explore many common procedural techniques, including but not li
 * If time permitting, implement a simple reprojection layer
 * Color grading and parameters tuning
 * Install the project somewhere on campus
+
+# Milestone 1 Update
+
+For Milestone 1, I experimented with various procedural patterns in order to find one that works best with the vibe of the music as the background layer. Below are some of the patterns that I was able to create following Bileam Tschepe's awesome tutorials. These patterns are currently all just black and white. The color and composition mode will be determined in the next milestone.
+
+| *[Tile Pattern](https://www.youtube.com/watch?v=gXUWcYZ8hqQ&ab_channel=bileamtschepe%28elekktronaut%29)*  | *[Texture Instancing](https://www.youtube.com/watch?v=uFFXUPP0cyg&ab_channel=bileamtschepe%28elekktronaut%29)* |
+| ------------- | ------------- |
+| ![pattern1](imgs/pattern1.gif)  | ![pattern2](imgs/pattern2.gif) |
+
+| *[Texture Feedback](https://www.youtube.com/watch?v=NMvx_icZUhY&t=266s&ab_channel=bileamtschepe%28elekktronaut%29)*  | *[Line Feedback](https://www.youtube.com/watch?v=zCNREVDLVo8&ab_channel=bileamtschepe%28elekktronaut%29)* |
+| ------------- | ------------- |
+| ![pattern1](imgs/pattern3.gif)  | ![pattern2](imgs/pattern4.gif) |
+
+Additionally, I have also tested out the optical flow tool inside TouchDesigner by feeding in a [house dance video](https://www.youtube.com/watch?v=VEE5qqDPVGY&ab_channel=JardySantiago) for testing. This particular video works well because the camera is static, and the framing of the actor is similar to how I would set up my camera sensor. Theoretically, I should be able to just swap the footage with a camera input later on and everything should work accordingly. 
+
+By processing the optical flow data using a feedback loop, we can get a smoothly motion-blurred silhouette of the actor. Finally, optical flow is then used to drive a simple particle system as shown below. The result is very promising as I may potentially not have to get a depth sensor camera and can drive everything using just a webcam.
+
+![opticalflow](imgs/opticalflow.gif)
+
+Finally, if we composite one of the audio-reactive pattern with the interaction layer, we can get something interesting like this:
+
+![compose](imgs/compose.gif)
+
+However, I'm still not happy with the overall look. I do have patterns that I can work with but none of them really speaks with the music. Therefore, I may take or discard elements from each pattern to create something more original and interesting. Moreover, I'm also not satisfied with the color tone. There are some interesting color palettes [here](https://www.shutterstock.com/blog/10-color-palettes-and-patterns-inspired-by-new-york-fashion-week) based on NY fashion week that I will be exploring.
