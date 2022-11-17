@@ -12,7 +12,7 @@ Start off by forking this repository. In your README, write a design doc to outl
 - My final project revolves around recreating the city of Apotos from Sonic Unleashed in Houdini. The idea is to apply multiple concepts learned throughout the class such as noise functions, procedural geometry generation and city creation to achieve an aesthetically pleasing result.
 
 #### Goal
-- The goal of my project is to make an efficient procedural apotos builder in Houdini using a combination of Procedural house generation with controls and procedural terrain. The idea is that the city should look organic so it should have also trees and plants, correct materials and the structure placement should follow a logic that makes in sense in the real world. For example we expect to have house along the streets in the city.
+- The goal of my project is to make an efficient procedural Apotos builder in Houdini using a combination of Procedural house generation with controls and procedural terrain. The idea is that the city should look organic so it should have also trees and plants, correct materials and the structure placement should follow a logic that makes sense in the real world. For example we expect to have house along the streets in the city.
 - Ultimitely the objective with this project is not scale but actually have a couple of realistic looking blocks of the village that mimmic the style of the game really well.
 
 
@@ -54,7 +54,7 @@ https://www.youtube.com/watch?v=j4OBe-rONR4
 #### Techniques:
 - First I'll start by building the house generator using this tutorial and changing the geometry to make it more greek looking:
 https://www.youtube.com/watch?v=r0e7M2B7dL0&list=PLXNFA1EysfYnxvrW27g6e5HhTwKBM2TZC
-- The I'll generate wind mills following this tutorial
+- Then I'll generate wind mills following this tutorial
 https://www.youtube.com/watch?v=afHVjiNeH7A&t=2s
 - Then I will generate the Terrain using this tutorial as a reference:
 https://www.youtube.com/watch?v=rwLbiuKX5D0
@@ -68,10 +68,15 @@ https://www.youtube.com/watch?v=IcbzGNqnFkA
 
 
 #### Design:
-- How will your program fit together? Make a simple free-body diagram illustrating the pieces.
+
+![](diagram.jpg)
 
 #### Timeline:
-- Create a week-by-week set of milestones for each person in your group. Make sure you explicitly outline what each group member's duties will be.
+- (11/9)  Mileston 1 work: have the terrain generation, the house generator and the mill generator HDAs done.
+- (11/16) Add some decorator such trees and barrels.
+- (11/23) Milestone 2 work: have the houses realigned as well as mills. Avoid overlapping geometry. Add optimizations with any file caching as needed and setup camera for renders. Have the base layout of a couple of blocks of the village.
+- (11/28) Final submission work: Download HDRIs and any missing material to prepare renders. Create renders.
+- (12/5) Have the renders ready 
 
 Submit your Design doc as usual via pull request against this repository.
 ## Milestone 1: Implementation part 1 (due 11/16)
