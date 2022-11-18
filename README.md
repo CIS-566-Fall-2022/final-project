@@ -125,7 +125,18 @@ Put all your code in your forked repository.
 
 Submission: Add a new section to your README titled: Milestone #1, which should include
 - written description of progress on your project goals. If you haven't hit all your goals, what's giving you trouble?
+
+I had issues running some of the libraries that I was interested in on my computer, since it's an M1 mac (oof). The tidal cycles community was a great resource, after posting a help me post, the developer of the library helped me install tidal. I can now use tidal for the music generation portion of the project. 
+
+Something that I'm still working on is getting a graphics library. I did find this cool graphics library called [veda](https://veda.gl/), which is build on top of glsl. I was able to get it up and running on my machine, but I won't be able to tie in any audio input into the graphics generator because of audio currently [doesn't work on mac m1's](https://github.com/fand/veda/issues/253). I also tried using pd+gem, but I experienced [some more issues](https://www.reddit.com/r/puredata/comments/yq36kc/gem_on_a_mac_with_m1_chip/) with my processor (I'm sensing a pattern here).
+
+For now, I have just been using hydra in browser with the audio playing on the speakers, since hydra's audio source is the microphone. I might be able to use some OSC control to get around this if time permits.
+
+
 - Examples of your generators output so far
+
+...pending...
+
 We'll check your repository for updates. No need to create a new pull request.
 ## Milestone 3: Implementation part 2 (due 11/28)
 We're over halfway there! This week should be about fixing bugs and extending the core of your generator. Make sure by the end of this week _your generator works and is feature complete._ Any core engine features that don't make it in this week should be cut! Don't worry if you haven't managed to exactly hit your goals. We're more interested in seeing proof of your development effort than knowing your planned everything perfectly. 
