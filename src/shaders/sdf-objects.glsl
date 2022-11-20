@@ -166,25 +166,37 @@ float pyramidNormalSDF(vec3 p, float h) {
     float final = mainPyramid;
 
     float num_splits = 5.0;
-    float greeble_radius = 0.04;
-    for(float i=0.0; i<num_splits; i++){
+    
+    float slant_height = sqrt(h*h + 0.25);
+    float greeble_height = 0.05;
+    float greeble_width = (1.0/slant_height) * greeble_height;
 
-        float _zinc = (tan(slant) * (h / num_splits));
-        float _zstart = -_zinc * (num_splits-i-1.0);
-        for(float j=0.0; j<((num_splits-i)*2.0)-1.0; j++){
-            float _y = (h/num_splits * (i+1.0)) - (h/ (num_splits * 2.0));
-            _y += -(greeble_radius/3.0) + ((2.0*greeble_radius/3.0)*mod(j,2.0));
-            float _x = 0.5 - (tan(slant) * _y);
-            float _z = _zstart;
-            _zstart += _zinc;
-            //final = flatUnion(final, cubeSDF(transform(q_position, vec3(0, 0, 0), vec3(_x, _y, _z)), vec3(0.01, 0.01, 0.01)));
-            vec3 tr1 = transform(q_position, vec3(0, PI/2.0, 0), vec3(_x, _y, _z));
-            vec3 tr2 = transform(tr1, vec3(0, 0, 0), vec3(0, 0, 0)); // y here can be noise
-            float noiseHeight = 0.2*random3d(vec3(_x+j, _y+i, _z));
-            final = flatUnion(final, nPrism(transform(tr2, vec3(-slant, 0, PI*mod(j,2.0)), vec3(0, 0, 0)), 3, greeble_radius, 0.01+noiseHeight));
+    for(float g_i=0.0; g_i<4.0; g_i++){
+        float g_rot = g_i * (PI/2.0);
+        for(float i=0.0; i<num_splits; i++){
+
+            float _zinc = (tan(slant) * (h / num_splits));
+            float _zstart = -_zinc * (num_splits-i-1.0);
+            for(float j=0.0; j<((num_splits-i)*2.0)-1.0; j++){
+                float _y = (h/num_splits * (i+1.0)) - (h/ (num_splits * 2.0));
+                //_y += -(greeble_height/4.0) + ((2.0*greeble_height/4.0)*mod(j,2.0));
+                float _x = 0.5 - (tan(slant) * _y);
+                float _z = _zstart;
+                _zstart += _zinc;
+                //final = flatUnion(final, cubeSDF(transform(q_position, vec3(0, 0, 0), vec3(_x, _y, _z)), vec3(0.01, 0.01, 0.01)));
+                vec3 tr0 = transform(q_position, vec3(0, g_rot, 0), vec3(0, 0, 0));
+                vec3 tr1 = transform(tr0, vec3(0, PI/2.0, 0), vec3(_x, _y, _z));
+                vec3 tr2 = transform(tr1, vec3(0, 0, 0), vec3(0, 0, 0)); // y here can be noise
+                float noiseHeight = 0.2*random3d(vec3(_x+j, _y+i, _z));
+                vec3 prisim_transform = transform(tr2, vec3(-slant, 0, PI*mod(j,2.0)), vec3(0, 0, 0));
+                float prisim = triprism(prisim_transform, greeble_width, greeble_height, 0.01+noiseHeight);
+                //float prisim = nPrism(prisim_transform, 3, greeble_radius, 0.01+noiseHeight);
+                final = flatUnion(final, prisim);
+            }
+
         }
-
     }
+    
 
 
 
