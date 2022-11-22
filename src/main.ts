@@ -39,6 +39,25 @@ let noiseColor: vec4;
 
 let prevTesselations: number = 5;
 
+import jsonsdfs from './sdfs.json';
+
+type flatArr = {
+  data: Float32Array,
+  x: number,
+  y: number,
+  z: number
+}
+
+function toFlatArr(arr: number[][][]){
+  const flat2d = arr.reduce((accumulator, value) => accumulator.concat(value), [])
+  const flat1d = flat2d.reduce((accumulator, value) => accumulator.concat(value), [])
+  const obj: flatArr = {
+    data: new Float32Array(flat1d),
+      x: arr.length, y:arr[0].length , z: arr[0][0].length
+  }
+  return obj;
+}
+
 function loadScene() {
   icosphere = new Icosphere(vec3.fromValues(3, 0, 0), 1, controls.tesselations);
   icosphere.create();
@@ -54,6 +73,7 @@ function loadScene() {
 }
 
 function main() {
+  // console.log(toFlatArr(jsonsdfs['h-pyramid']));
   // Initial display for framerate
   const stats = Stats();
   stats.setMode(0);

@@ -14,7 +14,7 @@ export class Shader {
     for (let partialSource of sources){
       fullSource += partialSource;
     }
-    console.log(fullSource);
+    //console.log(fullSource);
     gl.shaderSource(this.shader, fullSource);
     gl.compileShader(this.shader);
 
