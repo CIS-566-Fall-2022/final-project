@@ -1,4 +1,4 @@
-# Final Project CIS 566 - Houdini Peacock Design Document
+# Final Project CIS 566
 
 ## Motivation
 
@@ -120,7 +120,7 @@ The barbs are distributed to ensure that they are spaced far away near the base 
 
 ## Color
 
-The color pallette used for peacock feathers is shown below:
+For the colors I have mostly referred to the following color palette:  
 ![](images/colorPallettePeacock.png)
 
 The stalk is colored white at its base and brown at its tip (at base of the eye). For the feather colors, I used two `Adjust color attribute` nodes to vary colors along X and Z axis respectively (The feather is placed in XZ plane).
@@ -138,3 +138,13 @@ Finally I used some 2D SDFs combinations to create colors of the eye.
 The final feather I generated for this milestone looks as follows after adding a slight bend.
 
 ![](images/milestone1.png)
+
+# Milestone 2 - Iridescence
+
+[Reference shader toy](https://www.shadertoy.com/view/4t2GDG)   
+[Reference video](https://www.youtube.com/watch?v=Icvp1hrOgn0)   
+[Thin film shader code](https://docs.chaos.com/display/OSLShaders/Thin+Film+Shader)   
+
+| Iridescent noise from top view | Iridescent noise from different angle of viewing |
+|---|---|
+|![](images/m2_ir1.png)|![](images/m2_ir2.png)| 
