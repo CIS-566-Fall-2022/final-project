@@ -120,6 +120,9 @@ The barbs are distributed to ensure that they are spaced far away near the base 
 
 ## Color
 
+The color pallette used for peacock feathers is shown below:
+![](images/colorPallettePeacock.png)
+
 The stalk is colored white at its base and brown at its tip (at base of the eye). For the feather colors, I used two `Adjust color attribute` nodes to vary colors along X and Z axis respectively (The feather is placed in XZ plane).
 
 |Stalk coloring|Colors along X|Colors along Z|Blended  feather|
