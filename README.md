@@ -1,4 +1,4 @@
-# cool crystals thing
+# Crystal Machine
 
 # Milestone 1
 
