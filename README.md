@@ -1,5 +1,23 @@
 # Crystal Machine
 
+# Milestone 2
+
+![all](https://user-images.githubusercontent.com/3106877/204164407-87f98304-dd95-4bee-9328-6cfa161a46f5.png)
+
+For this milestone, I mostly focused on making a simple environment to place the crystals in. I used the actual Astro Gallery as reference for the colors and layout of the room, and I added some procedurally oriented lights at the top to give some variation to the lighting and shadows. I also cached some interesting variations of each crystal type to show the project's procedural nature.
+
+I was originally going to add more crystal types in this section of the project but I decided against it due to time constraints. In the final milestone, I may attempt some more variations, but I'm not sure I'll have time for that given some other projects I have going on.
+
+<details>
+  <summary>More pictures</summary>
+  <img src="https://user-images.githubusercontent.com/3106877/204164447-ca097c64-bc68-42b9-adc7-c4bc26d1e4a5.png" />
+  <img src="https://user-images.githubusercontent.com/3106877/204164449-d03b09f0-602b-4c72-94a3-08c41cb31cb2.png" />
+  <img src="https://user-images.githubusercontent.com/3106877/204164450-0c4f7cd3-627e-4658-917f-2acf7cde506c.png" />
+  <img src="https://user-images.githubusercontent.com/3106877/204164451-c12f424f-40d9-48f7-99fd-04d6edc845dc.png" />
+  <img src="https://user-images.githubusercontent.com/3106877/204164454-574c6689-83f8-44dc-8ad0-8bb35fa851da.png" />
+  <img src="https://user-images.githubusercontent.com/3106877/204164455-69625011-c52b-421d-a9a2-2f474d3b8564.png" />
+</details>
+
 # Milestone 1
 
 I managed to complete 3 different crsytals which I'm pretty happy with. I didn't have time to do the lighting setup, so I'll move that to milestone 2. I think I needed to scale back the project a bit overall, and I definitely will not have time to do the animation. So my end goal now is to add one or two more crystal types and create the museum environment for one or possibly multiple good static renders.
