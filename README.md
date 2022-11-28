@@ -1,5 +1,11 @@
 # Crystal Machine
 
+# Final
+
+TODO:
+- fix overexposure on the top of crystals (try gamma curves or lowering light intensity)
+- add textures/bump mapping to pedestals and floor tiles (maybe to glass as well)
+
 # Milestone 2
 
 ![all](https://user-images.githubusercontent.com/3106877/204164407-87f98304-dd95-4bee-9328-6cfa161a46f5.png)
