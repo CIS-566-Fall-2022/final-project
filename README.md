@@ -73,15 +73,32 @@ Submit your Design doc as usual via pull request against this repository.
 For Milestone1, we worked on a tesselation-based method to divide our pyramid but did not hit the goals. Therefore, we recently switched to the SDF-based method, which is more intuitive.
 ### DONE
 - Implemented the extrusion through a SDF-based method. 
-- Procedural Sky with sun
-- Current Progess
+- Procedural sky with sun
+
+### In Progress 
+- The greeble Algorithm
+
+### Screenshot
 ![](images/img1.png)
-### TODO
 
-- Greeble Algorithm
+## Milestone 2: Implementation part 2 (due 11/28)
 
-We'll check your repository for updates. No need to create a new pull request.
-## Milestone 3: Implementation part 2 (due 11/28)
+### DONE
+
+- The greeble algorithm. 
+
+### In Progress 
+
+- GUI options
+- Better visuals  
+
+### Screenshot
+![](images/img2.png)
+
+
+![](images/img3.png)
+
+
 We're over halfway there! This week should be about fixing bugs and extending the core of your generator. Make sure by the end of this week _your generator works and is feature complete._ Any core engine features that don't make it in this week should be cut! Don't worry if you haven't managed to exactly hit your goals. We're more interested in seeing proof of your development effort than knowing your planned everything perfectly. 
 
 Put all your code in your forked repository.
