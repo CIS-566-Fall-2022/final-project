@@ -22,6 +22,7 @@ const controls = {
   'Color': [ 255, 12, 25 ],
   'Shaders': 'Fireball',
   'Noise Color': [ 255, 255, 0 ],
+  'Depth': 0.1,
 };
 
 let icosphere: Icosphere;
@@ -34,6 +35,7 @@ let square: Square;
 let cube: Cube;
 let squarePyramid: SquarePyramid;
 let time: number = 0;
+let height: number = 0;
 let color: vec4; 
 let noiseColor: vec4; 
 
@@ -84,10 +86,12 @@ function main() {
 
   // Add controls to the gui
   const gui = new DAT.GUI();
-  gui.add(controls, 'tesselations', 0, 8).step(1);
-  gui.add(controls, 'Load Scene');
-  gui.addColor(controls, 'Color');
-  gui.addColor(controls, 'Noise Color');
+  // gui.add(controls, 'tesselations', 0, 8).step(1);
+  // gui.add(controls, 'Load Scene');
+  // gui.addColor(controls, 'Color');
+  // gui.addColor(controls, 'Noise Color');
+  gui.add(controls, 'Depth', 0, 0.5).step(0.02);
+
   // gui.add(controls, 'Shader', 0, 1).step(1);
   // gui.add(controls, 'Shaders', [ 'Lambert', 'Perlin Noise', 'Transform', 'Fireball' ] );
 
@@ -143,7 +147,7 @@ function main() {
     time = 10000;
     color = vec4.fromValues(controls.Color[0] /255, controls.Color[1] / 255, controls.Color[2] / 255, 1);
     noiseColor = vec4.fromValues(controls['Noise Color'][0] /255, controls['Noise Color'][1] / 255, controls['Noise Color'][2] / 255, 1);
-
+    height = controls['Depth'];
     camera.update();
     stats.begin();
     gl.viewport(0, 0, window.innerWidth, window.innerHeight);
@@ -173,7 +177,7 @@ function main() {
     //   ],false);
     // }
 
-    renderer.render(camera, time, color, noiseColor, sdf, [
+    renderer.render(camera, time, height, color, noiseColor, sdf, [
       square,
     ], false);
 
