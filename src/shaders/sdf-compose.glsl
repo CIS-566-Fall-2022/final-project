@@ -68,3 +68,36 @@ vec3 transform(vec3 q, vec3 rot, vec3 trans){
         vec4(0, 0, 0, 1));
     return (vec4(q, 1) * inverse(S  * Rz * Ry * Rx * T)).xyz;
 }
+
+vec3 transform(vec3 q, vec3 rot, vec3 trans, vec3 scale){
+    mat4 S = mat4(
+        vec4(1.0*scale.x, 0, 0, 0),
+        vec4(0, 1.0*scale.y, 0, 0),
+        vec4(0, 0, 1.0*scale.z, 0),
+        vec4(0, 0, 0, 1));
+
+    // Rotation in XY
+    mat4 Rx = mat4(
+        vec4(1, 0, 0, 0),
+        vec4(0, cos(rot.x), -sin(rot.x), 0),
+        vec4(0, sin(rot.x), cos(rot.x), 0),
+        vec4(0, 0, 0, 1));
+    mat4 Ry = mat4(
+        vec4(cos(rot.y), 0, sin(rot.y), 0),
+        vec4(0, 1, 0, 0),
+        vec4(-sin(rot.y), 0, cos(rot.y), 0),
+        vec4(0, 0, 0, 1));
+    mat4 Rz = mat4(
+        vec4(cos(rot.z), -sin(rot.z), 0, 0),
+        vec4(sin(rot.z), cos(rot.z), 0, 0),
+        vec4(0, 0, 1, 0),
+        vec4(0, 0, 0, 1));
+
+    // Translate to (3, 3, 3)
+    mat4 T = mat4(
+        vec4(1, 0, 0, trans.x),
+        vec4(0, 1, 0, trans.y),
+        vec4(0, 0, 1, trans.z),
+        vec4(0, 0, 0, 1));
+    return (vec4(q, 1) * inverse(S  * Rz * Ry * Rx * T)).xyz;
+}
