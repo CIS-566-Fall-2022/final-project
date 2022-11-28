@@ -37,6 +37,8 @@ class ShaderProgram {
   unifColor: WebGLUniformLocation;
   unifNoiseColor: WebGLUniformLocation;
   unifTime: WebGLUniformLocation;
+  unifNoiseHeight: WebGLUniformLocation;
+
   unifCenter: WebGLUniformLocation;
 
   unifRef: WebGLUniformLocation;
@@ -65,6 +67,7 @@ class ShaderProgram {
     this.unifColor      = gl.getUniformLocation(this.prog, "u_Color");
     this.unifNoiseColor = gl.getUniformLocation(this.prog, "u_NoiseColor");
     this.unifTime       = gl.getUniformLocation(this.prog, "u_Time");
+    this.unifNoiseHeight = gl.getUniformLocation(this.prog, "u_NoiseHeight");
     this.unifCenter     = gl.getUniformLocation(this.prog, "u_Center");
     this.unifEye   = gl.getUniformLocation(this.prog, "u_Eye");
     this.unifRef   = gl.getUniformLocation(this.prog, "u_Ref");
@@ -85,7 +88,12 @@ class ShaderProgram {
       gl.uniform1f(this.unifTime, t);
     }
   }
-
+  setNoiseHeight(h: number){
+    this.use();
+    if(this.unifNoiseHeight !== -1){
+      gl.uniform1f(this.unifNoiseHeight, h);
+    }
+  }
   setEyeRefUp(eye: vec3, ref: vec3, up: vec3) {
     this.use();
     if(this.unifEye !== -1) {

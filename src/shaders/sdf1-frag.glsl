@@ -4,6 +4,7 @@ precision highp float;
 uniform vec3 u_Eye, u_Ref, u_Up;
 uniform vec2 u_Dimensions;
 uniform float u_Time;
+uniform float u_NoiseHeight;
 
 in vec2 fs_Pos;
 out vec4 out_Col;
@@ -87,7 +88,7 @@ float sceneSDF(vec3 queryPos)
   //final = flatUnion(final, weirdPyramid(queryPos));
 
   //
-  final = pyramidNormalSDF(transform(queryPos, vec3(0, 0, 0), vec3(0.0, -1.5, 0)),  0.5);
+  final = pyramidNormalSDF(transform(queryPos, vec3(0, 0, 0), vec3(0.0, -1.5, 0)),  0.5, u_NoiseHeight);
   //final = flatUnion(final, triprism(transform(queryPos, vec3(0, 0, 0)), vec3(2.0, 3.5, -5.0), 1.0, 1.0, 1.0));
 
 
