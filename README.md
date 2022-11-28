@@ -6,7 +6,7 @@ Here's the link of our design doc: https://docs.google.com/document/d/1Fy-YzTWK_
 ## Milestone 1
 
 ### Wenqing Wang
-| Pine tree model | Dense surface packing|
+| Dense surface packing | Pine tree model |
 |--|--|
 |<img height = "300" alt="growth" src="img/growth.gif">|<img height = "300" alt="pine_tree" src="img/pine_tree.png">|
 
