@@ -19,7 +19,7 @@ For the interaction part, I finished the accumulated snow on the simple tree. Th
 
 | Snow interactions | 
 |--|
-|<img height = "300" alt="snowy1" src="img/snowy.png">|
+|<img height = "300" alt="snowy" src="img/snow.png">|
 
 
 In the next week, I will work with my teammate to merge this part. I will work with the interaction of snow and rain on the terrain and plants that my teammates implemented. I did not find a good way to transit weathers for now, I will work on that before the final. If I cannot find a good way to transit, I may use keyframe to present different weathers.  The transit between different seasons and weather may also be a challenge for me. I will also work on the weather cycle to make the change of weather as smooth as possible. 
