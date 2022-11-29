@@ -102,3 +102,17 @@ Finally, if we composite one of the audio-reactive patterns with the interaction
 ![compose](imgs/compose.gif)
 
 However, I'm still not happy with the overall look. I do have patterns that I can work with but none of them really speaks with the music. Therefore, I may take or discard elements from each pattern to create something more original and interesting. Moreover, I'm also not satisfied with the color tone. There are some interesting color palettes [here](https://www.shutterstock.com/blog/10-color-palettes-and-patterns-inspired-by-new-york-fashion-week) based on NY fashion week that I will be exploring.
+
+# Milestone 2 Update
+
+For Milestone 2, I did not get as far as I would have liked to, but I was able to tweak some of the parameters of the procedural elements and make some of the parameters audio-reactive. I changed the texture instancing pattern to have larger texture size such that more of the particle systems can be seen once overlayed by the procedural pattern. The particles are now spawned at the bottom, closer to the feet, since House dance focuses a lot on the bottom movements. I have brought the reprojection of the actor as a foreground element so it can be seen more clearly now. Finally, I have also changed the color tone to be cooler, although I'm still not 100% satisfied with it.
+
+Here's a video of the current state:
+
+https://user-images.githubusercontent.com/77313916/204447443-830f3ccc-7921-4b64-8074-61e143c864df.mov
+
+I was not able to test it with a depth sensor or projector as I was not able to acquire them on time. However, I will be getting the ZED mini this week and will rent a projector from the library to test the setup.
+
+
+
+
