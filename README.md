@@ -16,7 +16,7 @@ The functions I implemented are:
 - Procedural placement data can be saved and loaded into a menu
 - Menu parameters can then be tweaked by the user to further tune the generated output
 
-## Week 1 Process
+## Milestone Process
 I thought the radio button/multiparm setup would be the trickiest part of this tool, so I decided to first try and implement that functionality on a different project I'm currently working on (a pagoda generator) as a test run. I thought this would be a good way to get a fuller sense of how it would work in a more completed project (both from an implementation and a user experience side) because making layered pagodas and layered towers follows the same sort of flow. I'm really glad I did that because I found a couple key takeaways that drastically changed my project:
 
 - There is no built in way to duplicate multiparm instances, so any new instance is set to defaults, which is really annoying to deal with as a user. As a solution for the pagoda tool, I built in a way to save a layer as a JSON and load it back in. This works, but wasn't as smooth a user experience as I hoped and gets cumbersome quickly. However, this was still very valuable because it was the first time I used python for Houdini UI scripts. Understanding how custom button functions could be scripted opened many more possibilities for improving the UI.
@@ -38,3 +38,34 @@ I then set to work implementing the new plan, which was a bit more challenging t
 ## Demos
 In the folder linked below I have a video demoing the current functionality and a walkthrough of the current network/code (files were too big to upload directly).
 https://drive.google.com/drive/folders/1H-OctZ7DNY11PtFCktsheuoef5WzoC8c?usp=sharing
+
+# Milestone 2
+
+## Progress Overview
+I now have all of the core functionality completed, and I've continued polishing the existing features/layers and added some additional features/layers. 
+
+The main new things I added are:
+- Refactored systems I implemented last week to make then extendable 
+- New layer type (supports to go under protruding layers)
+- New feature type (wood paneling)
+- Continued developing shape grammar for feature placement 
+- Polished look of existing features
+
+## Milestone Process
+I started by refactoring the systems I created last week (primarily the feature saving/loading process). I made the python functions connected to the button callback and the associated nodes more modular so I could easily reuse functionality when adding new types of features/grammars/etc. This took longer than expected, because when I cleaned up my node network and put things into subnets I caused a lot of problems (usually Houdini audomatically updates connections like the ones in parameter channels, but if there are vex/python references those connections get broken, and I didn't know that so I caused some chaos oops). I'm also pretty new to debugging python modules in Houdini (I've always stuck to nodes/vex in the past), which meant figuring everything out took some time. So while I thought this would be a quick one afternoon task it ended up taking a few days :,) On the plus side, I'm much more comforable with python in Houdini now!
+
+After that I added a new layer type ("supports" for going under protruding pillar and balcony layers). This was fairly simple, but a good sanity check that my layer system was easily extendable, especially because they work a bit different from the other layers (sitting on top of an existing layer, but still affecting the scale of the next layer unlike a "feature")
+
+I then added a new wood paneling feature. The procedural pattern is created by taking a grid lattice, procedurally adding vertical, horizontal and diagonal panels connecting various points on the lattice, projecting those lines onto the main tower shape, and then extruding a shape along those connections to create plank shapes. This was surprisingly very time consuming and finicky to create, but I'm happy with the final result and it allowed me to check that the system I set up for details was robust enough to support many kinds of features. 
+
+The shape grammar for the wood paneling feature was the first one to really take in more detailed context about the tower to inform placement (paneling is randomly placed at divides between pillar layers with height based on the pillars, and then wrapped around the pillar geometry). This opened by eyes to ways the shape grammar for other features could be improved, which I'm excited to explore more for milestone 3. I also tweaked the window shape grammar (ex: windows can no longer appear inside of towers on on the edges of layers).
+
+Lastly, I went through and polished the existing features/layers more. They're not done yet, but I think the new updates add a lot! The main changes are listed below:
+- Placed tiles on the tower tops! Really happy with how "wonky" and imperfect but still organized they look :) 
+- Added bevels to smooth out features like windows and doors
+- Applied noise to pillar shapes to make them a little less "CG" looking, which also helps the wood panels because those get projected onto the pillars
+- Added noise and remeshing for a "chipped" look on the turrets and pillars
+
+## Example Outputs
+<img height="400" alt="TowerExample1_M2" src="https://user-images.githubusercontent.com/25019996/204440005-2c754a03-5a43-47cc-84fe-ec577603c07e.png"><img height="400" alt="TowerExample2_M2" src="https://user-images.githubusercontent.com/25019996/204440008-862cb0ad-5fd5-4a10-ada6-6d364f4009fb.png">
+
