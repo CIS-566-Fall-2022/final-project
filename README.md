@@ -117,6 +117,18 @@ Submission: Add a new section to your README titled: Milestone #1, which should 
 - Examples of your generators output so far
 We'll check your repository for updates. No need to create a new pull request.
 ## Milestone 3: Implementation part 2 (due 11/28)
+
+
+
+* Added more details to the road and adjusted form.
+* Added procedural windmill created with L-Systems.
+* Added Polyhaven sky hdri.
+* Added more detail to the terrain.
+* Added quixel megascans assets for materials in road, house concrete, windmill, grass, and cliffside.
+* Added tree part.
+* I'm still missing some materials and some assets like grass scattering.
+
+
 We're over halfway there! This week should be about fixing bugs and extending the core of your generator. Make sure by the end of this week _your generator works and is feature complete._ Any core engine features that don't make it in this week should be cut! Don't worry if you haven't managed to exactly hit your goals. We're more interested in seeing proof of your development effort than knowing your planned everything perfectly. 
 
 Put all your code in your forked repository.
@@ -127,14 +139,8 @@ Submission: Add a new section to your README titled: Milestone #3, which should 
 We'll check your repository for updates. No need to create a new pull request.
 
 Come to class on the due date with a WORKING COPY of your project. We'll be spending time in class critiquing and reviewing your work so far.
-## Milestone 2: Implementation part 2 (due 11/28)
 
-* Added more details to the road and adjusted form.
-* Added procedural windmill created with L-Systems.
-* Added Polyhaven sky hdri.
-* Added more detail to the terrain.
-* Added quixel megascans assets for materials in road, house concrete, windmill, grass, and cliffside.
-* Added tree part.
+
 
 
 
