@@ -61,11 +61,10 @@ I then added a new wood paneling feature. The procedural pattern is created by t
 The shape grammar for the wood paneling feature was the first one to really take in more detailed context about the tower to inform placement (paneling is randomly placed at divides between pillar layers with height based on the pillars, and then wrapped around the pillar geometry). This opened by eyes to ways the shape grammar for other features could be improved, which I'm excited to explore more for milestone 3. I also tweaked the window shape grammar (ex: windows can no longer appear inside of towers on on the edges of layers).
 
 Lastly, I went through and polished the existing features/layers more. They're not done yet, but I think the new updates add a lot! The main changes are listed below:
-- Placed tiles on the tower tops! Really happy with how "wonky" and imperfect but still organized they look :) 
+- Placed tiles on the tower tops! Really happy with how "wonky" and imperfect but still organized they look :) I plan to add more variations on placement types for milestone 3
 - Added bevels to smooth out features like windows and doors
 - Applied noise to pillar shapes to make them a little less "CG" looking, which also helps the wood panels because those get projected onto the pillars
 - Added noise and remeshing for a "chipped" look on the turrets and pillars
 
 ## Example Outputs
-<img height="400" alt="TowerExample1_M2" src="https://user-images.githubusercontent.com/25019996/204440005-2c754a03-5a43-47cc-84fe-ec577603c07e.png"><img height="400" alt="TowerExample2_M2" src="https://user-images.githubusercontent.com/25019996/204440008-862cb0ad-5fd5-4a10-ada6-6d364f4009fb.png">
-
+<img height="350" alt="TowerExample1_M2" src="https://user-images.githubusercontent.com/25019996/204441589-ee933d83-6b08-44e2-97ee-90aab23ba7cc.png"><img height="350" alt="TowerExample2_M2" src="https://user-images.githubusercontent.com/25019996/204441590-1d6186a6-cb05-4e01-898d-e7ccf92b2f92.png"><img height="350" alt="TowerExample3_M2" src="https://user-images.githubusercontent.com/25019996/204441591-75016043-a8b1-49e8-9eb1-847a94570ccd.png">
