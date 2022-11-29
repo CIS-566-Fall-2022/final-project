@@ -44,6 +44,33 @@ Although I've spend a lot of time and tried a lot of ways to transfer the flip p
 <img width="600" src="/img/particle_smoke_terrain.gif">
 </p>
 
+### Wenqing Wang - Growth simulation on heightfield
+<p align="center">
+<img height = "400" alt="screenshot" src="img/2.png">
+</p>
+
+Since the method, I used for simulation growth on the surface is somehow computationally heavy and would crash my laptop if using more complicated geometries, I tried another way to implement growth simulation in milestone 2. I first tested it on a 10 x 10 grid with a simple noised applied to it, and it looks good with my pine tree growing on it. In order to merge my simulation with Dongying's terrain motion, I then started working on heightfield. 
+The basic settings for my growth are simple. First, I selected a start area with the scattered point on the heightfield for the growth simulation. Then I paint the attribute on the converted heightfield to create the growth path.
+| Start point | growth path |
+|--|--|
+|<img height = "300" alt="start point" src="img/start_pt.png">|<img height = "300" alt="growth path" src="img/pat.png">|
+
+In this phase, I use the color attribute to visualize the expansion of the growth area. I also add a wave at the outer edge to add some motion to the simulation.
+
+| growth area | growth wave |
+|--|--|
+|<img height = "300" alt="growth_along_path" src="img/growth_along_path.gif">|<img height = "300" alt="growth_wave_along_path" src="img/growth_wave_along_path.gif">|
+
+And below is the final result:
+| Pine tree growth simulation on heightfield |
+|-|
+|<img height = "600" alt="tree gowth simulation" src="img/tree_growth_along_path.gif">|
+
+During this milestone, I also started to merge with Dongying's work. Before merging our code, one of my concerns was whether the positions of the trees growing based on the height field would move with them when the terrain started to have some motion. Fortunately, I found that this could be solved by simply replacing the original scatter node with the heightfield scatter node.
+
+The biggest problem we faced so far was the hardware and software limitations. Although we have a GTX 3060 graphics card, we can only use the free version of Houdini and its own CPU-based renderer, so our simulation and rendering in Houdini are super slow. The situation seems to get even worse considering Dongying wants to create more complex terrain and I plan to add other high-resolution assets from Quixel Bridge (i.e. grass, flowers, etc) and create unique growth paths and animations for each (we haven't even merged Yuqi's work yet).
+
+Maybe buying Houdini's commercial version + subscription to Redshift would be a solution, but for now, we are still considering if there is a more affordable solution.
 
 # Milestone 1
 
