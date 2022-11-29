@@ -118,6 +118,7 @@ Submission: Add a new section to your README titled: Milestone #1, which should 
 We'll check your repository for updates. No need to create a new pull request.
 ## Milestone 3: Implementation part 2 (due 11/28)
 
+![](milestone2progress.png)
 
 
 * Added more details to the road and adjusted form.
@@ -125,9 +126,14 @@ We'll check your repository for updates. No need to create a new pull request.
 * Added Polyhaven sky hdri.
 * Added more detail to the terrain.
 * Added quixel megascans assets for materials in road, house concrete, windmill, grass, and cliffside.
+
+![](milestone2progress2.png)
+
 * Added tree part.
 * Since the file is too heavy for github I loaded it here to google drive https://drive.google.com/drive/folders/1ktqONZbyFW1bz0l2qw-rwIQqHJL6xMoR?usp=sharing.
 * I'm still missing some materials and some assets like grass scattering.
+
+
 
 
 We're over halfway there! This week should be about fixing bugs and extending the core of your generator. Make sure by the end of this week _your generator works and is feature complete._ Any core engine features that don't make it in this week should be cut! Don't worry if you haven't managed to exactly hit your goals. We're more interested in seeing proof of your development effort than knowing your planned everything perfectly. 
