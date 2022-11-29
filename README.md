@@ -145,7 +145,13 @@ For this milestone I worked on 2 main things - correcting the shape of my feathe
 
 ## Feather shape
 
-I realised after comparing with reference that my barbs seemed to be rotated curves attached to the stalk. So I corrected that. After a critique session with Rachel I updated the following things:
+I realised after comparing with reference that my barbs seemed to be rotated curves attached to the stalk. So I corrected that and it improved the look a lot.
+
+|Old barb curve|New barb curve|
+|---|---|
+|![](images/barb_old.png)|![](images/barb_new.png)|
+
+After a critique session with Rachel I updated the following things:
 - Pushed the eye higher
 - Made the feather shape around the eye rounder and more suited to look like a feather. I used 2D sdf again to get the shape right and then added some noise to scale the barbs
 
