@@ -183,19 +183,31 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
                 float _x = 0.5 - (tan(slant) * _y);
                 float _z = _zstart;
                 _zstart += _zinc;
-                //final = flatUnion(final, cubeSDF(transform(q_position, vec3(0, 0, 0), vec3(_x, _y, _z)), vec3(0.01, 0.01, 0.01)));
-                vec3 tr0 = transform(q_position, vec3(0, g_rot, 0), vec3(0, 0, 0));
-                vec3 tr1 = transform(tr0, vec3(0, PI/2.0, 0), vec3(_x, _y, _z));
-                vec3 tr2 = transform(tr1, vec3(0, 0, 0), vec3(0, 0, 0)); // y here can be noise
-                float noiseHeight = depth*random3d(vec3(_x+j, _y+i, _z));
-                vec3 prisim_transform = transform(tr2, vec3(-slant, 0, PI*mod(j,2.0)), vec3(0, 0, 0));
-                float prisim = triprism(prisim_transform, greeble_width, greeble_height, 0.01+(depth_scale*noiseHeight));
-                //float prisim = nPrism(prisim_transform, 3, greeble_radius, 0.01+noiseHeight);
-                final = flatUnion(final, prisim);
+
+                // these transforms could probably be optimized...
+                vec3 prisim_transform = transform(q_position, vec3(0, g_rot, 0), vec3(0, 0, 0)); // rotate to a different pyramid face (of four)
+                prisim_transform = transform(prisim_transform, vec3(0, PI/2.0, 0), vec3(_x, _y, _z)); // translate to the position on the face and rotate so prism "points outward"
+
+                float noiseHeight = depth*(-1.0 + 2.0 * random3d(vec3(_x+j, _y+i, _z+g_rot)));
+                float noiseTransform = depth_scale*noiseHeight;
+                float zshift = noiseTransform;
+                prisim_transform = transform(prisim_transform, vec3(-slant, 0, PI*mod(j,2.0)), vec3(0, 0, 0));
+                if(noiseHeight < 0.0){
+                    zshift += 0.02;  // prevent z-fighting during subtraction
+                }
+                prisim_transform = transform(prisim_transform, vec3(0, 0, 0), vec3(0, 0, zshift));
+                float prisim = triprism(prisim_transform, greeble_width, greeble_height, abs(noiseTransform));
+
+                if(noiseHeight > 0.0){
+                    final = flatUnion(final, prisim);
+                }else{
+                    final = flatSubtraction(final, prisim);
+                }
+
             }
 
         }
-        break;
+        //break;
     }
     
 

@@ -29,7 +29,7 @@ float flatIntersection(float shape1, float shape2){
 }
 
 float flatSubtraction(float base, float subtraction){
-    return flatIntersection(base, -subtraction);
+    return max(base, -subtraction);
 }
 
 //float flatInterpolatation(float shape1, float shape2, float amount){
