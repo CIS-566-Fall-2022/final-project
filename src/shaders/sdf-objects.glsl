@@ -138,6 +138,23 @@ float nPrism(in vec3 p, in int n, in float r, in float depth) {
     return toPrism(d, p.z, depth);
 }
 
+float sdTorus( vec3 p, vec2 t )
+{
+    vec2 q = vec2(length(p.xz)-t.x,p.y);
+    return length(q)-t.y;
+}
+
+float sdCappedTorus(in vec3 p, in vec2 sc, in float ra, in float rb)
+{
+    p.x = abs(p.x);
+    float k = (sc.y*p.x>sc.x*p.y) ? dot(p.xy,sc) : length(p.xy);
+    return sqrt( dot(p,p) + ra*ra - 2.0*ra*k ) - rb;
+}
+
+float hourglass(vec3 p){
+    return sdTorus(p, vec2(0.15, 0.03));
+}
+
 float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float num_splits, float split_height_scale) {
     //q_position -= position;
     vec3 q_position = p;
@@ -173,6 +190,8 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
 
     for(float g_i=0.0; g_i<4.0; g_i++){
         float g_rot = g_i * (PI/2.0);
+
+        // the main triangles that get shifted in/out
         for(float i=0.0; i<num_splits; i++){
 
             float _zinc = (tan(slant) * (h / num_splits));
@@ -207,6 +226,25 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
             }
 
         }
+
+        // spread symbols randomly
+        for(float i=0.0; i<35.0; i++){
+            float _y = random1d(i+g_i) * h;
+            float _x = 0.5 - (tan(slant) * _y);
+            float _z = -0.5 + random1d(_y);
+            //_z = 0.0;
+
+            vec3 shape_transform = transform(q_position, vec3(0, g_rot, 0), vec3(0, 0, 0));
+            shape_transform = transform(shape_transform, vec3(0, PI/2.0, 0), vec3(_x, _y, _z));
+            shape_transform = transform(shape_transform, vec3(-slant+PI/2.0, 0, 0), vec3(0, 0, 0));
+            float scale = 0.3;
+            shape_transform = transform(shape_transform, vec3(0, 0, 0), vec3(0, 0.02, 0), vec3(1.0 * scale, 7.0 * scale, 1.0 * scale));
+
+            float shape = hourglass(shape_transform);
+            final = flatSubtraction(final, shape);
+
+        }
+
         //break;
     }
     
