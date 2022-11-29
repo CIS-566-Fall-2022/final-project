@@ -2,7 +2,6 @@ the think i like about hydra is that you can easily apply sound input to the vis
 
 using fft with osc
 ...
-
 [![Image from Gyazo](https://i.gyazo.com/efadb5318f7fefdc8b16686e4f47db2f.gif)](https://gyazo.com/efadb5318f7fefdc8b16686e4f47db2f)
 
 
