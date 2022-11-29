@@ -139,7 +139,68 @@ The final feather I generated for this milestone looks as follows after adding a
 
 ![](images/milestone1.png)
 
-# Milestone 2 - Iridescence
+# Milestone 2 - Iridescence and shape
+
+For this milestone I worked on 2 main things - correcting the shape of my feather and trying to get iridescence working. I also worked on trying to set a path for the camera and feather to follow and animate, but it is stilll work in progress
+
+## Feather shape
+
+I realised after comparing with reference that my barbs seemed to be rotated curves attached to the stalk. So I corrected that. After a critique session with Rachel I updated the following things:
+- Pushed the eye higher
+- Made the feather shape around the eye rounder and more suited to look like a feather. I used 2D sdf again to get the shape right and then added some noise to scale the barbs
+
+My reformed feather structure looks as follows:  
+![](images/m2_shape3.png)
+
+
+## Iridescence
+
+I used the following cosine color palette to get iridescence colors:  
+
+| Iridescence color reference | Iridescence color pallette |
+|---|---|
+|![](images/ir_color_ref.jpg)|![](images/ir_color_palette.png)|
+
+|a|b|c|d|
+|---|---|---|---|
+|(0.500 0.500 0.500) | (0.500 0.500 0.500) | (0.718 0.988 1.000) | (-0.222 0.448 0.898) |
+
+The following figure shows what the iridescence colors look like from different views:   
+
+---
+### Top View
+Notice the purple/pink very prominent at tips and the middle where the barbs curve in   
+![](images/ir_top.png)
+
+---
+
+### Side Views
+
+In the following images you can observe the changing green and yellow shades and compare it with the look from top view.   
+![](images/ir_side.png)   
+![](images/ir_side2.png)
+
+
+I multiplied the color directly with the feather color and it shows the following look   
+![](images/ir_top_color.png)
+
+**I do not like the idea of multiplying it. In my next milestone I will try to set this color as a specular/sheen color in the material assigned to my feather.**
+
+## Camera animation
+
+I tried adding camera and feather animation but I am not satisfied with the renders. I still need to work on lighting to get the renders right.   
+![](images/anim1.gif)
+
+# Milestone 3 Goals:
+
+1. Set iridescence as specular highlight
+2. Tune iridescence to give better look
+3. Complete animation and lighting setup for rendering
+4. Make parameters available for updating features of the feather to generate multipe randomized feathers
+
+**Iridescence bloopers:**
+
+I initially started off by following the following think film shader turorials and shadertoy example which calculated iridescent colors using complex wavelength functions or using noise functions and I was not happy with the results much
 
 [Reference shader toy](https://www.shadertoy.com/view/4t2GDG)   
 [Reference video](https://www.youtube.com/watch?v=Icvp1hrOgn0)   
@@ -149,6 +210,3 @@ The final feather I generated for this milestone looks as follows after adding a
 |---|---|
 |![](images/m2_ir1.png)|![](images/m2_ir2.png)| 
 
-![](rendervid/v2.gif)
-
-a,b,c,d color palette values for iridescence = [[0.500 0.500 0.500] [0.500 0.500 0.500] [0.718 0.988 1.000] [-0.222 0.448 0.898]]
