@@ -126,6 +126,7 @@ We'll check your repository for updates. No need to create a new pull request.
 * Added more detail to the terrain.
 * Added quixel megascans assets for materials in road, house concrete, windmill, grass, and cliffside.
 * Added tree part.
+* Since the file is too heavy for github I loaded it here to google drive https://drive.google.com/drive/folders/1ktqONZbyFW1bz0l2qw-rwIQqHJL6xMoR?usp=sharing.
 * I'm still missing some materials and some assets like grass scattering.
 
 
