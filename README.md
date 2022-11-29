@@ -148,3 +148,7 @@ The final feather I generated for this milestone looks as follows after adding a
 | Iridescent noise from top view | Iridescent noise from different angle of viewing |
 |---|---|
 |![](images/m2_ir1.png)|![](images/m2_ir2.png)| 
+
+![](rendervid/v2.gif)
+
+a,b,c,d color palette values for iridescence = [[0.500 0.500 0.500] [0.500 0.500 0.500] [0.718 0.988 1.000] [-0.222 0.448 0.898]]
