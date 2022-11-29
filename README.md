@@ -67,4 +67,4 @@ Lastly, I went through and polished the existing features/layers more. They're n
 - Added noise and remeshing for a "chipped" look on the turrets and pillars
 
 ## Example Outputs
-<img height="350" alt="TowerExample1_M2" src="https://user-images.githubusercontent.com/25019996/204441589-ee933d83-6b08-44e2-97ee-90aab23ba7cc.png"><img height="350" alt="TowerExample2_M2" src="https://user-images.githubusercontent.com/25019996/204441590-1d6186a6-cb05-4e01-898d-e7ccf92b2f92.png"><img height="350" alt="TowerExample3_M2" src="https://user-images.githubusercontent.com/25019996/204441591-75016043-a8b1-49e8-9eb1-847a94570ccd.png">
+<img height="340" alt="TowerExample1_M2" src="https://user-images.githubusercontent.com/25019996/204441589-ee933d83-6b08-44e2-97ee-90aab23ba7cc.png"><img height="340" alt="TowerExample2_M2" src="https://user-images.githubusercontent.com/25019996/204441590-1d6186a6-cb05-4e01-898d-e7ccf92b2f92.png"><img height="340" alt="TowerExample3_M2" src="https://user-images.githubusercontent.com/25019996/204441591-75016043-a8b1-49e8-9eb1-847a94570ccd.png">
