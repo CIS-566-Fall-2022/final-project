@@ -145,7 +145,7 @@ For this milestone I worked on 2 main things - correcting the shape of my feathe
 
 ## Feather shape
 
-I realised after comparing with reference that my barbs seemed to be rotated curves attached to the stalk. So I corrected that and it improved the look a lot.
+I realised after comparing with reference that my barbs curve seemed to be incorrectly bent. So I corrected that by rotating the barb before attaching it to the stalk and it improved the look a lot.
 
 |Old barb curve|New barb curve|
 |---|---|
