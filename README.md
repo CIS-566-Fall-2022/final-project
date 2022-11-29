@@ -8,11 +8,21 @@ Here's the link of our design doc: https://docs.google.com/document/d/1Fy-YzTWK_
 ## Weather
 ### Yuqi Zhang
 For milestone 2, I finished most part of different weathers, I still getting bugs on thunders and lightning part. 
+The Cloud will be used in sunny weather and raining/snowy weather. The color(shadow) of the cloud will change based on the timeframe. 
+There are also be different layers of cloud, I finished two layers, the cloud on the top layer will be lighter and move fast. But rendering one frame of cloud takes about 40 minutes, so I didn't include the gif of the cloud. 
 | Cloud | Cloud with sample scene|
 |--|--|
 |<img height = "300" alt="cloud1" src="img/cloud1.png">|<img height = "300" alt="cloud2" src="img/cloud2.png">|
 
-I did not find a good way to transit different weather smoothly, I may work on that before the final. If I cannot find a good way to transit, I may use keyframe to present different weathers. 
+
+For the interaction part, I finished the accumulated snow on the simple tree. The interaction between objects and snow only has the relationship of accumulation. The interaction between rain and objects may be more complicated. The rain drops may accumulate, sliding, sticking on the surface of the objects. 
+
+| Snow interactions | 
+|--|
+|<img height = "300" alt="snowy1" src="img/snowy.png">|
+
+
+In the next week, I will work with my teammate to merge this part. I will work with the interaction of snow and rain on the terrain and plants that my teammates implemented. I did not find a good way to transit weathers for now, I will work on that before the final. If I cannot find a good way to transit, I may use keyframe to present different weathers.  The transit between different seasons and weather may also be a challenge for me. I will also work on the weather cycle to make the change of weather as smooth as possible. 
 
 ## Fluid Landscape and Growth
 
