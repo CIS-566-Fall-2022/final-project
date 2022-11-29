@@ -144,9 +144,47 @@ We're over halfway there! This week should be about fixing bugs and extending th
 Put all your code in your forked repository.
 
 Submission: Add a new section to your README titled: Milestone #3, which should include
-- written description of progress on your project goals. If you haven't hit all your goals, what did you have to cut and why? 
-- Detailed output from your generator, images, video, etc.
-We'll check your repository for updates. No need to create a new pull request.
+- **written description of progress on your project goals. If you haven't hit all your goals, what did you have to cut and why?** 
+
+> I have finally found a devloop. I will be using [gibber](https://github.com/gibber-cc/gibberwocky) for my audiovisuals demo.
+> 
+> progress: 
+>  - a minute of visuals
+>  - an understanding of how to map fft to visuals
+>  - osc exploration
+>  - gibber/ scripting intro
+>  - a working devloop (omg so happy)
+>    - also, when i thought i wasn't making progress getting lost in tidal/hydra/veda/threejs documentaton, all of those examples still applied in the end because gibber has tidal and hydra support. also, it's in node/js which is nice since it's a nice recap of cis350.
+> 
+> goals: 
+>  - more exploration with fft
+>  - sequencing visuals
+>  - loading samples
+>  - running a local webserver to access local files
+>    - maybe keyboard/midi if time permitting
+
+
+
+- **Detailed output from your generator, images, video, etc.
+We'll check your repository for updates. No need to create a new pull request.**
+
+> here are some more clips of my first vj algojam
+> 
+> lines and waves
+> [![Image from Gyazo](https://i.gyazo.com/e1cfeb201119d643f0815baf85d5dccf.gif)](https://gyazo.com/e1cfeb201119d643f0815baf85d5dccf)
+> 
+> bring in the square
+> 
+> [![Image from Gyazo](https://i.gyazo.com/98c1ce5fa0f9b843037f31961e23e39c.gif)](https://gyazo.com/98c1ce5fa0f9b843037f31961e23e39c)
+>
+> 
+> jam with the cam
+> 
+> [![Image from Gyazo](https://i.gyazo.com/bf2527aecfa51dc404528de65f8d23c4.gif)](https://gyazo.com/bf2527aecfa51dc404528de65f8d23c4)
+
+
+
+
 
 Come to class on the due date with a WORKING COPY of your project. We'll be spending time in class critiquing and reviewing your work so far.
 

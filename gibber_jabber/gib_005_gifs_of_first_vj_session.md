@@ -1,5 +1,7 @@
 the think i like about hydra is that you can easily apply sound input to the visuals. it's also really easy to get vivid colors and dynamic images with the osc synth setup.
 
+//peep the /media folder if these gyazo links don't work anymore
+
 using fft with osc
 ...
 
