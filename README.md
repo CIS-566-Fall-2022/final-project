@@ -127,6 +127,16 @@ Submission: Add a new section to your README titled: Milestone #3, which should 
 We'll check your repository for updates. No need to create a new pull request.
 
 Come to class on the due date with a WORKING COPY of your project. We'll be spending time in class critiquing and reviewing your work so far.
+## Milestone 2: Implementation part 2 (due 11/28)
+
+* Added more details to the road and adjusted form.
+* Added procedural windmill created with L-Systems.
+* Added Polyhaven sky hdri.
+* Added more detail to the terrain.
+* Added quixel megascans assets for materials in road, house concrete, windmill, grass, and cliffside.
+* Added tree part.
+
+
 
 ## Final submission (due 12/5)
 Time to polish! Spen this last week of your project using your generator to produce beautiful output. Add textures, tune parameters, play with colors, play with camera animation. Take the feedback from class critques and use it to take your project to the next level.
