@@ -1,3 +1,16 @@
+# Milestone 2 Progress
+Project file: jellyfish-m2.hipnc   
+![](img/m2.gif)   
+## Things achieved:
+1. The jellyfish used to have simple line as tentacles. I changed them to polylines and added materials for them. Now they look better and allow easier modifications.   
+2. The primary focuse for this milestone is the ocean simulator. As the demo gif above shows, it looks very good. However, the running time is horrible!
+
+## Goals for the final submission
+1. Maybe a full physically based water simulation isn't neccessary at all! I will research on how to create water bubbles surrounding the jellyfish and find a good overlay shader to mimic the in-water effect. 
+2. I still haven't added the controls for the shapes and veins. It will be very neccessary since I plan to render many different jellyfishes in the final scene. 
+3. The movement of the jellyfish (mainly the speed) should be a little more random.
+4. Add the final shading (colorful tentacles and ocean layers).  
+
 # Milestone 1 Progress
 Project file: jellyfish-m1.hipnc
 ![](img/m1demo.gif)   
