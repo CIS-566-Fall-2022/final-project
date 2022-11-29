@@ -2,9 +2,10 @@ the think i like about hydra is that you can easily apply sound input to the vis
 
 using fft with osc
 ...
-[![Image from Gyazo](https://i.gyazo.com/efadb5318f7fefdc8b16686e4f47db2f.gif)](https://gyazo.com/efadb5318f7fefdc8b16686e4f47db2f)
 
-
+<video width="320" height="240" controls>
+  <source src="media/intro_fft.mp4" type="video/mp4">
+</video>
 
 i learned that you can use *() = >*  in hydra to take the result of the FFT bucket as an input. here's more about the [*fast fourier transform*](https://www.peteronion.org.uk/FFT/FastFourier.html)
 
