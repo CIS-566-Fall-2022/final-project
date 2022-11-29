@@ -138,7 +138,7 @@ float nPrism(in vec3 p, in int n, in float r, in float depth) {
     return toPrism(d, p.z, depth);
 }
 
-float pyramidNormalSDF(vec3 p, float h, float depth) {
+float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float num_splits, float split_height_scale) {
     //q_position -= position;
     vec3 q_position = p;
 
@@ -165,10 +165,10 @@ float pyramidNormalSDF(vec3 p, float h, float depth) {
 
     float final = mainPyramid;
 
-    float num_splits = 15.0;
+    //float num_splits = 15.0;
     
     float slant_height = sqrt(h*h + 0.25);
-    float greeble_height = 0.01;
+    float greeble_height = (slant_height / num_splits) * split_height_scale * 0.5;
     float greeble_width = (1.0/slant_height) * greeble_height;
 
     for(float g_i=0.0; g_i<4.0; g_i++){
@@ -189,12 +189,13 @@ float pyramidNormalSDF(vec3 p, float h, float depth) {
                 vec3 tr2 = transform(tr1, vec3(0, 0, 0), vec3(0, 0, 0)); // y here can be noise
                 float noiseHeight = depth*random3d(vec3(_x+j, _y+i, _z));
                 vec3 prisim_transform = transform(tr2, vec3(-slant, 0, PI*mod(j,2.0)), vec3(0, 0, 0));
-                float prisim = triprism(prisim_transform, greeble_width, greeble_height, 0.01+(0.3*noiseHeight));
+                float prisim = triprism(prisim_transform, greeble_width, greeble_height, 0.01+(depth_scale*noiseHeight));
                 //float prisim = nPrism(prisim_transform, 3, greeble_radius, 0.01+noiseHeight);
                 final = flatUnion(final, prisim);
             }
 
         }
+        break;
     }
     
 
