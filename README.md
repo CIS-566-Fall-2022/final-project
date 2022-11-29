@@ -35,5 +35,11 @@ As the picture shows above, I create a velocity field with Volume Node, and the 
 
 According to the reference, the author said he transfered the flip tank particle motion to heightfield. So, I created a simple flip tank particle effect and then used the particle velocity to create a velocity field volume. However, the reulst seems not correct, it might be the problem that the velocity field has more y direction's velocity. So, the terrian move upward rather than moved on xz plane. 
 
+## Milestone 2
+### Yuqi Zhang
+For milestone 2, I finished most part of different weathers, I still getting bugs on thunders and lightning part. 
+
+I did not find a good way to transit different weather smoothly, I may work on that before the final. If I cannot find a good way to transit, I may use keyframe to present different weathers. 
+
 
 
