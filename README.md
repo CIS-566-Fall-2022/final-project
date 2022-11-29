@@ -38,6 +38,9 @@ According to the reference, the author said he transfered the flip tank particle
 ## Milestone 2
 ### Yuqi Zhang
 For milestone 2, I finished most part of different weathers, I still getting bugs on thunders and lightning part. 
+| Cloud | Cloud with sample scene|
+|--|--|
+|<img height = "300" alt="cloud1" src="img/cloud1.png">|<img height = "300" alt="cloud2" src="img/cloud2.png">|
 
 I did not find a good way to transit different weather smoothly, I may work on that before the final. If I cannot find a good way to transit, I may use keyframe to present different weathers. 
 
