@@ -88,12 +88,13 @@ float sceneSDF(vec3 queryPos)
   //final = flatUnion(final, weirdPyramid(queryPos));
 
   //
-  final = pyramidNormalSDF(transform(queryPos, vec3(0, 0, 0), vec3(0.0, -1.5, 0), vec3(2.0, 2.0, 2.0)),  0.5,
+  //final = planeSDF(queryPos, 0.0);
+  final = pyramidNormalSDF(transform(queryPos, vec3(0, 0, 0), vec3(0.0, -1.5, 0), vec3(4.0, 4.0, 4.0)),  0.5,
                            u_NoiseHeight,
                            0.5,
                            5.0,
                            1.0);
-  //final = flatUnion(final, triprism(transform(queryPos, vec3(0, 0, 0)), vec3(2.0, 3.5, -5.0), 1.0, 1.0, 1.0));
+  final = flatUnion(final, planeSDF(queryPos, -1.6));
 
 
 
