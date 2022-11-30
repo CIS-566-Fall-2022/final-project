@@ -31,7 +31,11 @@ struct Ray
   vec3 origin;
   vec3 direction;
 };
-
+struct DirectionalLight
+{
+    vec3 dir;
+    vec3 color;
+};
 Ray getRay(vec2 uv) {
   Ray ray;
 
@@ -48,7 +52,7 @@ Ray getRay(vec2 uv) {
   return ray;
 }
 
-const float NUM_HILLS = 5.0;
+const float NUM_HILLS = 10.0;
 const float HILL_X_WIDTH = 20.0;
 const float HILL_Z_WIDTH = 14.0;
 
@@ -120,15 +124,31 @@ vec3 estimateNormal(vec3 p) {
 
 vec3 lambertColor(Intersection intersection, float daycycle){
   vec3 albedo = vec3(0.99, 0.91, 0.72);
+  // vec4 diffuseColor = u_Color;
+  
+  DirectionalLight lights[3];
+  lights[0] = DirectionalLight(normalize(vec3(0.0, 3.0, 0.0)),
+                                normalize(vec3(1, 1, 1)));
+  lights[1] = DirectionalLight(normalize(vec3(0., 1., 0.)),
+                                normalize(vec3(124, 104, 95)));
+  lights[2] = DirectionalLight(normalize(-vec3(15.0, 0.0, 10.0)),
+                                normalize(vec3(72, 53, 39)));
+
   vec3 norm = estimateNormal(intersection.position);
 
   float dayProgression = abs(sin(daycycle * 3.14159));
+  vec3 color;
+  for(int i = 1; i < 3; ++i) {
+      color += albedo *
+                lights[i].color *
+                max(0.0, dot(norm, lights[i].dir));
+  }
 
-  vec3 color = albedo * 0.1 * vec3(1.0, 1.0, 1.0) * max(0.0, dot(norm, normalize(vec3(4.0, 15.0, -10.0))));
+  // vec3 color = albedo * 0.1 * vec3(1.0, 1.0, 1.0) * max(0.0, dot(norm, normalize(vec3(4.0, 15.0, -10.0))));
 
-  color += vec3(0.96, 0.28, 0.74) * 0.1 * max(0.0, dot(norm, normalize(vec3(0.0, 10.0, 0.0))));
-  //color = max(color, albedo*0.2);
-  color += vec3(0.96, 0.88, 0.74) * dayProgression * max(0.0, dot(norm, normalize(vec3((dayProgression-0.5) * 60.0, 10.0, (dayProgression-0.5) * 40.0))));
+  // color += vec3(0.96, 0.28, 0.74) * 0.1 * max(0.0, dot(norm, normalize(vec3(0.0, 10.0, 0.0))));
+  // //color = max(color, albedo*0.2);
+  // color += vec3(0.96, 0.88, 0.74) * dayProgression * max(0.0, dot(norm, normalize(vec3((dayProgression-0.5) * 60.0, 10.0, (dayProgression-0.5) * 40.0))));
 
   return color;
 }
@@ -215,11 +235,8 @@ vec3 skyColorAtTime(vec2 uv, float daycycle){
   vec3 duskColor = getSkyBackground(uv, sunDusk);
   vec3 dayColor = getSkyBackground(uv, sunDay);
 
-
   // day night cycle should progress with peak at 0.0 / 1.0 for dusk, 0.3 and 0.7 for mid, and 0.5 for day
   vec3 finalColor;
-
-
 
   finalColor = mix(duskColor, midColor, smoothstep(0.0, 0.2, daycycle));
   finalColor = mix(finalColor, dayColor, smoothstep(0.2, 0.5, daycycle));
@@ -232,38 +249,49 @@ vec3 skyColorAtTime(vec2 uv, float daycycle){
 
 vec3 getSun(in vec2 uv, float opacity, float dayCycle)
 {
-  float dayProgression = abs(cos(dayCycle * 3.14159));
-  vec2 st = uv;
-  uv -= .5;
-  uv.x *= u_Dimensions.x / u_Dimensions.y;
+  // float dayProgression = abs(cos(dayCycle * 3.14159));
+  // vec2 st = uv;
+  // uv -= .5;
+  // uv.x *= u_Dimensions.x / u_Dimensions.y;
 
-  uv.y += 0.05;
-  uv.y += bias(dayProgression, 0.1);
+  // uv.y += 0.05;
+  // uv.y += bias(dayProgression, 0.1);
 
-  float radius = 0.1;
-  float uvLength = 1. - length(uv);
-  vec3 sun;
-  float sunOpacity = 1.;
-  float time = u_Time * 0.001;
+  // float radius = 0.1;
+  // float uvLength = 1. - length(uv);
+  // vec3 sun;
+  // float sunOpacity = 1.;
+  // float time = u_Time * 0.1;
 
-  for(int i = 0; i < 10; i++)
-  {
-    sunOpacity *= 0.6;
-    sun += vec3(smoothstep(0.95 - radius, 0.953 - radius, uvLength) * sunOpacity) * vec3(1., 0.6, 0.);
-    sun = clamp(sun, 0., 1.);
-    radius *= 1.3 + sin(time) / 100.;
-  }
+  // for(int i = 0; i < 10; i++)
+  // {
+  //   sunOpacity *= 0.6;
+  //   sun += vec3(smoothstep(0.95 - radius, 0.953 - radius, uvLength) * sunOpacity) * vec3(1., 0.6, 0.);
+  //   sun = clamp(sun, 0., 1.);
+  //   radius *= 1.3 + sin(time) / 100.;
+  // }
 
-  sun *= opacity;
-  sun.g *= 0.9;
+  // sun *= opacity;
+  // sun.g *= 0.9;
 
-  vec3 sunGlow = clamp(1. - vec3(length(uv * 2.)), 0., 1.) * opacity;
-  sunGlow *= smoothstep(0.1 - sin(time) / 10., 1. - sin(time) / 10., sunGlow);
+  // vec3 sunGlow = clamp(1. - vec3(length(uv * 2.)), 0., 1.) * opacity;
+  // sunGlow *= smoothstep(0.1 - sin(time) / 10., 1. - sin(time) / 10., sunGlow);
 
-  vec3 flare = 1. - vec3(distance(vec2(st.x * 1.5 - 0.25, st.y * 2. - 0.5), vec2(0.5))) * 2. + sin(time) / 40.;
-  flare = clamp(flare * vec3(1., 0.8, 0.), 0., 1.);
+  // vec3 flare = 1. - vec3(distance(vec2(st.x * 1.5 - 0.25, st.y * 2. - 0.5), vec2(0.5))) * 2. + sin(time) / 40.;
+  // flare = clamp(flare * vec3(1., 0.8, 0.), 0., 1.);
 
-  return sun + (sunGlow + flare) / 4.;
+  // return sun + (sunGlow + flare) / 4.;
+
+
+  Ray ray = getRay(uv);
+
+  // sun
+  float sunn = clamp( dot(normalize(vec3(0.0, 2.0, 10.0)), ray.direction), 0.0, 1.0 );
+  
+  vec3 color = vec3(1.0,0.6,0.3) * pow( sunn, 256.0 ); // sun
+  color += 0.5 * vec3(1.0,0.6,0.3) * pow( sunn, 32.0 );
+
+  return color;
 }
 
 
@@ -273,14 +301,14 @@ void main() {
 
   vec3 albedo = vec3(0.5);
   vec3 color;
-  float dayCycle = (1.0+cos(u_Time / 900.0))/2.0;
+  float dayCycle = (1.0+cos(u_Time / 90.0))/2.0;
   if (intersection.distance > 0.0){
     color = lambertColor(intersection, dayCycle);
   }else{
     color = skyColorAtTime(fs_Pos, dayCycle);
     color += getSun(fs_Pos, 0.5, dayCycle);
-    //color = skyColorAtTime(fs_Pos, 0.9);
-    //color = BACKGROUND_COLOR * rnd;
+    // color += skyColorAtTime(fs_Pos, 0.9);
+    // color = BACKGROUND_COLOR * rnd;
   }
 
 
