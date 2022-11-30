@@ -2,9 +2,21 @@
 
 # Final
 
-TODO:
-- fix overexposure on the top of crystals (try gamma curves or lowering light intensity)
-- add textures/bump mapping to pedestals and floor tiles (maybe to glass as well)
+![all](https://user-images.githubusercontent.com/3106877/204704575-9249d318-00d1-4dd9-9f2f-883576432abb.png)
+
+I didn't have much time to spend on this milestone (mostly due to upcoming projects in other classes) so this just includes some finshing touches. The two main improvements are procedural bump mapping and coloring on the wood and post-processing on the renders to fix overexposure. Apparently there's a setting in Redshift called "Photographic Exposure" which more or less fixed all the problems with colors burning to white.
+
+I was considering doing some kind of animation but given that each frame took anywhere from around 10 to 20 minutes to render, I decided that would take too long for the amount of time I had.
+
+<details>
+  <summary>More pictures</summary>
+  <img src="https://user-images.githubusercontent.com/3106877/204704668-0d3536f1-964a-43d1-bf77-2b9d190c05ed.png" />
+  <img src="https://user-images.githubusercontent.com/3106877/204704669-5529aa9a-dd4c-4caf-9679-3b8ad11d28cc.png" />
+  <img src="https://user-images.githubusercontent.com/3106877/204704671-6580b7ba-a296-4911-b338-74b952b54dab.png" />
+  <img src="https://user-images.githubusercontent.com/3106877/204704673-2e4960c9-531f-4770-bff4-1f4e2144063a.png" />
+  <img src="https://user-images.githubusercontent.com/3106877/204704675-2b009d4f-6443-4414-be24-e5a479bec73c.png" />
+  <img src="https://user-images.githubusercontent.com/3106877/204704676-816db710-31d5-4b40-9e4c-6cfc7fbae47e.png" />
+</details>
 
 # Milestone 2
 
