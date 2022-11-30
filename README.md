@@ -4,6 +4,8 @@ This is it! The culmination of your procedural graphics experience this semester
 
 ## Milestone #2
 
+(Late Days used)
+
 Attached is the link to our Milestone 2 doc. 
 
 https://docs.google.com/document/d/1ikcpslPKwzBPUX0OmlH9m2CzdUCrOdKqmlcnyT4lubc/edit?usp=sharing
