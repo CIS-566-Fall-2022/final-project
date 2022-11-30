@@ -98,6 +98,7 @@ For Milestone1, we worked on a tesselation-based method to divide our pyramid bu
 
 ![](images/img3.png)
 
+![](images/img_high_dimen.jpeg)
 
 We're over halfway there! This week should be about fixing bugs and extending the core of your generator. Make sure by the end of this week _your generator works and is feature complete._ Any core engine features that don't make it in this week should be cut! Don't worry if you haven't managed to exactly hit your goals. We're more interested in seeing proof of your development effort than knowing your planned everything perfectly. 
 
