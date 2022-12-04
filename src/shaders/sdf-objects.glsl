@@ -256,6 +256,7 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
                 // these transforms could probably be optimized...
                 vec3 prisim_transform = transform(q_position, vec3(0, g_rot, 0), vec3(0, 0, 0)); // rotate to a different pyramid face (of four)
                 prisim_transform = transform(prisim_transform, vec3(0, PI/2.0, 0), vec3(_x, _y, _z)); // translate to the position on the face and rotate so prism "points outward"
+                vec3 shape_transform = transform(prisim_transform, vec3(-slant+PI/2.0, 0.0, 0), vec3(0,0,0));
 
                 float noiseHeight = depth*(-1.0 + 2.0 * random3d(vec3(_x+j, _y+i, _z+g_rot)));
                 float noiseTransform = depth_scale*noiseHeight;
@@ -266,6 +267,10 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
                 }
                 prisim_transform = transform(prisim_transform, vec3(0, 0, 0), vec3(0, 0, zshift));
                 float prisim = triprism(prisim_transform, greeble_width, greeble_height, abs(noiseTransform));
+
+                float scale = 0.02 + 0.04 * random(vec2(_x+i, _z+g_rot));
+                shape_transform = transform(shape_transform, vec3(0, 0, 0), vec3(-0.01+0.02*random(vec2(_x+i+_y, _z+g_rot)), -0.01+0.02*random(vec2(_x+i, _z+g_rot)), abs(noiseTransform)), vec3(1.0 * scale, 40.0 * scale, 1.0 * scale));
+                prisim = flatSubtraction(prisim, randomSymbol(shape_transform, random(vec2(_x+j+i, _z+g_rot))));
 
                 if(noiseHeight > 0.0){
                     final = flatUnion(final, prisim);
@@ -278,23 +283,23 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
         }
 
         // spread symbols randomly
-        for(float i=0.0; i<5.0; i++){
-            float _y = random1d(i+g_i) * h;
-            float _x = 0.5 - (tan(slant) * _y);
-            float _z = -0.5 * (1.0-_y) + random1d(_y);
-            //_z = 0.0;
-
-
-            vec3 shape_transform = transform(q_position, vec3(0, g_rot, 0), vec3(0, 0, 0));
-            shape_transform = transform(shape_transform, vec3(0, PI/2.0, 0), vec3(_x, _y, _z));
-            shape_transform = transform(shape_transform, vec3(-slant+PI/2.0, 0, 0), vec3(0, 0, 0));
-            float scale = 0.05;
-            shape_transform = transform(shape_transform, vec3(0, 0, 0), vec3(0, 0.02, 0), vec3(1.0 * scale, 7.0 * scale, 1.0 * scale));
-
-            float shape = randomSymbol(shape_transform, random1d(_x));
-            final = flatSubtraction(final, shape);
-
-        }
+//        for(float i=0.0; i<5.0; i++){
+//            float _y = random1d(i+g_i) * h;
+//            float _x = 0.5 - (tan(slant) * _y);
+//            float _z = -0.5 * (1.0-_y) + random1d(_y);
+//            //_z = 0.0;
+//
+//
+//            vec3 shape_transform = transform(q_position, vec3(0, g_rot, 0), vec3(0, 0, 0));
+//            shape_transform = transform(shape_transform, vec3(0, PI/2.0, 0), vec3(_x, _y, _z));
+//            shape_transform = transform(shape_transform, vec3(-slant+PI/2.0, 0, 0), vec3(0, 0, 0));
+//            float scale = 0.05;
+//            shape_transform = transform(shape_transform, vec3(0, 0, 0), vec3(0, 0.02, 0), vec3(1.0 * scale, 7.0 * scale, 1.0 * scale));
+//
+//            float shape = randomSymbol(shape_transform, random1d(_x));
+//            final = flatSubtraction(final, shape);
+//
+//        }
 
         break;
     }
