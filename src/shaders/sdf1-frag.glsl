@@ -3,7 +3,7 @@ precision highp float;
 
 uniform vec3 u_Eye, u_Ref, u_Up;
 uniform vec2 u_Dimensions;
-uniform float u_Time;
+
 uniform float u_NoiseHeight;
 
 in vec2 fs_Pos;
@@ -139,7 +139,7 @@ struct Intersection
   int material_id;
 };
 
-vec3 estimateNormal(vec3 p) {
+vec3 estimateNormal2(vec3 p) {
   return normalize(vec3(
   sceneSDF(vec3(p.x + EPSILON_N, p.y, p.z)) - sceneSDF(vec3(p.x - EPSILON_N, p.y, p.z)),
   sceneSDF(vec3(p.x, p.y + EPSILON_N, p.z)) - sceneSDF(vec3(p.x, p.y - EPSILON_N, p.z)),
@@ -147,6 +147,16 @@ vec3 estimateNormal(vec3 p) {
   ));
 }
 
+// https://iquilezles.org/articles/normalsSDF/
+vec3 estimateNormal( in vec3 p ) // for function f(p)
+{
+  const float h = EPSILON_N; // replace by an appropriate value
+  const vec2 k = vec2(1,-1);
+  return normalize( k.xyy*sceneSDF( p + k.xyy*h ) +
+  k.yyx*sceneSDF( p + k.yyx*h ) +
+  k.yxy*sceneSDF( p + k.yxy*h ) +
+  k.xxx*sceneSDF( p + k.xxx*h ) );
+}
 
 vec3 lambertColor(Intersection intersection, float daycycle){
   vec3 albedo = vec3(0.99, 0.91, 0.72);

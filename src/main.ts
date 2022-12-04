@@ -121,10 +121,10 @@ function main() {
   ]);
   sdf.setDimensions(window.innerWidth, window.innerHeight);
 
-
+  time = 0;
   // This function will be called every frame
   function tick() {
-    time = 10000;
+    time +=1;
     color = vec4.fromValues(controls.Color[0] /255, controls.Color[1] / 255, controls.Color[2] / 255, 1);
     noiseColor = vec4.fromValues(controls['Noise Color'][0] /255, controls['Noise Color'][1] / 255, controls['Noise Color'][2] / 255, 1);
     height = controls['Depth'];
@@ -160,6 +160,7 @@ function main() {
 
     // Tell the browser to call `tick` again whenever it renders a new frame
     requestAnimationFrame(tick);
+
 
     timeCamera+=0.002 * controls['Camera Animation Speed'];
   }
