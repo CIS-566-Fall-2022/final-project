@@ -240,8 +240,33 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
     float greeble_height = (slant_height / num_splits) * split_height_scale * 0.5;
     float greeble_width = (1.0/slant_height) * greeble_height;
 
+
+
+
     for(float g_i=0.0; g_i<4.0; g_i++){
         float g_rot = g_i * (PI/2.0);
+//
+//        for(float b_i=0.0; b_i<10.0; b_i++){
+//            //bars
+//
+//            float y_min = 0.0;
+//            float y_max = h;
+//            float _y1 = y_min + random(vec2(b_i+1.0, b_i)) * (y_max - y_min);
+//
+//            float z_min = -0.5 * (h - _y1);
+//            float z_max = 0.5 * (h - _y1);
+//            float _z1 = z_min + random(vec2(b_i+1.0, b_i+1.0)) * (z_max - z_min);
+////            _z = 0.05;
+////            _y = u_NumSymbolsPerTri;
+//            float _x1 = 0.5 - (tan(slant) * _y1);
+//            vec3 prisim_transform = transform(q_position, vec3(0, g_rot, 0), vec3(0, 0, 0)); // rotate to a different pyramid face (of four)
+//            prisim_transform = transform(prisim_transform, vec3(0, PI/2.0, 0), vec3(_x1, _y1, _z1)); // translate to the position on the face and rotate so prism "points outward
+//            prisim_transform = transform(prisim_transform, vec3(-slant, 0, 0), vec3(0, 0, 0));
+//            prisim_transform = transform(prisim_transform, vec3(0, random(vec2(b_i+1.0, b_i+1.0))*PI/16.0, 0), vec3(0, 0, 0));
+//            float prisim = triprism(prisim_transform, 0.01, 0.01, 0.1);
+//            final = flatUnion(final, prisim);
+//
+//        }
 
         // the main triangles that get shifted in/out
         for(float i=0.0; i<num_splits; i++){

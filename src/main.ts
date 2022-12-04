@@ -23,7 +23,7 @@ const controls = {
   'CameraY': 1,
   'CameraZ': 1,
 
-  'Camera Animation': 'On',
+  'Camera Animation': 'Off',
   'Camera Animation Speed': 1,
 
   'Noise Color': [ 255, 255, 0 ],
@@ -35,7 +35,7 @@ const controls = {
   'HeightT': 'Off',
   'SymbolScaleT': 'Off',
   'SymbolPositionT': 'Off',
-  'NumSymbolsPerTri': 1.0,
+  'NumSymbolsPerTri': 0.0,
 
 };
 
@@ -93,7 +93,7 @@ function main() {
   f1.add(controls, 'HeightT', [ 'On', 'Off' ]);
   f1.add(controls, 'SymbolScaleT', [ 'On', 'Off' ]);
   f1.add(controls, 'SymbolPositionT', [ 'On', 'Off' ]);
-  f1.add(controls, 'NumSymbolsPerTri', 0.0, 10.0).step(1.0);
+  f1.add(controls, 'NumSymbolsPerTri', -1.0, 1.0).step(0.01);
 
   var f2 = gui.addFolder('Animation');
 
@@ -186,7 +186,7 @@ function main() {
     sdf.setHightT(HeightT);
     sdf.setSymbolScaleT(SymbolScaleT);
     sdf.setSymbolPositionT(SymbolPositionT);
-    //sdf.setNumSymbolsPerTri(controls['NumSymbolsPerTri']);
+    sdf.setNumSymbolsPerTri(controls['NumSymbolsPerTri']);
 
     renderer.render(camera, time, height, color, noiseColor, sdf, [
       square,
