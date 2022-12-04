@@ -274,7 +274,7 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
 
                 for(float k=0.0; k<u_NumSymbolsPerTri; k++){
                     float scale = 0.02 + 0.04 * random(vec2(_x+i, _z+g_rot+k));
-                    vec3 shape_transform2 = transform(shape_transform, vec3(0, 0, 0), vec3(-0.1+0.2*random(vec2(_x+i+_y, _z+g_rot+k)), -0.1+0.2*random(vec2(_x+i+k, _z+g_rot)), -0.02+0.04*random(vec2(k, k))), vec3(1.0 * scale, 1000.0 * scale, 1.0 * scale));
+                    vec3 shape_transform2 = transform(shape_transform, vec3(0, 0, 0), vec3(-0.1+0.2*random(vec2(_x+i+_y+u_SymbolPositionT, _z+g_rot+k)), -0.1+0.2*random(vec2(_x+i+k+u_SymbolPositionT, _z+g_rot)), -0.02+0.04*random(vec2(k+u_SymbolPositionT, k))), vec3(1.0 * scale, 1000.0 * scale, 1.0 * scale));
                     prisim = flatSubtraction(prisim, randomSymbol(shape_transform2, random(vec2(_x+j+i, _z+g_rot+k))));
                 }
 
