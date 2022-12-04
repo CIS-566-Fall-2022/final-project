@@ -195,13 +195,15 @@ float hourglass(vec3 p){
 }
 
 float randomSymbol(vec3 p, float r){
-    float tot = 3.0;
+    float tot = 4.0;
     if(r < 1.0/tot){
         return symbol1SDF(p);
     }else if(r < 2.0/tot){
         return symbol2SDF(p);
-    }else{
+    }else if(r < 3.0/tot){
         return symbol3SDF(p);
+    }else{
+        return sdTorus(p, vec2(0.40, 0.10));
     }
 }
 
