@@ -186,7 +186,7 @@ function main() {
     sdf.setHightT(HeightT);
     sdf.setSymbolScaleT(SymbolScaleT);
     sdf.setSymbolPositionT(SymbolPositionT);
-    sdf.setNumSymbolsPerTri(controls['NumSymbolsPerTri']);
+    //sdf.setNumSymbolsPerTri(controls['NumSymbolsPerTri']);
 
     renderer.render(camera, time, height, color, noiseColor, sdf, [
       square,
