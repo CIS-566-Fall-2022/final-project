@@ -260,7 +260,8 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
                 prisim_transform = transform(prisim_transform, vec3(0, PI/2.0, 0), vec3(_x, _y, _z)); // translate to the position on the face and rotate so prism "points outward"
                 vec3 shape_transform = transform(prisim_transform, vec3(-slant+PI/2.0, 0.0, 0), vec3(0,0,0));
 
-                float noiseHeight = depth*(-1.0 + 2.0 * random3d(vec3(_x+j, _y+i, _z+g_rot)));
+                // low = -1.0  high = 2.0
+                float noiseHeight = depth*(u_LowTriRange + (u_HighTriRange - u_LowTriRange) * random3d(vec3(_x+j, _y+i, _z+g_rot)));
                 float noiseTransform = depth_scale*noiseHeight;
                 float zshift = noiseTransform;
                 prisim_transform = transform(prisim_transform, vec3(-slant, 0, PI*mod(j,2.0)), vec3(0, 0, 0));
@@ -271,7 +272,7 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
                 float prisim = triprism(prisim_transform, greeble_width, greeble_height, abs(noiseTransform));
 
                 float scale = 0.02 + 0.04 * random(vec2(_x+i, _z+g_rot));
-                shape_transform = transform(shape_transform, vec3(0, 0, 0), vec3(-0.01+0.02*random(vec2(_x+i+_y, _z+g_rot)), -0.01+0.02*random(vec2(_x+i, _z+g_rot)), abs(noiseTransform)), vec3(1.0 * scale, 1000.0 * scale, 1.0 * scale));
+                shape_transform = transform(shape_transform, vec3(0, 0, 0), vec3(-0.01+0.02*random(vec2(_x+i+_y, _z+g_rot)), -0.01+0.02*random(vec2(_x+i, _z+g_rot)), 0.0), vec3(1.0 * scale, 1000.0 * scale, 1.0 * scale));
                 prisim = flatSubtraction(prisim, randomSymbol(shape_transform, random(vec2(_x+j+i, _z+g_rot))));
 
                 if(noiseHeight > 0.0){

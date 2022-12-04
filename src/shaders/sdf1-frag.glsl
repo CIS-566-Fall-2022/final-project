@@ -120,8 +120,8 @@ float sceneSDF(vec3 queryPos)
   final = pyramidNormalSDF(main_t,  0.5,
                            u_NoiseHeight,
                            0.5,
-                           5.0,
-                           1.0);
+                           u_Rows,
+                           u_TriScale);
 
   //final = symbol3SDF(queryPos);
 

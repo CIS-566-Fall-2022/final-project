@@ -28,6 +28,14 @@ const controls = {
 
   'Noise Color': [ 255, 255, 0 ],
   'Depth': 0.1,
+  'Rows': 4,
+  'TriScale': 1.0,
+  'LowTriRange': -1.0,
+  'HighTriRange': 1.0,
+  'HeightT': 'Off',
+  'SymbolScaleT': 'Off',
+  'SymbolPositionT': 'Off'
+
 };
 
 let icosphere: Icosphere;
@@ -77,7 +85,14 @@ function main() {
   var f1 = gui.addFolder('Greeble Control');
 
   f1.add(controls, 'Depth', 0, 0.5).step(0.02);
-  
+  f1.add(controls, 'Rows', 2, 30).step(1);
+  f1.add(controls, 'TriScale', 0.01, 1.5).step(0.01);
+  f1.add(controls, 'LowTriRange', -1.0, 1.0).step(0.01);
+  f1.add(controls, 'HighTriRange', -1.0, 1.0).step(0.01);
+  f1.add(controls, 'HeightT', [ 'On', 'Off' ]);
+  f1.add(controls, 'SymbolScaleT', [ 'On', 'Off' ]);
+  f1.add(controls, 'SymbolPositionT', [ 'On', 'Off' ]);
+
   var f2 = gui.addFolder('Animation');
 
   f2.add(controls, 'Camera Animation', [ 'On', 'Off' ]);
@@ -151,6 +166,14 @@ function main() {
       icosphere = new Icosphere(vec3.fromValues(3, 0, 0), 1, prevTesselations);
       icosphere.create();
     }
+
+    sdf.setRows(controls['Rows']);
+    sdf.setTriScale(controls['TriScale']);
+    sdf.setLowTriRange(controls['LowTriRange']);
+    sdf.setHighTriRange(controls['HighTriRange']);
+    sdf.setHightT(controls['HeightT'] == 'On' ? 1.0 : 0.0);
+    sdf.setSymbolScaleT(controls['SymbolScaleT'] == 'On' ? 1.0 : 0.0);
+    sdf.setSymbolPositionT(controls['SymbolPositionT'] == 'On' ? 1.0 : 0.0);
 
     renderer.render(camera, time, height, color, noiseColor, sdf, [
       square,

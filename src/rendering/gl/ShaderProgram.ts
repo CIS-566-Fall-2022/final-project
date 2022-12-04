@@ -81,6 +81,13 @@ class ShaderProgram {
   unifUp: WebGLUniformLocation;
   unifDimensions: WebGLUniformLocation;
 
+  unifRows: WebGLUniformLocation;
+  unifTriScale: WebGLUniformLocation;
+  unifLowTriRange: WebGLUniformLocation;
+  unifHighTriRange: WebGLUniformLocation;
+  unifHightT: WebGLUniformLocation;
+  unifSymbolScaleT: WebGLUniformLocation;
+  unifSymbolPositionT: WebGLUniformLocation;
 
   constructor(shaders: Array<Shader>) {
     this.prog = gl.createProgram();
@@ -111,6 +118,14 @@ class ShaderProgram {
     this.unifUp   = gl.getUniformLocation(this.prog, "u_Up");
     this.unifDimensions   = gl.getUniformLocation(this.prog, "u_Dimensions");
 
+    this.unifRows  = gl.getUniformLocation(this.prog, "u_Rows");
+    this.unifTriScale = gl.getUniformLocation(this.prog, "u_TriScale");
+    this.unifLowTriRange = gl.getUniformLocation(this.prog, "u_LowTriRange");
+    this.unifHighTriRange = gl.getUniformLocation(this.prog, "u_HighTriRange");
+    this.unifHightT = gl.getUniformLocation(this.prog, "u_HeightT");
+    this.unifSymbolScaleT = gl.getUniformLocation(this.prog, "u_SymbolScaleT");
+    this.unifSymbolPositionT = gl.getUniformLocation(this.prog, "u_SymbolPositionT");
+
 
 
 
@@ -130,6 +145,14 @@ class ShaderProgram {
 
 
   }
+
+  setRows(t: number){this.use();gl.uniform1f(this.unifRows, t)}
+  setTriScale(t: number){this.use();gl.uniform1f(this.unifTriScale, t)}
+  setLowTriRange(t: number){this.use();gl.uniform1f(this.unifLowTriRange, t)}
+  setHighTriRange(t: number){this.use();gl.uniform1f(this.unifHighTriRange, t)}
+  setHightT(t: number){this.use();gl.uniform1f(this.unifHightT, t)}
+  setSymbolScaleT(t: number){this.use();gl.uniform1f(this.unifSymbolScaleT, t)}
+  setSymbolPositionT(t: number){this.use();gl.uniform1f(this.unifSymbolPositionT, t)}
 
   use() {
     if (activeProgram !== this.prog) {
