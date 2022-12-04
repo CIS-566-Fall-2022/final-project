@@ -5,7 +5,7 @@ class Camera {
   controls: any;
   projectionMatrix: mat4 = mat4.create();
   viewMatrix: mat4 = mat4.create();
-  fovy: number = 45;
+  fovy: number = 30;
   aspectRatio: number = 1;
   near: number = 0.1;
   far: number = 1000;
@@ -25,6 +25,13 @@ class Camera {
 
   setAspectRatio(aspectRatio: number) {
     this.aspectRatio = aspectRatio;
+  }
+
+  setPosition(pos: vec3) {
+    // this.controls.eye = pos;
+    this.controls.center = pos;
+
+    // console.log(this.position[0]);
   }
 
   updateProjectionMatrix() {

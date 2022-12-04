@@ -1,6 +1,5 @@
 import {vec3} from 'gl-matrix';
 import {vec4} from 'gl-matrix';
-
 const Stats = require('stats-js');
 import * as DAT from 'dat.gui';
 import Icosphere from './geometry/Icosphere';
@@ -20,32 +19,30 @@ const controls = {
   'Load Scene': loadScene, // A function pointer, essentially
   'Shader': 0,
   'Color': [ 255, 12, 25 ],
-  'Shaders': 'Fireball',
+  'CameraX': 1,
+  'CameraY': 1,
+  'CameraZ': 1,
+
+  'Camera Animation': 'On',
+  'Camera Animation Speed': 1,
+
   'Noise Color': [ 255, 255, 0 ],
   'Depth': 0.1,
 };
 
 let icosphere: Icosphere;
-let icosphereLine: Icosphere;
-let icosphereLine2: Icosphere;
-let icosphereLine3: Icosphere;
-let icosphereLine4: Icosphere;
 
 let square: Square;
 let cube: Cube;
 let squarePyramid: SquarePyramid;
 let time: number = 0;
+let timeCamera: number = 0;
+let cameraSpeed: number = 0.002;
 let height: number = 0;
 let color: vec4; 
 let noiseColor: vec4; 
 
 let prevTesselations: number = 5;
-
-
-
-
-
-
 
 function loadScene() {
   icosphere = new Icosphere(vec3.fromValues(3, 0, 0), 1, controls.tesselations);
@@ -77,8 +74,17 @@ function main() {
   // gui.add(controls, 'Load Scene');
   // gui.addColor(controls, 'Color');
   // gui.addColor(controls, 'Noise Color');
-  gui.add(controls, 'Depth', 0, 0.5).step(0.02);
+  var f1 = gui.addFolder('Greeble Control');
 
+  f1.add(controls, 'Depth', 0, 0.5).step(0.02);
+  
+  var f2 = gui.addFolder('Animation');
+
+  f2.add(controls, 'Camera Animation', [ 'On', 'Off' ]);
+  f2.add(controls, 'Camera Animation Speed', 1, 10).step(1);
+  f2.add(controls, 'CameraX', -10, 10).step(0.02);
+  f2.add(controls, 'CameraY', -10, 10).step(0.02);
+  f2.add(controls, 'CameraZ', -10, 10).step(0.02);
   // gui.add(controls, 'Shader', 0, 1).step(1);
   // gui.add(controls, 'Shaders', [ 'Lambert', 'Perlin Noise', 'Transform', 'Fireball' ] );
 
@@ -94,28 +100,14 @@ function main() {
 
   // Initial call to load scene
   loadScene();
+  const camera = new Camera(vec3.fromValues(2, 2, 1.5), vec3.fromValues(0, 0, 0));
 
-  const camera = new Camera(vec3.fromValues(2, 3, 1.5), vec3.fromValues(0, 0, 0));
+  // const camera = new Camera(vec3.fromValues(2, 3, 0), vec3.fromValues(0, 0, 0));
 
   const renderer = new OpenGLRenderer(canvas);
   renderer.setClearColor(0.2, 0.2, 0.2, 1);
   gl.enable(gl.DEPTH_TEST);
-  // const fireball = new ShaderProgram([
-  //   new Shader(gl.VERTEX_SHADER, require('./shaders/fireball-vert.glsl')),
-  //   new Shader(gl.FRAGMENT_SHADER, require('./shaders/fireball-frag.glsl')),
-  // ]);
-  const lambert = new ShaderProgram([
-    new Shader(gl.VERTEX_SHADER, require('./shaders/lambert-vert.glsl'), []),
-    new Shader(gl.FRAGMENT_SHADER, require('./shaders/lambert-frag.glsl'), []),
-  ]);
-  // const perlin = new ShaderProgram([
-  //   new Shader(gl.VERTEX_SHADER, require('./shaders/perlin-vert.glsl')),
-  //   new Shader(gl.FRAGMENT_SHADER, require('./shaders/perlin-frag.glsl')),
-  // ]);
-  // const transform = new ShaderProgram([
-  //   new Shader(gl.VERTEX_SHADER, require('./shaders/transform-vert.glsl')),
-  //   new Shader(gl.FRAGMENT_SHADER, require('./shaders/lambert-frag.glsl')),
-  // ]);
+
   const sdf = new ShaderProgram([
     new Shader(gl.VERTEX_SHADER, [require('./shaders/sdf1-vert.glsl')], []),
     new Shader(gl.FRAGMENT_SHADER, [
@@ -136,7 +128,20 @@ function main() {
     color = vec4.fromValues(controls.Color[0] /255, controls.Color[1] / 255, controls.Color[2] / 255, 1);
     noiseColor = vec4.fromValues(controls['Noise Color'][0] /255, controls['Noise Color'][1] / 255, controls['Noise Color'][2] / 255, 1);
     height = controls['Depth'];
-    camera.update();
+
+    if(controls['Camera Animation'] == 'On'){
+      // camera.setPosition(vec3.fromValues(
+      //   controls['CameraX'] + Math.sin(timeCamera) * 4, 
+      //   controls['CameraY'] + Math.sin(timeCamera) * 2, 
+      //   controls['CameraZ'] + Math.sin(timeCamera) * 10));
+      camera.setPosition(vec3.fromValues(
+        2 + Math.sin(timeCamera) * controls['CameraX'], 
+        2 + Math.sin(timeCamera) * controls['CameraY'], 
+        1.5 + Math.sin(timeCamera) * controls['CameraZ']));
+    }
+    // const camera = new Camera(vec3.fromValues(controls.CameraX, 3, 0), vec3.fromValues(0, 0, 0));
+
+    // camera.update();
     stats.begin();
     gl.viewport(0, 0, window.innerWidth, window.innerHeight);
     renderer.clear();
@@ -146,63 +151,17 @@ function main() {
       icosphere = new Icosphere(vec3.fromValues(3, 0, 0), 1, prevTesselations);
       icosphere.create();
     }
-    var shader;
-    // if(controls.Shaders == 'Lambert'){
-    //   renderer.render(camera, time, color, noiseColor, lambert, [
-    //     cube,  icosphere,
-    //   ], false);
-    // }
-    // if(controls.Shaders == 'Perlin Noise'){
-    //   shader = perlin;
-    //   renderer.render(camera, time, color, noiseColor, perlin, [
-    //     cube,  icosphere,
-    //   ], false);
-    // }
-    // if(controls.Shaders == 'Transform'){
-    //   shader = transform;
-    //   renderer.render(camera, time, color, noiseColor, transform, [
-    //     cube,  
-    //   ],false);
-    // }
 
     renderer.render(camera, time, height, color, noiseColor, sdf, [
       square,
     ], false);
 
-    // renderer.render(camera, time, color, noiseColor, lambert, [
-    //     squarePyramid,
-    //   ], false);
-
-
-    // square = new Square(vec3.fromValues(-2, -2, -2), vec3.fromValues(10, 10, 1));
-    // square.create();
-    // icosphere = new Icosphere(vec3.fromValues(0, 0, 0), 1, prevTesselations);
-    // icosphere.create();
-    // if(controls.Shaders == 'Fireball'){
-    //   square = new Square(vec3.fromValues(-2, -2, -2), vec3.fromValues(10, 10, 1));
-    //   square.create();
-
-    //   icosphere = new Icosphere(vec3.fromValues(0, 0, 0), 1, prevTesselations);
-    //   icosphere.create();
-
-    //   icosphereLine = new Icosphere(vec3.fromValues(0, 0, 0), 1.5, 2);
-    //   icosphereLine.create();
-      
-    //   icosphereLine2 = new Icosphere(vec3.fromValues(0, 0, 0), 2.0, 1);
-    //   icosphereLine2.create();
-
-    //   icosphereLine3 = new Icosphere(vec3.fromValues(0, 0, 0), 4.0, 1);
-    //   icosphereLine3.create();
-
-
-    // }
-
-
-
     stats.end();
 
     // Tell the browser to call `tick` again whenever it renders a new frame
     requestAnimationFrame(tick);
+
+    timeCamera+=0.002 * controls['Camera Animation Speed'];
   }
 
   window.addEventListener('resize', function() {
