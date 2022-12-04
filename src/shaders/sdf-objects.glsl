@@ -269,7 +269,7 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
                 float prisim = triprism(prisim_transform, greeble_width, greeble_height, abs(noiseTransform));
 
                 float scale = 0.02 + 0.04 * random(vec2(_x+i, _z+g_rot));
-                shape_transform = transform(shape_transform, vec3(0, 0, 0), vec3(-0.01+0.02*random(vec2(_x+i+_y, _z+g_rot)), -0.01+0.02*random(vec2(_x+i, _z+g_rot)), abs(noiseTransform)), vec3(1.0 * scale, 40.0 * scale, 1.0 * scale));
+                shape_transform = transform(shape_transform, vec3(0, 0, 0), vec3(-0.01+0.02*random(vec2(_x+i+_y, _z+g_rot)), -0.01+0.02*random(vec2(_x+i, _z+g_rot)), abs(noiseTransform)), vec3(1.0 * scale, 1000.0 * scale, 1.0 * scale));
                 prisim = flatSubtraction(prisim, randomSymbol(shape_transform, random(vec2(_x+j+i, _z+g_rot))));
 
                 if(noiseHeight > 0.0){
