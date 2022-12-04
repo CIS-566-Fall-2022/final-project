@@ -34,7 +34,8 @@ const controls = {
   'HighTriRange': 1.0,
   'HeightT': 'Off',
   'SymbolScaleT': 'Off',
-  'SymbolPositionT': 'Off'
+  'SymbolPositionT': 'Off',
+  'NumSymbolsPerTri': 1.0,
 
 };
 
@@ -92,6 +93,7 @@ function main() {
   f1.add(controls, 'HeightT', [ 'On', 'Off' ]);
   f1.add(controls, 'SymbolScaleT', [ 'On', 'Off' ]);
   f1.add(controls, 'SymbolPositionT', [ 'On', 'Off' ]);
+  f1.add(controls, 'NumSymbolsPerTri', 0.0, 10.0).step(1.0);
 
   var f2 = gui.addFolder('Animation');
 
@@ -137,12 +139,20 @@ function main() {
   sdf.setDimensions(window.innerWidth, window.innerHeight);
 
   time = 0;
+
+  let SymbolPositionT = 0;
+  let SymbolScaleT = 0;
+  let HeightT = 0;
   // This function will be called every frame
   function tick() {
     time +=1;
     color = vec4.fromValues(controls.Color[0] /255, controls.Color[1] / 255, controls.Color[2] / 255, 1);
     noiseColor = vec4.fromValues(controls['Noise Color'][0] /255, controls['Noise Color'][1] / 255, controls['Noise Color'][2] / 255, 1);
     height = controls['Depth'];
+
+    if(controls['SymbolScaleT'] == 'On'){SymbolScaleT += 0.01}
+    if(controls['SymbolPositionT'] == 'On'){SymbolPositionT += 0.01}
+    if(controls['HeightT'] == 'On'){HeightT += 0.01}
 
     if(controls['Camera Animation'] == 'On'){
       // camera.setPosition(vec3.fromValues(
@@ -167,13 +177,16 @@ function main() {
       icosphere.create();
     }
 
+
+
     sdf.setRows(controls['Rows']);
     sdf.setTriScale(controls['TriScale']);
     sdf.setLowTriRange(controls['LowTriRange']);
     sdf.setHighTriRange(controls['HighTriRange']);
-    sdf.setHightT(controls['HeightT'] == 'On' ? 1.0 : 0.0);
-    sdf.setSymbolScaleT(controls['SymbolScaleT'] == 'On' ? 1.0 : 0.0);
-    sdf.setSymbolPositionT(controls['SymbolPositionT'] == 'On' ? 1.0 : 0.0);
+    sdf.setHightT(HeightT);
+    sdf.setSymbolScaleT(SymbolScaleT);
+    sdf.setSymbolPositionT(SymbolPositionT);
+    //sdf.setNumSymbolsPerTri(controls['NumSymbolsPerTri']);
 
     renderer.render(camera, time, height, color, noiseColor, sdf, [
       square,
