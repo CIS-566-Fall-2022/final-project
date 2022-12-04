@@ -41,24 +41,11 @@ let noiseColor: vec4;
 
 let prevTesselations: number = 5;
 
-import jsonsdfs from './sdfs.json';
 
-type flatArr = {
-  data: Float32Array,
-  x: number,
-  y: number,
-  z: number
-}
 
-function toFlatArr(arr: number[][][]){
-  const flat2d = arr.reduce((accumulator, value) => accumulator.concat(value), [])
-  const flat1d = flat2d.reduce((accumulator, value) => accumulator.concat(value), [])
-  const obj: flatArr = {
-    data: new Float32Array(flat1d),
-      x: arr.length, y:arr[0].length , z: arr[0][0].length
-  }
-  return obj;
-}
+
+
+
 
 function loadScene() {
   icosphere = new Icosphere(vec3.fromValues(3, 0, 0), 1, controls.tesselations);
@@ -75,7 +62,7 @@ function loadScene() {
 }
 
 function main() {
-  // console.log(toFlatArr(jsonsdfs['h-pyramid']));
+
   // Initial display for framerate
   const stats = Stats();
   stats.setMode(0);
@@ -118,8 +105,8 @@ function main() {
   //   new Shader(gl.FRAGMENT_SHADER, require('./shaders/fireball-frag.glsl')),
   // ]);
   const lambert = new ShaderProgram([
-    new Shader(gl.VERTEX_SHADER, require('./shaders/lambert-vert.glsl')),
-    new Shader(gl.FRAGMENT_SHADER, require('./shaders/lambert-frag.glsl')),
+    new Shader(gl.VERTEX_SHADER, require('./shaders/lambert-vert.glsl'), []),
+    new Shader(gl.FRAGMENT_SHADER, require('./shaders/lambert-frag.glsl'), []),
   ]);
   // const perlin = new ShaderProgram([
   //   new Shader(gl.VERTEX_SHADER, require('./shaders/perlin-vert.glsl')),
@@ -130,13 +117,14 @@ function main() {
   //   new Shader(gl.FRAGMENT_SHADER, require('./shaders/lambert-frag.glsl')),
   // ]);
   const sdf = new ShaderProgram([
-    new Shader(gl.VERTEX_SHADER, [require('./shaders/sdf1-vert.glsl')]),
+    new Shader(gl.VERTEX_SHADER, [require('./shaders/sdf1-vert.glsl')], []),
     new Shader(gl.FRAGMENT_SHADER, [
       require('./shaders/toolbox.glsl'),
       require('./shaders/noise.glsl'),
       require('./shaders/sdf-compose.glsl'),
       require('./shaders/sdf-objects.glsl'),      
       require('./shaders/sdf1-frag.glsl')
+    ], [
     ]),
   ]);
   sdf.setDimensions(window.innerWidth, window.innerHeight);

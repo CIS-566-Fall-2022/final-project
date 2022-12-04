@@ -1,16 +1,51 @@
 import {vec4, mat4, vec3} from 'gl-matrix';
 import Drawable from './Drawable';
 import {gl} from '../../globals';
+import jsonsdfs from './sdfs.json';
 
 var activeProgram: WebGLProgram = null;
 
+
+type flatArr = {
+  name: string,
+  data: Float32Array,
+  x: number,
+  y: number,
+  z: number
+}
+
+function toFlatArr(name: string){
+
+  // @ts-ignore
+  const arr: number[][][] = jsonsdfs[name];
+  const flat2d = arr.reduce((accumulator, value) => accumulator.concat(value), [])
+  const flat1d = flat2d.reduce((accumulator, value) => accumulator.concat(value), [])
+  const obj: flatArr = {
+    name: name,
+    data: new Float32Array(flat1d),
+    x: arr.length, y:arr[0].length , z: arr[0][0].length
+  }
+  return obj;
+}
+
 export class Shader {
   shader: WebGLShader;
+  fields: Array<flatArr>;
 
-  constructor(type: number, sources: Array<string>) {
+  constructor(type: number, sources: Array<string>, fields: Array<string>) {
     this.shader = gl.createShader(type);
+    this.fields = [];
     let fullSource = '#version 300 es\n' +
-        'precision highp float;';
+        'precision highp float;\n';
+    for (let field of fields){
+      // @ts-ignore
+      const fieldObj = toFlatArr(field);
+      console.log('data size', fieldObj.data.length)
+      fullSource += `uniform float u_${field}Field[${fieldObj.x * fieldObj.y * fieldObj.z}];\n` +
+                    `uniform vec3 u_${field}FieldDims;\n`
+      // @ts-ignore
+      this.fields.push(fieldObj);
+    }
     for (let partialSource of sources){
       fullSource += partialSource;
     }
@@ -50,6 +85,8 @@ class ShaderProgram {
   constructor(shaders: Array<Shader>) {
     this.prog = gl.createProgram();
 
+
+
     for (let shader of shaders) {
       gl.attachShader(this.prog, shader.shader);
     }
@@ -73,6 +110,24 @@ class ShaderProgram {
     this.unifRef   = gl.getUniformLocation(this.prog, "u_Ref");
     this.unifUp   = gl.getUniformLocation(this.prog, "u_Up");
     this.unifDimensions   = gl.getUniformLocation(this.prog, "u_Dimensions");
+
+
+
+
+    this.use();
+    for (let shader of shaders) {
+      console.log(shader);
+      for(let field of shader.fields){
+
+        const shaderF = gl.getUniformLocation(this.prog, `u_${field.name}Field`);
+        const shaderFDims   = gl.getUniformLocation(this.prog, `u_${field.name}FieldDims`);
+
+        gl.uniform1fv(shaderF, field.data);
+        gl.uniform3f(shaderFDims, field.x, field.y, field.z);
+      }
+    }
+
+
 
   }
 

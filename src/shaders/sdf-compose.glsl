@@ -36,12 +36,20 @@ float flatSubtraction(float base, float subtraction){
 //  return lerp(shape1, shape2, amount);
 //}
 
-vec3 transform(vec3 q, vec3 rot, vec3 trans){
-    mat4 S = mat4(
-        vec4(1, 0, 0, 0),
-        vec4(0, 1, 0, 0),
-        vec4(0, 0, 1, 0),
+vec3 transform(vec3 q, vec3 trans){
+
+
+    // Translate to (3, 3, 3)
+    mat4 T = mat4(
+        vec4(1, 0, 0, trans.x),
+        vec4(0, 1, 0, trans.y),
+        vec4(0, 0, 1, trans.z),
         vec4(0, 0, 0, 1));
+    return (vec4(q, 1) * inverse(T)).xyz;
+}
+
+vec3 transform(vec3 q, vec3 rot, vec3 trans){
+
 
     // Rotation in XY
     mat4 Rx = mat4(
@@ -66,7 +74,7 @@ vec3 transform(vec3 q, vec3 rot, vec3 trans){
         vec4(0, 1, 0, trans.y),
         vec4(0, 0, 1, trans.z),
         vec4(0, 0, 0, 1));
-    return (vec4(q, 1) * inverse(S  * Rz * Ry * Rx * T)).xyz;
+    return (vec4(q, 1) * inverse(Rz * Ry * Rx * T)).xyz;
 }
 
 vec3 transform(vec3 q, vec3 rot, vec3 trans, vec3 scale){

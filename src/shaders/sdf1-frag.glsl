@@ -12,7 +12,8 @@ out vec4 out_Col;
 const int MAX_RAY_STEPS = 200;
 const float DIST_MAX = 30.0;
 const float FOV = 45.0;
-const float EPSILON = 1e-2;
+const float EPSILON = 1E-2;
+const float EPSILON_N = 0.05;
 
 // const vec3 EYE = vec3(2.0, 1.5, 5.0);
 // const vec3 REF = vec3(1.2, 1.0, 0.0);
@@ -22,7 +23,6 @@ const vec3 WORLD_FORWARD = vec3(0.0, 0.0, 1.0);
 const vec3 LIGHT_DIR = vec3(0.6, 1.0, 0.4) * 1.5;
 
 const vec3 BACKGROUND_COLOR = vec3(0.5, 0.7, 0.9);
-
 
 
 
@@ -82,6 +82,30 @@ float skyPyramids(vec3 queryPos){
 //  return final;
 //}
 
+
+//float sceneSDField(vec3 queryPos)
+//{
+//  vec3 t = transform(queryPos, vec3(0, 0, 0), vec3(-20.0, -20.0, -20.0), vec3(2, 2, 2));
+//  float final;
+//
+//  if(t.x < 0.0 || t.x > u_pyramidFieldDims.x - 1.0 || t.y < 0.0 || t.y > u_pyramidFieldDims.y - 1.0 || t.z < 0.0 || t.z > u_pyramidFieldDims.z - 1.0){
+//    return 1.0;
+//  }
+//
+//  float qp_idx = round(t.x) + round(t.y) * u_pyramidFieldDims.x + round(t.z) * u_pyramidFieldDims.x * u_pyramidFieldDims.y;
+//  return u_pyramidField[int(qp_idx)];
+//
+//}
+
+//float sceneSDFunction(vec3 queryPos)
+//{
+//  return 1000000000.0;
+//}
+//
+//float sceneSDF(vec3 queryPos){
+//  return min(sceneSDFunction(queryPos), sceneSDField(queryPos));
+//}
+
 float sceneSDF(vec3 queryPos)
 {
 
@@ -115,9 +139,9 @@ struct Intersection
 
 vec3 estimateNormal(vec3 p) {
   return normalize(vec3(
-  sceneSDF(vec3(p.x + EPSILON, p.y, p.z)) - sceneSDF(vec3(p.x - EPSILON, p.y, p.z)),
-  sceneSDF(vec3(p.x, p.y + EPSILON, p.z)) - sceneSDF(vec3(p.x, p.y - EPSILON, p.z)),
-  sceneSDF(vec3(p.x, p.y, p.z  + EPSILON)) - sceneSDF(vec3(p.x, p.y, p.z - EPSILON))
+  sceneSDF(vec3(p.x + EPSILON_N, p.y, p.z)) - sceneSDF(vec3(p.x - EPSILON_N, p.y, p.z)),
+  sceneSDF(vec3(p.x, p.y + EPSILON_N, p.z)) - sceneSDF(vec3(p.x, p.y - EPSILON_N, p.z)),
+  sceneSDF(vec3(p.x, p.y, p.z  + EPSILON_N)) - sceneSDF(vec3(p.x, p.y, p.z - EPSILON_N))
   ));
 }
 
