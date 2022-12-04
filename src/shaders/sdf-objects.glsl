@@ -20,6 +20,13 @@ float rand_3(vec2 p)
     return fract(sin(dot(p.xy ,vec2(12.9898,78.233))) * 43758.5453);
 }
 
+float boxSDF( vec3 p)
+{
+    vec3 q = abs(p) - vec3(1.0, 1.0, 1.0);
+    return length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);
+
+}
+
 float value_noise(vec2 p)
 {
     vec2 i = floor(p);
@@ -228,7 +235,7 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
         }
 
         // spread symbols randomly
-        for(float i=0.0; i<35.0; i++){
+        for(float i=0.0; i<5.0; i++){
             float _y = random1d(i+g_i) * h;
             float _x = 0.5 - (tan(slant) * _y);
             float _z = -0.5 + random1d(_y);
@@ -245,7 +252,7 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
 
         }
 
-        //break;
+        break;
     }
     
 

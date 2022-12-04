@@ -106,25 +106,25 @@ float skyPyramids(vec3 queryPos){
 //  return min(sceneSDFunction(queryPos), sceneSDField(queryPos));
 //}
 
+float culledSceneSDF(vec3 queryPos)
+{
+  return planeSDF(queryPos, -1.6);
+}
+
 float sceneSDF(vec3 queryPos)
 {
 
   float final;
-  //final = bumpyPlaneSDF2(queryPos + vec3(0, 2.0, 0));
+  vec3 main_t = transform(queryPos, vec3(0, 0, 0), vec3(0.0, -1.5, 0), vec3(4.0, 4.0, 4.0));
 
-
-  //final = flatUnion(final, weirdPyramid(queryPos));
-
-  //
-  //final = planeSDF(queryPos, 0.0);
-  final = pyramidNormalSDF(transform(queryPos, vec3(0, 0, 0), vec3(0.0, -1.5, 0), vec3(4.0, 4.0, 4.0)),  0.5,
+  final = pyramidNormalSDF(main_t,  0.5,
                            u_NoiseHeight,
                            0.5,
                            5.0,
                            1.0);
+
+
   final = flatUnion(final, planeSDF(queryPos, -1.6));
-
-
 
   return final;
 }
@@ -177,15 +177,38 @@ vec3 lambertColor(Intersection intersection, float daycycle){
   return color;
 }
 
+bool sphereIntersect(Ray r, vec3 center, float radius)
+{
+//solve for tc
+vec3 L = r.origin - center;
+float p = dot(r.direction, L);
+float q = dot(L, L) - (radius * radius);
+
+float discriminant = (p * p) - q;
+if (discriminant < 0.0f)
+{
+  return true;
+}
+return false;
+}
+
 Intersection getRaymarchedIntersection(vec2 uv)
 {
   Ray ray = getRay(uv);
   Intersection intersection;
   float dist = 0.0;
   vec3 queryPoint = ray.origin;
+
+  bool culled = sphereIntersect(ray, vec3(0, -0.5, 0), 3.0);
+
   for (int i=0; i < MAX_RAY_STEPS; ++i)
   {
-    float distanceToSurface = sceneSDF(queryPoint);
+    float distanceToSurface;
+    if(culled) {
+      distanceToSurface = culledSceneSDF(queryPoint);
+    }else {
+      distanceToSurface = sceneSDF(queryPoint);
+    }
 
     if (distanceToSurface < EPSILON)
     {
@@ -205,6 +228,7 @@ Intersection getRaymarchedIntersection(vec2 uv)
     // sphere distance
     queryPoint = queryPoint + ray.direction * distanceToSurface;
   }
+
 
   intersection.distance = -1.0;
   return intersection;
