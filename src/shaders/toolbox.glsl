@@ -4,6 +4,7 @@ uniform float u_Rows;
 uniform float u_TriScale;
 uniform float u_LowTriRange;
 uniform float u_HighTriRange;
+uniform float u_NumSymbolsPerTri;
 uniform float u_HeightT;
 uniform float u_SymbolScaleT;
 uniform float u_SymbolPositionT;

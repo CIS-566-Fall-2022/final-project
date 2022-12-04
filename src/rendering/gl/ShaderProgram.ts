@@ -88,6 +88,7 @@ class ShaderProgram {
   unifHightT: WebGLUniformLocation;
   unifSymbolScaleT: WebGLUniformLocation;
   unifSymbolPositionT: WebGLUniformLocation;
+  unifNumSymbolsPerTri: WebGLUniformLocation;
 
   constructor(shaders: Array<Shader>) {
     this.prog = gl.createProgram();
@@ -125,6 +126,8 @@ class ShaderProgram {
     this.unifHightT = gl.getUniformLocation(this.prog, "u_HeightT");
     this.unifSymbolScaleT = gl.getUniformLocation(this.prog, "u_SymbolScaleT");
     this.unifSymbolPositionT = gl.getUniformLocation(this.prog, "u_SymbolPositionT");
+    this.unifNumSymbolsPerTri = gl.getUniformLocation(this.prog, "u_NumSymbolsPerTri");
+
 
 
 
@@ -153,6 +156,7 @@ class ShaderProgram {
   setHightT(t: number){this.use();gl.uniform1f(this.unifHightT, t)}
   setSymbolScaleT(t: number){this.use();gl.uniform1f(this.unifSymbolScaleT, t)}
   setSymbolPositionT(t: number){this.use();gl.uniform1f(this.unifSymbolPositionT, t)}
+  setNumSymbolsPerTri(t: number){this.use();gl.uniform1f(this.unifNumSymbolsPerTri, t)}
 
   use() {
     if (activeProgram !== this.prog) {

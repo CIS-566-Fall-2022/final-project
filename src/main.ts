@@ -34,7 +34,8 @@ const controls = {
   'HighTriRange': 1.0,
   'HeightT': 'Off',
   'SymbolScaleT': 'Off',
-  'SymbolPositionT': 'Off'
+  'SymbolPositionT': 'Off',
+  'NumSymbolsPerTri': 1.0,
 
 };
 
@@ -92,6 +93,7 @@ function main() {
   f1.add(controls, 'HeightT', [ 'On', 'Off' ]);
   f1.add(controls, 'SymbolScaleT', [ 'On', 'Off' ]);
   f1.add(controls, 'SymbolPositionT', [ 'On', 'Off' ]);
+  f1.add(controls, 'NumSymbolsPerTri', 0.0, 10.0).step(1.0);
 
   var f2 = gui.addFolder('Animation');
 
@@ -174,6 +176,7 @@ function main() {
     sdf.setHightT(controls['HeightT'] == 'On' ? 1.0 : 0.0);
     sdf.setSymbolScaleT(controls['SymbolScaleT'] == 'On' ? 1.0 : 0.0);
     sdf.setSymbolPositionT(controls['SymbolPositionT'] == 'On' ? 1.0 : 0.0);
+    sdf.setNumSymbolsPerTri(controls['NumSymbolsPerTri']);
 
     renderer.render(camera, time, height, color, noiseColor, sdf, [
       square,
