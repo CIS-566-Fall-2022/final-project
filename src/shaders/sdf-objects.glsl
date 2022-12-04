@@ -20,12 +20,44 @@ float rand_3(vec2 p)
     return fract(sin(dot(p.xy ,vec2(12.9898,78.233))) * 43758.5453);
 }
 
-float boxSDF( vec3 p)
+float boxSDF( vec3 p, vec3 b)
 {
-    vec3 q = abs(p) - vec3(1.0, 1.0, 1.0);
+    vec3 q = abs(p) - b;
     return length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);
 
 }
+
+float symbol1SDF( vec3 p){
+    // cross thing
+    return flatUnion(
+        boxSDF(p, vec3(0.1, 0.1, 1.0)),
+        boxSDF(p, vec3(1.0, 0.1, 0.1))
+    );
+}
+
+float symbol2SDF( vec3 p){
+    // star thing
+    float final;
+    final = boxSDF(p, vec3(0.1, 0.1, 1.0));
+    final = flatUnion(final, boxSDF(p, vec3(1.0, 0.1, 0.1)));
+    final = flatUnion(final, boxSDF(rotate(p, vec3(0, PI/4.0, 0)), vec3(1.0, 0.1, 0.1)));
+    final = flatUnion(final, boxSDF(rotate(p, vec3(0, -PI/4.0, 0)), vec3(1.0, 0.1, 0.1)));
+
+    return final;
+}
+
+float symbol3SDF( vec3 p){
+    // flat twist thing
+    float final;
+    final = boxSDF(p, vec3(0.1, 0.1, 1.0));
+    final = flatUnion(final, boxSDF(translate(p, vec3(-1.0, 0, 0)), vec3(0.1, 0.1, 1.0)));
+    final = flatUnion(final, boxSDF(translate(p, vec3(1.0, 0, 0)), vec3(0.1, 0.1, 1.0)));
+    final = flatUnion(final, boxSDF(translate(p, vec3(0.5, 0, 0.9)), vec3(0.5, 0.1, 0.1)));
+    final = flatUnion(final, boxSDF(translate(p, vec3(-0.5, 0, -0.9)), vec3(0.5, 0.1, 0.1)));
+
+    return final;
+}
+
 
 float value_noise(vec2 p)
 {
@@ -162,6 +194,17 @@ float hourglass(vec3 p){
     return sdTorus(p, vec2(0.15, 0.03));
 }
 
+float randomSymbol(vec3 p, float r){
+    float tot = 3.0;
+    if(r < 1.0/tot){
+        return symbol1SDF(p);
+    }else if(r < 2.0/tot){
+        return symbol2SDF(p);
+    }else{
+        return symbol3SDF(p);
+    }
+}
+
 float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float num_splits, float split_height_scale) {
     //q_position -= position;
     vec3 q_position = p;
@@ -238,16 +281,17 @@ float pyramidNormalSDF(vec3 p, float h, float depth, float depth_scale, float nu
         for(float i=0.0; i<5.0; i++){
             float _y = random1d(i+g_i) * h;
             float _x = 0.5 - (tan(slant) * _y);
-            float _z = -0.5 + random1d(_y);
+            float _z = -0.5 * (1.0-_y) + random1d(_y);
             //_z = 0.0;
+
 
             vec3 shape_transform = transform(q_position, vec3(0, g_rot, 0), vec3(0, 0, 0));
             shape_transform = transform(shape_transform, vec3(0, PI/2.0, 0), vec3(_x, _y, _z));
             shape_transform = transform(shape_transform, vec3(-slant+PI/2.0, 0, 0), vec3(0, 0, 0));
-            float scale = 0.3;
+            float scale = 0.05;
             shape_transform = transform(shape_transform, vec3(0, 0, 0), vec3(0, 0.02, 0), vec3(1.0 * scale, 7.0 * scale, 1.0 * scale));
 
-            float shape = hourglass(shape_transform);
+            float shape = randomSymbol(shape_transform, random1d(_x));
             final = flatSubtraction(final, shape);
 
         }
