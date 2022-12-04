@@ -7,6 +7,10 @@ float random1d(float x){
     return random(vec2(x, 1.337));
 }
 
+float random1d2(float x){
+    return (1.0 + random(vec2(x, 1.337)))/2.0;
+}
+
 float random3d(vec3 inp){
     return random1d(random1d(random1d(inp.x) * inp.y) * inp.z);
 }

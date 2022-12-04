@@ -13,7 +13,7 @@ const int MAX_RAY_STEPS = 200;
 const float DIST_MAX = 30.0;
 const float FOV = 45.0;
 const float EPSILON = 1E-2;
-const float EPSILON_N = 0.05;
+const float EPSILON_N = 1E-2;
 
 // const vec3 EYE = vec3(2.0, 1.5, 5.0);
 // const vec3 REF = vec3(1.2, 1.0, 0.0);
@@ -123,6 +123,8 @@ float sceneSDF(vec3 queryPos)
                            5.0,
                            1.0);
 
+  //final = symbol3SDF(queryPos);
+
 
   final = flatUnion(final, planeSDF(queryPos, -1.6));
 
@@ -199,7 +201,7 @@ Intersection getRaymarchedIntersection(vec2 uv)
   float dist = 0.0;
   vec3 queryPoint = ray.origin;
 
-  bool culled = sphereIntersect(ray, vec3(0, -0.5, 0), 3.0);
+  bool culled = sphereIntersect(ray, vec3(0, -0.5, 0), 15.0);
 
   for (int i=0; i < MAX_RAY_STEPS; ++i)
   {
