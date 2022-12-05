@@ -11,6 +11,12 @@ Here's the link of our design doc: https://docs.google.com/document/d/1Fy-YzTWK_
 |--|--|
 |<img height = "300" alt="rain_94" src="img/rain_94.jpg">|<img height = "300" alt="snow" src="img/snowflake_63.jpg">
 
+Rain drops falls on the leaves, accumulate and drop. Snow flyes in the air and accumulate on the trees. 
+
+| Rain and Leave interaction| Snow and Terrain
+|--|--|
+|<img height = "300" alt="rain_94" src="img/rain_94.jpg">|<img height = "300" alt="snow" src="img/snowflake_63.jpg">
+
 
 ## Post Mortem
 
