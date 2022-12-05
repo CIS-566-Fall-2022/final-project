@@ -14,6 +14,9 @@ Overall, the project goes well, the combination between all the components works
 
 
 ### Did you accomplish your goal? 
+Yes, the initial goal of this project was to combine terrain, plants and weather together. Let those three factors interact closely. The terrain and the weather changes may have different effects on the plants. According to our design doc, the goal was “ Rendering a short film in the 30-40s, reflecting the impact of natural climate and geological changes on the growth of plants.”
+
+In our final accomplishment, we not only show those three parts beautifully individually, but also deal with the interaction between the three parts naturally. We are all very satisfied by our final result.   
 
 
 ### Do you have pivot?
