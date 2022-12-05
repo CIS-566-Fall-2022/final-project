@@ -10,7 +10,12 @@ Here's the link of our design doc: https://docs.google.com/document/d/1Fy-YzTWK_
 ## Post Mortem
 
 ### How did your project go overall? 
+Overall, the project goes well, the combination between all the components works well.  The movement of the ground, the growth of the plants, the weather system. We finished three parts separately and finally merged and dealt with the interaction between different parts together.
+
+
 ### Did you accomplish your goal? 
+
+
 ### Do you have pivot?
 
 # Milestone 2
