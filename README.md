@@ -105,7 +105,7 @@ However, I'm still not happy with the overall look. I do have patterns that I ca
 
 # Milestone 2 Update
 
-For Milestone 2, I did not get as far as I would have liked to, but I was able to tweak some of the parameters of the procedural elements and make some of the parameters audio-reactive. I changed the texture instancing pattern to have larger texture size such that more of the particle systems can be seen once overlayed by the procedural pattern. The particles are now spawned at the bottom, closer to the feet, since House dance focuses a lot on the bottom movements. I have brought the reprojection of the actor as a foreground element so it can be seen more clearly now. Finally, I have also changed the color tone to be cooler, although I'm still not 100% satisfied with it.
+For Milestone 2, I did not get as far as I would have liked to, but I was able to tweak some of the parameters of the procedural elements and make more of the parameters audio-reactive. I changed the texture instancing pattern to have larger texture size such that more of the particle systems can be seen once overlayed by the procedural pattern. The particles are now spawned at the bottom, closer to the feet, since House dance focuses a lot on the bottom movements. I have brought the reprojection of the actor as a foreground element so it can be seen more clearly now. Finally, I have also changed the color tone to be cooler, although I'm still not 100% satisfied with it.
 
 Here's a video of the current state:
 
@@ -115,13 +115,13 @@ I was not able to test it with a depth sensor or projector as I was not able to 
 
 # Final Version Update
 
-For the final version of the project, I have separated out the procedural patterns as individaul scenes instead of composing them all together. This allows the audience interactions to be more visible, while reducing the overall complexity of the scene. The four scenes are:
+For the final version of the project, I have separated out the procedural patterns as individaul scenes instead of composing them all together. This allows the audience interactions to be more visible, while reducing the overall complexity of the scene, which was previously quite overwhelming. The four scenes are: flakes, lines, tiles, and waterfall.
 
 <img width="1511" alt="Screen Shot 2022-12-05 at 10 24 50 AM" src="https://user-images.githubusercontent.com/77313916/205735938-fa2cd2cc-a163-40cb-921c-ad861ec3cccd.png">
 
-# Live Demo
+# Live Installation
 
-For the live demo, I've set up the projector and ZED mini in our lab on a desk and projected the visuals on a plain wall.
+For the live installation, I've set up the projector and ZED mini on a desk and projected the visuals on a plain wall in our lab. Since the space is limiting, the size of projection is roughly 3.2m x 1.8m. Ideally, it could be scaled up even further.
 
 <img src="https://user-images.githubusercontent.com/77313916/205736554-6bf6a3e6-5a87-4877-a82a-8577979dc43b.JPG" width="640" height="360">
 
@@ -129,22 +129,21 @@ For the live demo, I've set up the projector and ZED mini in our lab on a desk a
 
 ## Flakes
 
-![flakes](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/b23ac24c-b752-412b-94d7-9ffa7e1bfd92.gif?ClientID=vimeo-core-prod&Date=1670271445&Signature=6e660fb96fb42aeed91f6b7ffc32c2a92f52b0d3)
+<img src="https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/b23ac24c-b752-412b-94d7-9ffa7e1bfd92.gif?ClientID=vimeo-core-prod&Date=1670271445&Signature=6e660fb96fb42aeed91f6b7ffc32c2a92f52b0d3" width="640" height="360">
 
 ## Lines
 
-![lines](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/00bd470e-7b06-41c8-b53c-3357a795ab22.gif?ClientID=vimeo-core-prod&Date=1670271685&Signature=1c2f32e8cf83ccf56d73d72bd296179634d1f69e)
+<img src="https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/00bd470e-7b06-41c8-b53c-3357a795ab22.gif?ClientID=vimeo-core-prod&Date=1670271685&Signature=1c2f32e8cf83ccf56d73d72bd296179634d1f69e" width="640" height="360">
 
 ## Tiles
 
-![tiles](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/d25303f9-50a8-44f5-b61f-08e08ff79a24.gif?ClientID=vimeo-core-prod&Date=1670272342&Signature=d4f805c7572b8576025cccec5510e8355e0486e8)
+<img src="https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/d25303f9-50a8-44f5-b61f-08e08ff79a24.gif?ClientID=vimeo-core-prod&Date=1670272342&Signature=d4f805c7572b8576025cccec5510e8355e0486e8" width="640" height="360">
 
 ## Waterfall
 
-![waterfall](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/cef90173-3b01-4405-81ea-e06a098ef9e6.gif?ClientID=vimeo-core-prod&Date=1670272266&Signature=32c5b521bd67cc0568267c06e9d4fc4ed95d27be)
+<img src="https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/cef90173-3b01-4405-81ea-e06a098ef9e6.gif?ClientID=vimeo-core-prod&Date=1670272266&Signature=32c5b521bd67cc0568267c06e9d4fc4ed95d27be" width="640" height="360">
 
-
-
+# [Check out the final live demo here!](https://vimeo.com/manage/videos/778235844)
 
 
 
