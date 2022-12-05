@@ -7,6 +7,10 @@ Here's the link of our design doc: https://docs.google.com/document/d/1Fy-YzTWK_
 
 ## Final Result
 
+| Rain and Leave interaction| 
+|--|
+|<img height = "300" alt="rain_94" src="img/rain_94.jpg">|
+
 ## Post Mortem
 
 ### How did your project go overall? 
