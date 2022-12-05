@@ -199,10 +199,10 @@ I tried adding camera and feather animation but I am not satisfied with the rend
 
 # Milestone 3 Goals:
 
-1. Set iridescence as specular highlight
-2. Tune iridescence to give better look
-3. Complete animation and lighting setup for rendering
-4. Make parameters available for updating features of the feather to generate multipe randomized feathers
+![](images/parameters.jpeg)  
+![](images/finalpeacockFeather.jpeg)   
+![](images/fullrenderss.jpeg)
+![](images/fullrenderss.jpeg)
 
 **Iridescence bloopers:**
 
