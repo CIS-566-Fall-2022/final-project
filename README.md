@@ -1,4 +1,4 @@
-# Interactive Dance Projection
+# Interactive Dance Projection with TouchDesigner
 
 ## Introduction
 
