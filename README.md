@@ -3,6 +3,16 @@ I'll work with Yuqi Zhang and Dongying Liu for this final project.
 
 Here's the link of our design doc: https://docs.google.com/document/d/1Fy-YzTWK_csSgQDFjBJPMhLtHKCemdKlwvjb63kiVcI/edit?usp=sharing
 
+# Final Submission
+
+## Final Result
+
+## Post Mortem
+
+### How did your project go overall? 
+### Did you accomplish your goal? 
+### Do you have pivot?
+
 # Milestone 2
 
 ## Weather
