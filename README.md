@@ -1,4 +1,4 @@
-# Interactive Deep House Visualization
+# Interactive Dance Projection
 
 ## Introduction
 
