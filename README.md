@@ -202,7 +202,7 @@ I tried adding camera and feather animation but I am not satisfied with the rend
 ![](images/parameters.jpeg)  
 ![](images/finalpeacockFeather.jpeg)   
 ![](images/fullrenderss.jpeg)
-![](images/fullrenderss.jpeg)
+![](images/fullrender.jpeg)
 
 **Iridescence bloopers:**
 
