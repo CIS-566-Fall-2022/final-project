@@ -11,7 +11,7 @@ Here's the link of our design doc: https://docs.google.com/document/d/1Fy-YzTWK_
 |--|
 |<img height = "300" alt="rain_94" src="img/rain_94.jpg">|
 
-<img width="500" src="/img/rain.png"> <img width="500" src="img/rain_94.jpg">
+<img width="500" src="img/rain_94.jpg">
 ## Post Mortem
 
 ### How did your project go overall? 
