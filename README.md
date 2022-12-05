@@ -197,9 +197,9 @@ I multiplied the color directly with the feather color and it shows the followin
 I tried adding camera and feather animation but I am not satisfied with the renders. I still need to work on lighting to get the renders right.   
 ![](images/anim1.gif)
 
-# Milestone 3 Goals:
+# Final submission:
 
-![](images/parameters.jpeg)  
+![](images/parameters.jpg)   
 ![](images/finalpeacockFeather.jpeg)   
 ![](images/fullrenderss.jpeg)
 ![](images/fullrender.jpeg)
