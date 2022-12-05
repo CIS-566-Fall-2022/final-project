@@ -13,9 +13,9 @@ Here's the link of our design doc: https://docs.google.com/document/d/1Fy-YzTWK_
 
 Rain drops falls on the leaves, accumulate and drop. Snow flyes in the air and accumulate on the trees. 
 
-| Rain and Leave interaction| Snow and Terrain
+| Growth of the plants| Terrain movements
 |--|--|
-|<img height = "300" alt="rain_94" src="img/rain_94.jpg">|<img height = "300" alt="snow" src="img/snowflake_63.jpg">
+|<img height = "300" alt="rain_94" src="img/growth_214.jpg">|<img height = "300" alt="snow" src="img/fluid_terrain_235.jpg">
 
 
 ## Post Mortem
