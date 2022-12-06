@@ -35,14 +35,35 @@ We implemented a SDF-based greeble pyramid generator using WebGL. We handcrafted
    
 
 
-Time to polish! Spen this last week of your project using your generator to produce beautiful output. Add textures, tune parameters, play with colors, play with camera animation. Take the feedback from class critques and use it to take your project to the next level.
 
-Submission:
-- Push all your code / files to your repository
-- Come to class ready to present your finished project
-- Update your README with two sections 
-  - final results with images and a live demo if possible
-  - post mortem: how did your project go overall? Did you accomplish your goals? Did you have to pivot?
+## Final features
+
+It should be stated this was more of a engineering / code challenge rather than a overall beauty achieveing goal. It is modeled entirely with SDFs and frequently broke webGL (more on that later). The high-level project is an attempt to generate greebles of a certain theme. We ended up sticking with the triangles theme by using a pyramid of the base shape. The project can generate an interesting looking shape. It is more of a toy to enjoy messing with, and might be a cool asset to use in a game or cutscene. In general it can be adjusted in the following ways:
+
+- The overall maximum extrusion depth of all of the triangles on the surface can be adjusted
+- The depth multiplier below and above the surface can be independently adjusted. This allows concave and convex triangles or a mix of both.
+- The scale of the triangles can be adjusted, so that small triangles or overlapping triangles can be achieved to control the amount of 'busyness' on the surface. 
+- The number of triangles ('rows') can be adjusted. This will exponentially create a more complex looking surface. 
+- There was a feature to adjust the number of symbols cut into each triangle, however this created loop-unrolling errors in some webGL implementations, so it is commented out and set to 1 for the purposes of the demo. 
+- There were variables built in to 'animate' the randomness variables of the surface over time, however, this did not actually end up seeming very useful / good looking, so scrapped the idea. 
+
+There is an animated camera which is useful for easily observing all of the randomness of the creation conveiniently. 
+
+## Problems, rants, and scrapped features
+
+The project, while not a complete dissappointment, involved a lot of dead ends. 
+
+- There was some effort directed towards a third geometry element on the surface: "handlebar" components that could travel randomly from one triangle center to another without overlapping. However the math with regard to the SDFs ended up being much more complex in the context of how the other dimensions of the triangle face were arranged and needed to be scrapped
+- There are a lot of performance problems to make the creator usable at a greater resolution especially with more rows. We only had the time to implement basic optimizations and so better demos were not created
+- There was a desire to create a hybrid rendering system to trace both signed distance functions along with pre-generated signed distance fields. This would allow using mesh-based or vector based objects in the scene using a library such as https://pypi.org/project/mesh-to-sdf/ The reason that we wanted to do this was to use actual hieroglyph symbols available in unicode. **The vast majority of this project is completed**, unfortunately, due to an unfamiliarity with webGL, the pipeline for passing the fields was made around uniform vectors. For testing, this seemed to work when using a debugging field of size 8x8, however, as soon as the field was increased to a more realistic size, webGL broke, as it only allows a total number of 1024 uniform floats. After further research we found that this problem can be hacked around by using textures to pass in arrays, however, the boilerplate was so large that we ran out of time to make it realistic. You can see the sample pyramid render using the 8x8x8 field below, as well as the symbol shapes we were hoping to use.
+
+Unicode Symbols         |  Can be easily imported into blender
+:-------------------------:|:-------------------------:
+![](images/wiki_symbols.png)  | ![](images/blender_symbols.png)
+
+8x8x8 low resolution test field render         |  
+:-------------------------:|
+![](images/lowres.png)  | 
 
 
 ## Design Doc
