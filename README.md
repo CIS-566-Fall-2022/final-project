@@ -167,10 +167,14 @@ Come to class on the due date with a WORKING COPY of your project. We'll be spen
 # Post mortem
 
 I believe my project went very well. I encountered some limitations in terms of hardware. For example I wanted more detailed grass and also have bodies of water but my laptop was not strong enough to handle it. So that made me make different choices such as scattering rocks in the valley. 
-Also, having a set camera from the beginning allowed me to cut back on a lot of geometry that would not end up in the frame. But, this also elminated my flexibility on composition in the end.
+
+Having a set camera from the beginning allowed me to cut back on a lot of geometry that would not end up in the frame. But, this also elminated my flexibility on composition in the end.
+
 I believe this project was a great experience since I got to interact with a lot of different techniques and tools we used during the course such as: L-System, Procedural materials, Procedural geometry creation for villages/cities, Curved paramter, noise for terrain ,element placement and more.
 I think in the future I would like to experiment more with procedural city creation since I found it to be very fun.
+
 Also, this project was an opportunity to learn a lot of parts of Houdini and took me out of my confort zone of classic coding. I feel I have so much more to learn but it was a great starting place.
+
 Ideally I would have love to use the generated environment in a game prototype but due to limited time I couldn't.
 There are things I would like to expand on in the future, such as improving the scale of the city, adding more variation on the assets and large bodies of water.
 
