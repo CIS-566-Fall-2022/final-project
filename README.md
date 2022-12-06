@@ -162,7 +162,7 @@ Come to class on the due date with a WORKING COPY of your project. We'll be spen
 
 # Final result render
 
-![](imageFinalRender.png)
+![](imageRenderFinal.png)
 
 Time to polish! Spen this last week of your project using your generator to produce beautiful output. Add textures, tune parameters, play with colors, play with camera animation. Take the feedback from class critques and use it to take your project to the next level.
 
