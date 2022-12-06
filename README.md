@@ -1,11 +1,11 @@
-Procedural Jellyfish Generator -- Jellyfishes of the GalacSea
+Procedural Jellyfish Generator - Jellyfishes of the GalacSea
 ==================================
 **University of Pennsylvania, CIS 566: Procedural Graphics, Final Project**
 *  [Haoquan Liang](https://www.linkedin.com/in/leohaoquanliang/)
 ## Overview
 ![](img/overview.png)   
 Demo Video:   
-![](demo.mp4)
+![](./demo.mp4)
 
 ## Features
 * Customizable procedural jellyfish
