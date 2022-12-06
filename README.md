@@ -155,7 +155,7 @@ Come to class on the due date with a WORKING COPY of your project. We'll be spen
 
 Link to content and assets: https://drive.google.com/drive/folders/1ktqONZbyFW1bz0l2qw-rwIQqHJL6xMoR?usp=share_link
 
-# Thigs I accomplished for this submission:
+# Things I accomplished for this submission:
 
 * Added textures and materials for all objects.
 * Added Trees, Grass, and scattered rocks.
