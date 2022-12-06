@@ -5,7 +5,7 @@ Procedural Jellyfish Generator - Jellyfishes of the GalacSea
 ## Overview
 ![](img/overview.png)   
 Demo Video:   
-![](./demo.mp4)
+demo.mp4
 
 ## Features
 * Customizable procedural jellyfish
