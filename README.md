@@ -15,12 +15,12 @@ I intend to get used to developing with Houdini. I want to create a peacock with
 **Artistic references:**
 
 ![](References/feather/feather3.jpg)
-![](References/feather/feather2.jpg)
+![](References/feather/feather2_50.jpg)
 
 **Real photos:**
 
 ![](References/feather/feather1.jpg)
-![](References/feather/feather5.jpg)
+![](References/feather/feather5_50.jpg)
 
 ---
 
@@ -30,13 +30,13 @@ I intend to get used to developing with Houdini. I want to create a peacock with
 
 ![](References/peacock/peacock4.gif)
 ![](References/feather/feather4.jpg)
-![](References/peacock/peacock3.jpg)
+![](References/peacock/peacock3_25.jpg)
 
 **Real photos:**
 
 ![](References/peacock/spreadingfeathers.gif)
-![](References/peacock/peacock5.jpg)
-![](References/peacock/peacock2.jpg)
+![](References/peacock/peacock5_50.jpg)
+![](References/peacock/peacock2_40.jpg)
 
 ## Specification:
 Main features of the project:
