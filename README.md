@@ -154,6 +154,7 @@ Come to class on the due date with a WORKING COPY of your project. We'll be spen
 ## Final submission (due 12/5)
 
 Link to content and assets: https://drive.google.com/drive/folders/1ktqONZbyFW1bz0l2qw-rwIQqHJL6xMoR?usp=share_link
+The quixel assets are in the Downloaded folder, so certain paths would have to be reset for the project to look well locally.
 
 # Things I accomplished for this submission:
 
