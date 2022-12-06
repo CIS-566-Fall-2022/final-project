@@ -68,3 +68,35 @@ Lastly, I went through and polished the existing features/layers more. They're n
 
 ## Example Outputs
 <img height="340" alt="TowerExample1_M2" src="https://user-images.githubusercontent.com/25019996/204441589-ee933d83-6b08-44e2-97ee-90aab23ba7cc.png"><img height="340" alt="TowerExample2_M2" src="https://user-images.githubusercontent.com/25019996/204441590-1d6186a6-cb05-4e01-898d-e7ccf92b2f92.png"><img height="340" alt="TowerExample3_M2" src="https://user-images.githubusercontent.com/25019996/204441591-75016043-a8b1-49e8-9eb1-847a94570ccd.png">
+
+# Final Submission!
+
+## Showcase!
+Here is my final output! A little showcase of 6 different towers :D
+![Towers](https://user-images.githubusercontent.com/25019996/205810067-9b2f3e2a-8136-4cbf-b74b-a25c3f1f7f32.png)
+
+## Progress Overview
+In the last week I decided to go for adding more features instead of polishing the existing ones/shading/etc because I wanted to focus on creating a robust tool rather than a single nice render. I'm planning to go back to this over break and add more polish and shade it, but for now I'm happy to say I've achieved all my original goals for the project! 
+
+At the milestone 2 crit the main feedback I got were suggestions for additional features to add more variation, and was advised to focus on ones that would vary the silhouette's of my towers the most, so this is what I prioritized. I ended up adding the following features:
+- Secondary towers (additional towers "branching" off the main tower)
+- Square balconies with two types of legs
+- Finished up circular balconies (which were there but were too ugly to include at milestone 2 lol)
+- Cobblestone pillar option
+- Brick pillar options
+- Spiral staircases
+- Variation in roof profiles
+- Vines
+
+Some of these features aren't 100% polished and smoothly integrated, but it was super fun throwing on fun extras like the vines! 
+
+## Post Mortem
+I think this project went quite well! I was able to implement the skeleton of all core features I wanted to include. However, in order to explore a breadth of things (both breadth of tool making approaches and also breadth of tower features) I sacrificed depth. Given more time (aka what I'll be doing over winter break lol) I'd want to add more polish to the structures I established, particularly:
+- I spent a long time working out how to integrate a shape grammar with user editing done post grammar generation, but the shape grammar itself could definitely be expanded
+- I'd like to add more options to each feature (different window/door shapes, different kinds of supports, balconies with different amounts of sides etc.)
+- And also polish some of the features more (make the vines grow in nice shapes more consistently, add bevels lol theres a lot of hard edges)
+- Expose more existing parameters in the menu (this is the part I think fell shortest of where I'd originally hoped, because I ended up throwing in so many bonus features at the end instead of working on the menu)
+
+Overall, even though in some areas I didn't reach the depth I'd hoped, I think it was worth it because I got to touch so many new parts of Houdini (even ones I've been scared of because there aren't a lot of tutorials/resources on them). I'm incredibly excited about the fact that I'm more comfortable incorporating Python, that opens a lot of doors in terms of the user interfaces I can create in the future. I'm also definetly going to re-use the "shape grammar -> user art direction" tool structure I developed for this a lot. 
+
+I think a large reason why this project was pretty successful was because I made such a drastic pivot on how I was approaching the underlying structure of my generator in the first week. That allowed me to hit all my later goals because I had a strong foundation to build on. It definetly scared me that at the end of the first week I didn't have any pretty outputs because I'd spent all my time restructuring my approach, but I reaped the benefits later on. Over the summer I got advice to always try and work "rough to fine" and my little perfectionist brain had a lot of trouble doing that, but now I think I'm finally getting it. I'm pleased that not only was this a good Houdini learning experienced in terms of hard skills, but I also feel more confident in my ability to tackle big projects pretty independently and figure out new parts of Houdini, even in areas that are less well documented online.
