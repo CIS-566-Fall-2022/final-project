@@ -152,6 +152,17 @@ Come to class on the due date with a WORKING COPY of your project. We'll be spen
 
 
 ## Final submission (due 12/5)
+
+# Thigs I accomplished for this submission:
+
+* Added textures and materials for all objects.
+* Added Trees, Grass, and scattered rocks.
+* Polished house placement.
+* Did final render.
+
+# Final result render
+
+
 Time to polish! Spen this last week of your project using your generator to produce beautiful output. Add textures, tune parameters, play with colors, play with camera animation. Take the feedback from class critques and use it to take your project to the next level.
 
 Submission:
