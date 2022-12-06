@@ -162,7 +162,15 @@ Come to class on the due date with a WORKING COPY of your project. We'll be spen
 
 # Final result render
 
-![](imageRenderFinal.png)
+![](imageRenderFinalEdited.png)
+
+# Post mortem
+
+I believe my project went very well. I encountered some limitations in terms of hardware. For example I wanted more detailed grass and also have bodies of water but my laptop was not strong enough to handle it. So that made me make different choices. 
+Also, having a set camera from the beginning allowed to cut back on a lot of geometry that would not end up in the frame. But, this also elminated my flexibility on composition in the end.
+I believe this project was a great experience since I got to interact with a lot of different techniques and tools we used during the course such as: L-System, Procedural materials, Procedural geometry creation for villages/cities, Curved paramter, noise for terrain and element placement and more.
+There are things I would like to expand on in the future, such as improving the scale of the city and adding more variation on the assets.
+
 
 Time to polish! Spen this last week of your project using your generator to produce beautiful output. Add textures, tune parameters, play with colors, play with camera animation. Take the feedback from class critques and use it to take your project to the next level.
 
