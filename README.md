@@ -75,6 +75,9 @@ Lastly, I went through and polished the existing features/layers more. They're n
 Here is my final output! A little showcase of 6 different towers :D
 ![Towers](https://user-images.githubusercontent.com/25019996/205810067-9b2f3e2a-8136-4cbf-b74b-a25c3f1f7f32.png)
 
+## Tool Demo
+Tool demo video here: https://drive.google.com/file/d/129r0_PkArxJR5QokcYG7s7ruVoG3BZTP/view?usp=sharing
+
 ## Progress Overview
 In the last week I decided to go for adding more features instead of polishing the existing ones/shading/etc because I wanted to focus on creating a robust tool rather than a single nice render. I'm planning to go back to this over break and add more polish and shade it, but for now I'm happy to say I've achieved all my original goals for the project! 
 
