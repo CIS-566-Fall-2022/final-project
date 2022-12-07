@@ -1,0 +1,56 @@
+
+following along to charlesmartin's tutorial to learn about gibber
+
+```
+//https://charlesmartin.au/blog/2021/01/10/laptop-music-workshop
+// ^ going through these examples
+
+// hit opt+enter to run a block
+// or run line/selection with ctrl+enter.
+// ctrl+period to stop all sounds.
+
+Synth().notec()
+
+Synth().note(0)
+Synth().note(2)
+Synth().note(4)
+Synth().note(7) //opt-return to play whole chord
+
+
+//can use opt-return to actually run a block
+// blcok is a stream w/o a line break
+// can use a space on "empty lines" to make a block more readable
+// note how block 1 and 2 are separate blow
+
+
+//block 1. 
+Synth().note(0)
+Synth().note(2)
+Synth().note(5) //opt-return to play whole chord - block 1.
+
+//block 2.
+Synth().note(0)
+Synth().note(2)
+Synth().note(4)
+Synth().note(7) //opt-return to play whole chord - block 2.
+
+// exercise 1 . make a note
+Theory.root = "a3"
+Theory.mode = "ionian"
+s = Synth()
+s.note(0)
+s.note(1)
+s.note(2)
+s.note(3)
+s.note(4)
+s.note(5)
+s.note(6)
+s.note(7)
+s.note(8)
+
+rs = Synth()
+Theory.root = "d4"
+Theory.mode = "major"
+rs.note.seq([0, 4, 1, 0, 4, 1], 6/8)
+
+```
