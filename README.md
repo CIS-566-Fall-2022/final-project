@@ -1,16 +1,13 @@
-# Final Project Video
+# CIS 566 final project - Wonderland
+![8581a335e5ba963ffe02e6495117ba0](https://user-images.githubusercontent.com/33616958/206277929-d033cc65-9e86-474c-bf13-63fbe25f8126.jpg)
+
 Please check out our final project video [here](https://drive.google.com/file/d/1AealpV6AoR4Fn9kUgliotcyZZVXKcarp/view?usp=share_link)
 
-# Final Project!
-I'll work with Yuqi Zhang and Dongying Liu for this final project. 
+## Final Submission
 
-Here's the link of our design doc: https://docs.google.com/document/d/1Fy-YzTWK_csSgQDFjBJPMhLtHKCemdKlwvjb63kiVcI/edit?usp=sharing
+### Features Overview
 
-# Final Submission
-
-## Final Result
-
-| Rain and Leave interaction| Snow and Terrain
+| Rain and Leave interaction| Snow and Terrain |
 |--|--|
 |<img height = "300" alt="rain_94" src="img/rain_94.jpg">|<img height = "300" alt="snow" src="img/snowflake_63.jpg">
 
@@ -18,8 +15,35 @@ Rain drops falls on the leaves, accumulate and drop. Snow flyes in the air and a
 
 | Growth of the plants| Terrain movements
 |--|--|
-|<img height = "300" alt="rain_94" src="img/growth_214.jpg">|<img height = "300" alt="snow" src="img/fluid_terrain_235.jpg">
+|<img height = "300" alt="growth" src="https://user-images.githubusercontent.com/33616958/206280414-e33ff53e-e702-4349-babc-f63f779384c2.gif">|<img height = "300" alt="snow" src="img/fluid_terrain_235.jpg">
 
+
+### Growth
+In the last week, I first took the advice of the peer review meeting and created more unrealistic trees to better fit the style of our terrain. I used Houdini's Quick Tree Tool to create the basic shape of the tree by drawing curves. Then, inspired by some tutorials online, I reshape and distribute the leaves to give the tree a more stylized look.
+| Basic tree | Stylized tree |
+|--|--|
+|<img width="300" alt="cloud1" src="https://user-images.githubusercontent.com/33616958/206284958-a1028c07-0d74-431d-9a34-845c0d8a4b6d.png">|<img width="300" alt="cloud2" src="https://user-images.githubusercontent.com/33616958/206284960-79a688b1-3068-4117-8355-8d0f1091a157.png">|
+|<img width="300" alt="cloud1" src="https://user-images.githubusercontent.com/33616958/206284963-af55bcad-380b-47af-be5b-96509fe6ff2c.png">|<img width="300" alt="cloud2" src="https://user-images.githubusercontent.com/33616958/206284965-5b68740d-5338-4948-9228-5cdf86a28d01.png">|
+|<img width="300" alt="cloud1" src="https://user-images.githubusercontent.com/33616958/206284967-bc33a88b-13ed-45a8-9d5d-7f57ef918312.png">|<img width="300" alt="cloud2" src="https://user-images.githubusercontent.com/33616958/206284970-b3794b41-328f-4eae-91b2-8816b8a55938.png">|
+
+For the growth simulation part, I mainly followed the method I used in milestone 2. To make the growth animation looks more natural, I painted different masks for each type of tree and removed the noise node so that the spreading is strictly confined to the specified areas. This allowed us to achieve the goal of matching the color of the leaves to the terrain to a certain extent. 
+
+| Growth simulation |
+|-|
+|<img width="500" alt="growth_path" src="https://user-images.githubusercontent.com/33616958/206289970-dd3cba65-4ab4-47f8-ad16-95502cbf180b.png">|
+
+| Frame 40 | Frame 80 | Frame 120 |
+|---|---|---|
+| <img width="761" alt="F_40" src="https://user-images.githubusercontent.com/33616958/206289556-24ff0254-39b5-4060-9c7b-e1f87e520bed.png">|<img width="763" alt="F_80" src="https://user-images.githubusercontent.com/33616958/206289619-b1dbbfa1-6fff-4ee1-9bf2-ffc4a1accbed.png"> | <img width="764" alt="F_121" src="https://user-images.githubusercontent.com/33616958/206289609-be813903-e14c-4b85-a69b-31b1d9f079de.png">|
+
+One thing worth mentioning is that at first, I wanted to dynamically set the color of the leaves by getting the color of the scatters points which inherited the terrain color. The results looked exactly what I wanted in the scene view but incorrect in the render view. I was stuck here for a long time, trying different ways to fix this. Finally, I found it was caused by the "pack and instance" option in the copy to points node. When I unchecked this option, everything turned out to be correct in the render view. Unfortunately, it then made my Houdini super slow and crashed frequently which means I had to abandon this approach and find an alternative.
+Performance was always a top concern during my development, especially when I started merging with the flowing terrain part, I found that computing a single frame of simulation took much longer (3-5 minutes) than we had expected, making it almost impossible for us to render a more than 1-minute animation in the end. To this end, I have taken many measures to reduce the computing load. Firstly, I optimized the distribution method of trees on the terrain. I restricted the scattered area based on the previously made growth path mask and density attribute (Dongying adds density attribute to the terrain according to the altitude), reducing the number of required distribution points by **10-20 times**. In addition, when importing Dongying's finished terrain, in order to avoid recalculating the terrain every frame, we used the cached results to reference each other's work, which greatly reduced the calculation time. Lastly, since I found an alternative to match the leaf's color to the terrain, I was able to use pack and instance for both leaves generation as well as spreading trees across the terrain, which saved a lot of resource load time.
+
+| File cache Example| 
+|-|
+|<img width="500" alt="file_cache_example" src="https://user-images.githubusercontent.com/33616958/206302281-1b76bd92-091e-4764-a70c-0adda0eb3291.png">|
+
+After a series of performance optimizations, the final render time has been reduced from 3-5 minutes to 3-5 seconds per frame, which is nearly **60 times** faster.
 
 ## Post Mortem
 
@@ -145,3 +169,6 @@ For milestone 1, my goal is to create a fluid terrain. My first thought was to c
 As the picture shows above, I create a velocity field with Volume Node, and the velocity is generated by noise. And then I sample the velocity field with the position of every point of the terrain to give the point a velocity. As the picture shows, the terrain moved. 
 
 According to the reference, the author said he transfered the flip tank particle motion to heightfield. So, I created a simple flip tank particle effect and then used the particle velocity to create a velocity field volume. However, the reulst seems not correct, it might be the problem that the velocity field has more y direction's velocity. So, the terrian move upward rather than moved on xz plane. 
+
+## Design Doc
+Here's the link of our design doc: https://docs.google.com/document/d/1Fy-YzTWK_csSgQDFjBJPMhLtHKCemdKlwvjb63kiVcI/edit?usp=sharing
