@@ -4,23 +4,32 @@ Procedural Jellyfish Generator - Jellyfishes of the GalacSea
 *  [Haoquan Liang](https://www.linkedin.com/in/leohaoquanliang/)
 ## Overview
 ![](img/overview.png)   
-Demo Video:   
-demo.mp4
+
+https://user-images.githubusercontent.com/90011917/206093325-12971f1f-b46e-41c8-a128-08cdc1dedd46.mp4
+
+
 
 ## Features
-* Customizable procedural jellyfish
-* Jellyfish animations with glowing and particle effects 
+#### Customizable procedural jellyfish
+#### Jellyfish animations with glowing and particle effects 
 
 ## Jellyfish Customization
-#### Vein Pattern
-![](img/vein-pattern.png)
+#### Shape
+![](img/shape.png)
 #### Height
 ![](img/height.png)
+#### Vein Pattern
+![](img/vein-pattern.png)
 #### Color
 ![](img/color.png)
+#### Tentacle Density
+![](img/num-tentacles.png)
+#### Size and State
+![](img/size-state.png)
 
 
-## Milestone 2 Progress
+## Update History
+### Milestone 2 Progress
 Project file: jellyfish-m2.hipnc   
 ![](img/m2.gif)   
 #### Things achieved:
@@ -33,7 +42,7 @@ Project file: jellyfish-m2.hipnc
 3. The movement of the jellyfish (mainly the speed) should be a little more random.
 4. Add the final shading (colorful tentacles and ocean layers).  
 
-## Milestone 1 Progress
+### Milestone 1 Progress
 Project file: jellyfish-m1.hipnc
 ![](img/m1demo.gif)   
 #### Things achieved:
