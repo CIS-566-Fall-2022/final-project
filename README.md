@@ -1,3 +1,6 @@
+# Final Project Video
+Please check out our final project video [here](https://drive.google.com/file/d/1AealpV6AoR4Fn9kUgliotcyZZVXKcarp/view?usp=share_link)
+
 # Final Project!
 I'll work with Yuqi Zhang and Dongying Liu for this final project. 
 
