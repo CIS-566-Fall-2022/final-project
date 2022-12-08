@@ -29,6 +29,14 @@ I recreated the snowflake by L-system, The snowflake could be customized by how 
 |---|---|
 |<img height = "300" alt="four_petal" src="img/four_petal.png">|<img height = "300" alt="five_petal" src="img/five_petal.png">
 
+### Rain
+Initially, raining is a part of the weather system, Rain drops are not very complicated, we could just generate falling particles and use copy to point to replace the particles by rain drops. 
+
+| Raining and object collision |
+|---|
+|<img height = "300" alt="Raining and object collision" src="img/rain1.gif">|
+
+However, we also want to make interaction between the rain drops and the leaf. We need to first set the collision source for the object, to detect if there are collision between the object and the rain drops. 
 
 ### Growth
 In the last week, I first took the advice of the peer review meeting and created more unrealistic trees to better fit the style of our terrain. I used Houdini's Quick Tree Tool to create the basic shape of the tree by drawing curves. Then, inspired by some tutorials online, I reshape and distribute the leaves to give the tree a more stylized look.
