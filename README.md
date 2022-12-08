@@ -56,7 +56,7 @@ After a series of performance optimizations, the final render time has been redu
 After creating our terrain with heightfeild, I use the cop2net node to create the texture for our terrain with all the mask and data generated with Heightfield. The base color was create from height attribute of the heightfield and ramp the color with height. I used flow mask to emphasize the flow color, and use ao and edge and random noise to add some details to our terrain texture as well.
 After creating the texture, I use attribfrommap node to project the texture to our terrain.
 | Base Color - Height | Flow Detail - Flow Mask | Details Added |
-|---|---|---|
+|----|----|----|
 |<img height = "300" src="img/only_height.jpg">|<img height = "300" src="img/with flow.jpg">|<img height = "300" src="img/terrain_texture.jpg">|
 
 #### Grass
