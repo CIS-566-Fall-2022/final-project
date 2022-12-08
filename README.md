@@ -31,12 +31,17 @@ I recreated the snowflake by L-system, The snowflake could be customized by how 
 
 ### Rain
 Initially, raining is a part of the weather system, Rain drops are not very complicated, we could just generate falling particles and use copy to point to replace the particles by rain drops. 
+However, we also want to make interaction between the rain drops and the leaf. We need to first set the collision source for the object, to detect if there are collision between the object and the rain drops. 
 
 | Raining and object collision | Object collision Source|
 |---|---|
 |<img height = "300" alt="Raining and object collision" src="/img/rain1.gif">|<img height = "300" alt="collision" src="/img/rain_node1.png">|
 
-However, we also want to make interaction between the rain drops and the leaf. We need to first set the collision source for the object, to detect if there are collision between the object and the rain drops. 
+If there is a collision, the collided rain drops will become a collision group, it will stick on the surface of the object, then, some of the particle in the collision group will become sliding group, the velocity of that group will change, it will slide down from the surface of the object. 
+In the image below, the white particles are rain drop particles, the green particles are the collision group and the blue particles are the sliding group generated from collision group. 
+| Different rain drop groups| Rain Drop group nodes|
+|---|---|
+|<img height = "300" alt="rain drop groups" src="/img/rain_1.png">|<img height = "300" alt="group nodes" src="/img/rain_node2.png">|
 
 ### Growth
 In the last week, I first took the advice of the peer review meeting and created more unrealistic trees to better fit the style of our terrain. I used Houdini's Quick Tree Tool to create the basic shape of the tree by drawing curves. Then, inspired by some tutorials online, I reshape and distribute the leaves to give the tree a more stylized look.
