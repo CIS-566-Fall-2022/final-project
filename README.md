@@ -25,6 +25,9 @@ Rain drops falls on the leaves, accumulate and drop. Snow flyes in the air and a
 ### Procedural Snowflake
 Initially, I used small spheres to build snowflakes, I created the particles movement system at first, then copy the small spheres to the particles to create snow. However, since our project has unrealistic style, the original snowflakes not fit this style. We discussed the shape of snowflake and finally come up with the procedural snowflake idea.
 I recreated the snowflake by L-system, The snowflake could be customized by how many division it has. It could has four to six divisions. 
+| Four Petal Snowflake | Five Petal Snowflake |
+|---|---|
+|<img height = "300" alt="growth" src="img/four_petal.jpg">|<img height = "300" alt="snow" src="img/five_petal.jpg">
 
 
 ### Growth
