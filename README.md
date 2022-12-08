@@ -1,5 +1,5 @@
 # Final Project CIS 566
-Find a quick [video guide here](https://drive.google.com/file/d/1E5Ascchzc6NvScllslJxYXp_-zhpFCp1/view?usp=sharing)
+Find a quick [video of making and demo here](https://drive.google.com/file/d/1E5Ascchzc6NvScllslJxYXp_-zhpFCp1/view?usp=sharing)
 
 
 ## Motivation
