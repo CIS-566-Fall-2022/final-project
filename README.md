@@ -27,7 +27,7 @@ Initially, I used small spheres to build snowflakes, I created the particles mov
 I recreated the snowflake by L-system, The snowflake could be customized by how many division it has. It could has four to six divisions. 
 | Four Petal Snowflake | Five Petal Snowflake |
 |---|---|
-|<img height = "300" alt="growth" src="img/four_petal.jpg">|<img height = "300" alt="snow" src="img/five_petal.jpg">
+|<img height = "300" alt="four_petal" src="img/four_petal.png">|<img height = "300" alt="five_petal" src="img/five_petal.png">
 
 
 ### Growth
