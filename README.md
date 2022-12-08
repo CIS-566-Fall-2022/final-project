@@ -34,7 +34,7 @@ Initially, raining is a part of the weather system, Rain drops are not very comp
 
 | Raining and object collision |
 |---|
-|<img height = "300" alt="Raining and object collision" src="img/rain1.gif">|
+|<img height = "300" alt="Raining and object collision" src="/img/rain1.gif">|
 
 However, we also want to make interaction between the rain drops and the leaf. We need to first set the collision source for the object, to detect if there are collision between the object and the rain drops. 
 
