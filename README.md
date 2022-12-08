@@ -14,31 +14,26 @@ I intend to get used to developing with Houdini. I want to create a peacock with
 
 ### Peacock feathers
 
-**Artistic references:**
+|Artistic reference 1|Artistic reference 2|
+|---|---|
+|![](References/feather/feather3.jpg)|![](References/feather/feather2_50.jpg)|
 
-![](References/feather/feather3.jpg)
-![](References/feather/feather2_50.jpg)
-
-**Real photos:**
-
-![](References/feather/feather1.jpg)
-![](References/feather/feather5_50.jpg)
+|Real world reference 1|Real world reference 2|
+|---|---|
+|![](References/feather/feather1.jpg)|![](References/feather/feather5_50.jpg)|
 
 ---
 
 ### Peacock Body (Possible future implementation)
 
-**Artistic references:**
+|Artistic reference 1|Artistic reference 2|Artistic reference 3|
+|---|---|---|
+|![](References/peacock/peacock4.gif)|![](References/feather/feather4.jpg)|![](References/peacock/peacock3_25.jpg)|
 
-![](References/peacock/peacock4.gif)
-![](References/feather/feather4.jpg)
-![](References/peacock/peacock3_25.jpg)
 
-**Real photos:**
-
-![](References/peacock/spreadingfeathers.gif)
-![](References/peacock/peacock5_50.jpg)
-![](References/peacock/peacock2_40.jpg)
+|Real world reference 1|Real world reference 2|Real world reference 3|
+|---|---|---|
+|![](References/peacock/spreadingfeathers.gif)|![](References/peacock/peacock5_50.jpg)|![](References/peacock/peacock2_40.jpg)|
 
 ## Specification:
 Main features of the project:
@@ -68,8 +63,9 @@ I read through some of the following papers which helped me understand the struc
 ### Technical Breakdown of a feather:
 The papers helped in understanding how a feather looks like in depth
 
-![](References/feather/feathercomponents2.jpg)
-![](References/feather/feathercomponents.jpg)
+|Feather terminology|Feather structure|
+|---|---|
+|![](References/feather/feathercomponents2.jpg)|![](References/feather/feathercomponents.jpg)|
 
 ---
 
