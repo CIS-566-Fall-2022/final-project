@@ -7,15 +7,21 @@ Please check out our final project video [here](https://drive.google.com/file/d/
 
 ### Features Overview
 
-| Rain and Leave interaction| Snow and Terrain |
-|--|--|
-|<img height = "300" alt="rain_94" src="img/rain_94.jpg">|<img height = "300" alt="snow" src="img/snowflake_63.jpg">
+| Rain and Leave interaction | Snowing |
+|---|---|
+|<img height = "300" alt="rain_94" src="img/rain_gif.gif">|<img height = "300" alt="snow" src="img/snow_gif.gif">
 
 Rain drops falls on the leaves, accumulate and drop. Snow flyes in the air and accumulate on the trees. 
 
-| Growth of the plants| Terrain movements
-|--|--|
-|<img height = "300" alt="growth" src="https://user-images.githubusercontent.com/33616958/206280414-e33ff53e-e702-4349-babc-f63f779384c2.gif">|<img height = "300" alt="snow" src="img/fluid_terrain_235.jpg">
+| Growth of the plants | Terrain movements |
+|---|---|
+|<img height = "300" alt="growth" src="img/growth_gif.gif">|<img height = "300" alt="snow" src="img/fluid_terrain_final.gif">
+
+| Snow Accumulation | Terrain |
+|---|---|
+|<img height = "300" alt="growth" src="img/final_snow_300.jpg">|<img height = "300" alt="snow" src="img/final_shot_240.jpg">
+
+
 
 
 ### Growth
@@ -49,11 +55,16 @@ After a series of performance optimizations, the final render time has been redu
 #### Terrain Texture Generation
 After creating our terrain with heightfeild, I use the cop2net node to create the texture for our terrain with all the mask and data generated with Heightfield. The base color was create from height attribute of the heightfield and ramp the color with height. I used flow mask to emphasize the flow color, and use ao and edge and random noise to add some details to our terrain texture as well.
 After creating the texture, I use attribfrommap node to project the texture to our terrain.
+| Base Color - Height | Flow Detail - Flow Mask | Details Added |
+|---|---|---|
+|<img height = "300" src="img/only_height.jpg">|<img height = "300" src="img/with flow.jpg">|<img height = "300" src="img/terrain_texture.jpg">|
 
 #### Grass
 To make the terrain looks fluffy with grass. I add normal to terrain and use hairgen to create grass for the terrain. Adding some bend and randomness to it as well. One thing important for grass generation is how detailed is the grass land. Because we don't need the details for grass, I resample each grass so that it only has two points to keep the total points number of the grass land relatively low.
-
 After create UV for the grass land, I used the same texture for the terrain to create color attribute for it.
+| Grass | Terrain With Grass | 
+|---|---|
+|<img height = "300" src="img/only_grass.jpg">|<img height = "300" src="img/terrain_with_grass.jpg">|
 
 #### Integration
 One important part for our project is integration. As terrain is the main part for most of the scene of our project, I output my terrain and grass as file cached so my teammates can grab what they want for their features. And I used their output cached file as well to finished the fluid terrain. 
