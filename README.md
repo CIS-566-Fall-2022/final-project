@@ -45,6 +45,19 @@ Performance was always a top concern during my development, especially when I st
 
 After a series of performance optimizations, the final render time has been reduced from 3-5 minutes to 3-5 seconds per frame, which is nearly **60 times** faster.
 
+### Fluid Terrain
+#### Terrain Texture Generation
+After creating our terrain with heightfeild, I use the cop2net node to create the texture for our terrain with all the mask and data generated with Heightfield. The base color was create from height attribute of the heightfield and ramp the color with height. I used flow mask to emphasize the flow color, and use ao and edge and random noise to add some details to our terrain texture as well.
+After creating the texture, I use attribfrommap node to project the texture to our terrain.
+
+#### Grass
+To make the terrain looks fluffy with grass. I add normal to terrain and use hairgen to create grass for the terrain. Adding some bend and randomness to it as well. One thing important for grass generation is how detailed is the grass land. Because we don't need the details for grass, I resample each grass so that it only has two points to keep the total points number of the grass land relatively low.
+
+After create UV for the grass land, I used the same texture for the terrain to create color attribute for it.
+
+#### Integration
+One important part for our project is integration. As terrain is the main part for most of the scene of our project, I output my terrain and grass as file cached so my teammates can grab what they want for their features. And I used their output cached file as well to finished the fluid terrain. 
+
 ## Post Mortem
 
 ### How did your project go overall? 
@@ -57,7 +70,8 @@ Yes, the initial goal of this project was to combine terrain, plants and weather
 In our final accomplishment, we not only show those three parts beautifully individually, but also deal with the interaction between the three parts naturally. We are all very satisfied by our final result.   
 
 
-### Do you have pivot?
+### Did you have to pivot?
+Fortunatly, we do not need to pivot for our project. We seperate our work clearly at the beginning and integrate in the early stage to make sure we have everything we need to finished out project.
 
 # Milestone 2
 
